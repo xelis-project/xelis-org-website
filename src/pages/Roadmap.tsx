@@ -112,7 +112,7 @@ const Roadmap = () => {
       date: "2025+",
       completed: false,
       items: [
-        "Smart Contract Mainnet",
+        "Smart Contracts Mainnet",
         "Xelis Decentralized Exchange",
         "Confidential Token Minting App",
         "Ledger Hardware Wallet Support",
