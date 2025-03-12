@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Globe, Mail } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -61,7 +62,7 @@ const Footer = () => {
                 <li><a href="https://whitepaper.xelis.io" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-xelis-blue transition-colors">Whitepaper</a></li>
                 <li><Link to="/roadmap" className="text-gray-600 hover:text-xelis-blue transition-colors">Roadmap</Link></li>
                 <li><a href="https://xeliscommunity.org/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-xelis-blue transition-colors">Educational Content & Updates</a></li>
-                <li><Link to="/resources"  className="text-gray-600 hover:text-xelis-blue transition-colors">Wallets</a></li>
+                <li><Link to="/resources"  className="text-gray-600 hover:text-xelis-blue transition-colors">Wallets</Link></li>
                 <li><a href="https://faucet.xelis.io" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-xelis-blue transition-colors">Faucet</a></li>
               </ul>
             </div>
@@ -72,9 +73,9 @@ const Footer = () => {
               <ul className="space-y-3">
                 <li><a href="https://docs.xelis.io/contributors" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-xelis-blue transition-colors">Team</a></li>
                 <li><a href="https://poolpartynodes.com/product-category/xelis-clothing-store/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-xelis-blue transition-colors">Merchandise</a></li>
-                <li><Link to="/exchanges"  className="text-gray-600 hover:text-xelis-blue transition-colors">Exchanges</a></li>
+                <li><Link to="/exchanges"  className="text-gray-600 hover:text-xelis-blue transition-colors">Exchanges</Link></li>
                 <li><a href="https://linktr.ee/Xelis" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-xelis-blue transition-colors">Additional Links</a></li>
-                <li><Link to="/tokenomics"  className="text-gray-600 hover:text-xelis-blue transition-colors">Tokenomics</a></li>
+                <li><Link to="/tokenomics"  className="text-gray-600 hover:text-xelis-blue transition-colors">Tokenomics</Link></li>
                 <li><a href="mailto:business@xelis.io" className="text-gray-600 hover:text-xelis-blue transition-colors">Contact: business@xelis.io</a></li>
               </ul>
             </div>
