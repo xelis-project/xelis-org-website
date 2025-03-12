@@ -62,7 +62,7 @@ const Footer = () => {
                 <li><a href="/roadmap"  className="text-gray-600 hover:text-xelis-blue transition-colors">Roadmap</a></li>
                 <li><a href="https://xeliscommunity.org/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-xelis-blue transition-colors">Educational Content & Updates</a></li>
                 <li><a href="/resources"  className="text-gray-600 hover:text-xelis-blue transition-colors">Wallets</a></li>
-                <li><a href="https://faucet.xelis.io" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-xelis-blue transition-colors">Faucet (Free Xelis)</a></li>
+                <li><a href="https://faucet.xelis.io" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-xelis-blue transition-colors">Faucet</a></li>
               </ul>
             </div>
             <div>
@@ -83,7 +83,7 @@ const Footer = () => {
 
         <div className="mt-12 pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} XELIS.
+            © {new Date().getFullYear()} XELIS
           </p>
           <div className="mt-4 md:mt-0 flex space-x-6">
             
