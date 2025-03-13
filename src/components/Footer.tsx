@@ -44,7 +44,7 @@ const Footer = () => {
               </a>
 
               {/* Email */}
-              <a href="mailto:business@xelis.io" className="text-xelis-blue hover:text-gray-500 transition-colors" aria-label="Email">
+              <a href="mailto:business@xelis.org" className="text-xelis-blue hover:text-gray-500 transition-colors" aria-label="Email">
                 <Mail className="h-5 w-5" />
               </a>
             </div>
@@ -75,7 +75,7 @@ const Footer = () => {
                 <li><a href="/exchanges"  className="text-gray-600 hover:text-xelis-blue transition-colors">Exchanges</a></li>
                 <li><a href="https://linktr.ee/Xelis" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-xelis-blue transition-colors">Additional Links</a></li>
                 <li><a href="/tokenomics"  className="text-gray-600 hover:text-xelis-blue transition-colors">Tokenomics</a></li>
-                <li><a href="mailto:business@xelis.io" className="text-gray-600 hover:text-xelis-blue transition-colors">Contact: business@xelis.io</a></li>
+                <li><a href="mailto:business@xelis.org" className="text-gray-600 hover:text-xelis-blue transition-colors">Contact: business@xelis.org</a></li>
               </ul>
             </div>
           </div>
