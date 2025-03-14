@@ -125,14 +125,14 @@ const Exchanges = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-black">
       <Navbar />
       
       {/* Hero Section */}
-      <section className="pt-28 pb-12 md:pt-32 md:pb-16 bg-gradient-to-b from-gray-50 to-white">
+      <section className="pt-28 pb-12 md:pt-32 md:pb-16 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-black">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-center mb-6">XELIS Exchanges</h1>
-          <p className="text-lg text-gray-600 text-center max-w-3xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold text-center dark:text-white mb-6">XELIS Exchanges</h1>
+          <p className="text-lg text-gray-600 dark:text-white text-center max-w-3xl mx-auto">
             Buy, sell, and trade XELIS on these supported cryptocurrency exchanges.
             Choose the platform that best suits your trading needs.
           </p>
@@ -204,7 +204,7 @@ const Exchanges = () => {
           </div>
           
           <div className="mt-16 text-center">
-            <p className="text-gray-600 max-w-2xl mx-auto mb-8">
+            <p className="text-gray-600 dark:text-white max-w-2xl mx-auto mb-8">
               The XELIS team is working continuously to expand exchange listings. 
               More trading options will be added as the project grows.
               <br />
@@ -228,9 +228,9 @@ const Exchanges = () => {
       </section>
       
       {/* Trading Guide Section */}
-      <section className="py-16 bg-gradient-to-r from-gray-50 to-gray-100">
+      <section className="py-16 bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-900 dark:to-black">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">How to Trade XELIS</h2>
+          <h2 className="text-3xl font-bold text-center dark:text-white mb-12">How to Trade XELIS</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="glass-card p-6 text-center">

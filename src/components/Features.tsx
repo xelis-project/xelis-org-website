@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Shield, Zap, Code, Leaf, Lock, Globe, FileText, Key, Network } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -75,25 +74,25 @@ const FeatureCard = ({ feature, index }: { feature: typeof features[0], index: n
       className="glass-card p-6 transition-all duration-300 hover:translate-y-[-5px] hover:shadow-md"
       style={{ animationDelay: `${index * 100}ms` }}
     >
-      <div className={cn("mb-4 p-3 rounded-lg inline-block", feature.bgColor)}>
+      <div className={cn("mb-4 p-3 rounded-lg inline-block", feature.bgColor, "dark:bg-gray-800")}>
         <div className={feature.color}>{feature.icon}</div>
       </div>
       <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-      <p className="text-gray-600">{feature.description}</p>
+      <p className="text-gray-600 dark:text-black">{feature.description}</p>
     </div>
   );
 };
 
 const Features = () => {
   return (
-    <section id="features" className="py-4 md:py-8">
+    <section id="features" className="py-4 md:py-8 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-          <span className="inline-block px-4 py-1.5 mb-4 rounded-full bg-[#02FFCF] border border-white text-sm font-medium text-black">
+          <span className="inline-block px-4 py-1.5 mb-4 rounded-full bg-[#02FFCF] border border-white dark:border-[#02FFCF] text-sm font-medium text-black">
             Core Features
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose XELIS?</h2>
-          <p className="text-lg text-gray-600">
+          <h2 className="text-3xl md:text-4xl font-bold dark:text-white mb-4">Why Choose XELIS?</h2>
+          <p className="text-lg text-gray-600 dark:text-white">
             XELIS is the world's first PoW BlockDAG to combine privacy, scalability, security, and Layer 1 Smart Contracts. Our blockchain platform combines cutting-edge technology with user-centric design to deliver an unparalleled experience.
           </p>
         </div>
@@ -109,4 +108,3 @@ const Features = () => {
 };
 
 export default Features;
-

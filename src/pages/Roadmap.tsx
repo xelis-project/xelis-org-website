@@ -123,14 +123,14 @@ const Roadmap = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-black">
       <Navbar />
       
       {/* Hero Section */}
-      <section className="pt-28 pb-12 md:pt-32 md:pb-16 bg-gradient-to-b from-gray-50 to-white">
+      <section className="pt-28 pb-12 md:pt-32 md:pb-16 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-black">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-center mb-6">XELIS Roadmap</h1>
-          <p className="text-lg text-gray-600 text-center max-w-3xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold text-center mb-6 dark:text-white">XELIS Roadmap</h1>
+          <p className="text-lg text-gray-600 dark:text-white text-center max-w-3xl mx-auto">
             Our vision and development plan for the future of XELIS. 
             Track our progress as we build a next-generation blockchain ecosystem.
           </p>
@@ -186,7 +186,7 @@ const Roadmap = () => {
           </div>
           
           <div className="text-center mt-12">
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-gray-600 dark:text-white smax-w-2xl mx-auto">
               This roadmap represents our current development plans but may evolve as we adapt to market conditions, technological advancements, and community feedback.
             </p>
           </div>
@@ -194,10 +194,10 @@ const Roadmap = () => {
       </section>
       
       {/* Call to Action */}
-      <section className="py-16 bg-gradient-to-r from-gray-50 to-gray-100">
+      <section className="py-16 bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-900 dark:to-black">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Join Us on This Journey</h2>
-          <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+          <h2 className="text-3xl font-bold dark:text-white mb-6">Join Us on This Journey</h2>
+          <p className="text-lg text-gray-600 dark:text-white mb-8 max-w-2xl mx-auto">
             Want to contribute to XELIS development or stay updated on our progress?
             Connect with our community and development team.
           </p>
