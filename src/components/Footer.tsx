@@ -75,12 +75,12 @@ const Footer = () => {
                 Resources
               </h3>
               <ul className="space-y-3">
-                <li><a href="https://docs.xelis.io/contributors" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-white hover:text-xelis-blue transition-colors">Team</a></li>
-                <li><a href="https://poolpartynodes.com/product-category/xelis-clothing-store/" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-white dark:text-whitehover:text-xelis-blue transition-colors">Merchandise</a></li>
-                <li><a href="/exchanges"  className="text-gray-600 dark:text-white hover:text-xelis-blue transition-colors">Exchanges</a></li>
-                <li><a href="https://linktr.ee/Xelis" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-white hover:text-xelis-blue transition-colors">Additional Links</a></li>
-                <li><a href="/tokenomics"  className="text-gray-600 dark:text-white hover:text-xelis-blue transition-colors">Tokenomics</a></li>
-                <li><a href="mailto:business@xelis.org" className="text-gray-600 dark:text-white hover:text-xelis-blue transition-colors">Contact: business@xelis.org</a></li>
+                <li><a href="https://docs.xelis.io/contributors" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-xelis-blue transition-colors">Team</a></li>
+                <li><a href="https://poolpartynodes.com/product-category/xelis-clothing-store/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-xelis-blue transition-colors">Merchandise</a></li>
+                <li><a href="/exchanges"  className="text-gray-600 hover:text-xelis-blue transition-colors">Exchanges</a></li>
+                <li><a href="https://linktr.ee/Xelis" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-xelis-blue transition-colors">Additional Links</a></li>
+                <li><a href="/tokenomics"  className="text-gray-600 hover:text-xelis-blue transition-colors">Tokenomics</a></li>
+                <li><a href="mailto:business@xelis.org" className="text-gray-600 hover:text-xelis-blue transition-colors">Contact: business@xelis.org</a></li>
               </ul>
             </div>
           </div>
