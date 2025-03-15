@@ -46,17 +46,17 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="bg-gray-50 py-16 md:py-24">
+    <section id="about" className="bg-gray-50 dark:bg-[#1F1F1F] py-16 md:py-24">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column - Text */}
           <div className="order-2 lg:order-1">
-            <span className="inline-block px-4 py-1.5 mb-4 rounded-full bg-[#02FFCF] border border-white text-sm font-medium text-black">
+            <span className="inline-block px-4 py-1.5 mb-4 rounded-full bg-[#02FFCF] border border-white dark:border-[#02FFCF] text-sm font-medium text-black">
               About XELIS
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Building the Future of Confidential Digital Infrastructure</h2>
+            <h2 className="text-3xl md:text-4xl font-bold dark:text-white mb-6">Building the Future of Confidential Digital Infrastructure</h2>
             
-            <div className="space-y-6 text-gray-600">
+            <div className="space-y-6 text-gray-600 dark:text-white">
               <p>
                 XELIS is a cutting-edge Layer 1 blockchain platform designed for security, scalability, privacy, and a seamless user experience. Fully decentralized and built on an immutable ledger, XELIS ensures data integrity and trustless transactions. By introducing innovative solutions for consensus, transaction processing, and smart contract execution, XELIS overcomes the limitations of existing blockchain networks—delivering confidentiality, efficiency, and a future-ready blockchain ecosystem.
               </p>
@@ -86,38 +86,38 @@ const About = () => {
               <h3 className="text-xl font-semibold mb-6 text-center">Key Metrics</h3>
               
               <div className="grid grid-cols-2 gap-6">
-                <div className="text-center p-4 bg-white rounded-lg shadow-sm">
+                <div className="text-center p-4 bg-white dark:bg-black rounded-lg shadow-sm">
                   <div className="text-3xl font-bold text-xelis-blue mb-1">2,500+</div>
-                  <div className="text-sm text-gray-500">Max Transactions Per Second</div>
+                  <div className="text-sm text-gray-500 dark:text-white">Max Transactions Per Second</div>
                 </div>
                 
-                <div className="text-center p-4 bg-white rounded-lg shadow-sm">
+                <div className="text-center p-4 bg-white dark:bg-black rounded-lg shadow-sm">
                   <div className="text-3xl font-bold text-xelis-blue mb-1">150+</div>
-                  <div className="text-sm text-gray-500">Network Nodes</div>
+                  <div className="text-sm text-gray-500 dark:text-white">Network Nodes</div>
                 </div>
                 
-                <div className="text-center p-4 bg-white rounded-lg shadow-sm">
+                <div className="text-center p-4 bg-white dark:bg-black rounded-lg shadow-sm">
                   <div className="text-3xl font-bold text-xelis-blue mb-1">15s</div>
-                  <div className="text-sm text-gray-500">Block Speed</div>
+                  <div className="text-sm text-gray-500 dark:text-white" >Block Speed</div>
                 </div>
                 
-                <div className="text-center p-4 bg-white rounded-lg shadow-sm">
+                <div className="text-center p-4 bg-white dark:bg-black rounded-lg shadow-sm">
                   <div className="text-3xl font-bold text-xelis-blue mb-1">100%</div>
-                  <div className="text-sm text-gray-500">Network Uptime</div>
+                  <div className="text-sm text-gray-500 dark:text-white">Network Uptime</div>
                 </div>
                 
                 {/* Circulating Supply - Dynamically updated */}
-                <div className="text-center p-4 bg-white rounded-lg shadow-sm">
+                <div className="text-center p-4 bg-white dark:bg-black rounded-lg shadow-sm">
                   <div className="text-3xl font-bold text-xelis-blue mb-1">
                     {/* Display formatted circulating supply */}
                     {formatCirculatingSupply(circulatingSupply)}
                   </div>
-                  <div className="text-sm text-gray-500">Circulating Supply</div>
+                  <div className="text-sm text-gray-500 dark:text-white">Circulating Supply</div>
                 </div>
                 
-                <div className="text-center p-4 bg-white rounded-lg shadow-sm">
+                <div className="text-center p-4 bg-white dark:bg-black rounded-lg shadow-sm">
                   <div className="text-3xl font-bold text-xelis-blue mb-1">18.4m</div>
-                  <div className="text-sm text-gray-500">Max Supply</div>
+                  <div className="text-sm text-gray-500 dark:text-white">Max Supply</div>
                 </div>
               </div>
               
@@ -125,21 +125,21 @@ const About = () => {
                 <h4 className="text-lg font-medium mb-4 text-center">Ongoing Development</h4>
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600">Smart Contracts</span>
+                    <span className="text-sm text-gray-600 dark:text-black">Smart Contracts</span>
                     <div className="w-2/3 bg-gray-200 rounded-full h-2.5">
                       <div className="bg-xelis-blue h-2.5 rounded-full" style={{ width: '95%' }}></div>
                     </div>
                   </div>
                   
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600">TPS Increase</span>
+                    <span className="text-sm text-gray-600 dark:text-black">TPS Increase</span>
                     <div className="w-2/3 bg-gray-200 rounded-full h-2.5">
                       <div className="bg-xelis-blue h-2.5 rounded-full" style={{ width: '95%' }}></div>
                     </div>
                   </div>
                   
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600">Multiasset Wallet</span>
+                    <span className="text-sm text-gray-600 dark:text-black">Multiasset Wallet</span>
                     <div className="w-2/3 bg-gray-200 rounded-full h-2.5">
                       <div className="bg-xelis-blue h-2.5 rounded-full" style={{ width: '75%' }}></div>
                     </div>

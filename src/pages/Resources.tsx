@@ -68,22 +68,22 @@ const Resources = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col dark:bg-black">
       <Navbar />
       
       <main className="flex-grow pt-24">
         {/* Hero Section */}
         <section className="container mx-auto px-4 py-12 md:py-16">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-3xl md:text-5xl font-bold mb-6">XELIS Wallets & Resources</h1>
-            <p className="text-lg text-gray-600 mb-8">
+            <h1 className="text-3xl md:text-5xl font-bold dark:text-white mb-6">XELIS Wallets & Resources</h1>
+            <p className="text-lg text-gray-600 dark:text-white mb-8">
             Explore the essential resources to get started with Xelis. Securely access and manage your XELIS through a variety of wallet options, claim free XELIS from our faucet, run a node, or mine XELIS using CPU/GPU to help strengthen the network's security.</p>
           </div>
         </section>
 
         {/* Wallets Section */}
-        <section className="container mx-auto px-4 py-4 bg-gray-50 rounded-3xl">
-          <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-center">Choose Your Wallet</h2>
+        <section className="container mx-auto px-4 py-4 bg-gray-50 dark:bg-black rounded-3xl">
+          <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-center dark:text-white">Choose Your Wallet</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {wallets.map((wallet, index) => (
@@ -179,8 +179,8 @@ const Resources = () => {
         </section>
         
         {/* Run a Node Section */}
-        <section className="container mx-auto px-4 py-12 bg-gray-50 rounded-3xl mb-12">
-          <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-center">Launch a Node</h2>
+        <section className="container mx-auto px-4 py-12 bg-gray-50 dark:bg-black rounded-3xl mb-12">
+          <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-center dark:text-white">Launch a Node</h2>
           
           <div className="max-w-4xl mx-auto glass-card p-8">
             <div className="flex flex-col md:flex-row items-center">
@@ -220,8 +220,8 @@ const Resources = () => {
           </div>
         </section>
                 {/* How to Mine Xelis */}
-                <section className="container mx-auto px-4 py-12 bg-gray-50 rounded-3xl mb-12">
-          <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-center">Mining Xelis</h2>
+                <section className="container mx-auto px-4 py-12 bg-gray-50 dark:bg-black rounded-3xl mb-12">
+          <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-center dark:text-white">Mining Xelis</h2>
           
           <div className="max-w-4xl mx-auto glass-card p-8">
             <div className="flex flex-col md:flex-row items-center">
@@ -244,7 +244,7 @@ const Resources = () => {
               
               <div className="md:w-1/3">
                 <img 
-                  src="/uploads/mine.png" 
+                  src="/uploads/Pickaxe.png" 
                   alt="XELIS Logo" 
                   className="w-full max-w-[180px] mx-auto"
                 />
@@ -253,8 +253,8 @@ const Resources = () => {
           </div>
         </section>
          {/* Developer Resources */}
-         <section className="container mx-auto px-4 py-12 bg-gray-50 rounded-3xl mb-12">
-          <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-center">Developer Resources</h2>
+         <section className="container mx-auto px-4 py-12 bg-gray-50 dark:bg-black rounded-3xl mb-12">
+          <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-center dark:text-white">Developer Resources</h2>
           
           <div className="max-w-4xl mx-auto glass-card p-8">
             <div className="flex flex-col md:flex-row items-center">
