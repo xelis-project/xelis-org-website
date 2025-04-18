@@ -2,18 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { 
-  ArrowLeft, 
-  Calendar, 
-  Clock, 
-  User, 
-  Tag, 
-  Share2, 
-  Twitter, 
-  Facebook, 
-  Linkedin, 
-  Copy, 
-  ThumbsUp
+import {
+  ArrowLeft,
+  Calendar,
+  Clock,
+  ThumbsUp,
+  Twitter,
+  Facebook,
+  Linkedin,
+  Copy,
 } from 'lucide-react';
 import AnimatedButton from '@/components/AnimatedButton';
 import ReactMarkdown from 'react-markdown';
@@ -51,22 +48,24 @@ const BlogArticlePage = () => {
     const fetchArticle = async () => {
       setIsLoading(true);
       try {
-        const foundArticle = SAMPLE_ARTICLES1.find(article => article.slug === slug);
+        const foundArticle = SAMPLE_ARTICLES1.find((article) => article.slug === slug);
         if (foundArticle) {
           setArticle(foundArticle);
           setLikes(foundArticle.likes);
+
           const related = SAMPLE_ARTICLES1
-            .filter(a => 
-              a.id !== foundArticle.id && 
-              a.categories.some(cat => foundArticle.categories.includes(cat))
+            .filter(
+              (a) =>
+                a.id !== foundArticle.id &&
+                a.categories.some((cat) => foundArticle.categories.includes(cat))
             )
             .slice(0, 3);
           setRelatedArticles(related);
         } else {
-          console.error("Article not found");
+          console.error('Article not found');
         }
       } catch (error) {
-        console.error("Error fetching article:", error);
+        console.error('Error fetching article:', error);
       } finally {
         setIsLoading(false);
       }
@@ -76,6 +75,15 @@ const BlogArticlePage = () => {
       fetchArticle();
     }
   }, [slug]);
+
+  // ✅ Scroll to top AFTER article is loaded
+  useEffect(() => {
+    if (article) {
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 50);
+    }
+  }, [slug, article]);
 
   const formatDate = (dateString: string) => {
     try {
@@ -88,10 +96,10 @@ const BlogArticlePage = () => {
 
   const handleLike = () => {
     if (!liked) {
-      setLikes(prev => prev + 1);
+      setLikes((prev) => prev + 1);
       setLiked(true);
     } else {
-      setLikes(prev => prev - 1);
+      setLikes((prev) => prev - 1);
       setLiked(false);
     }
   };
@@ -125,7 +133,9 @@ const BlogArticlePage = () => {
         <main className="flex-grow pt-24 container mx-auto px-4">
           <div className="text-center py-12">
             <h2 className="text-2xl font-semibold mb-4">Article Not Found</h2>
-            <p className="text-gray-600 mb-6">The article you're looking for doesn't exist or has been removed.</p>
+            <p className="text-gray-600 mb-6">
+              The article you're looking for doesn't exist or has been removed.
+            </p>
             <AnimatedButton onClick={() => navigate('/blog')}>
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Blog
@@ -140,39 +150,36 @@ const BlogArticlePage = () => {
   return (
     <div className="min-h-screen flex flex-col dark:bg-black">
       <Navbar />
-      
+
       <main className="flex-grow pt-24">
         <header className="container mx-auto px-4 py-8">
           <div className="max-w-3xl mx-auto">
-            <button 
+            <button
               onClick={() => navigate('/blog')}
               className="flex items-center text-gray-500 hover:text-xelis-blue mb-6 transition-colors"
             >
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Blog
             </button>
-            
+
             <div className="flex flex-wrap gap-2 mb-4">
               {article.categories.map((category, i) => (
-                <span 
-                  key={i} 
-                  className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full"
-                >
+                <span key={i} className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">
                   {category}
                 </span>
               ))}
             </div>
-            
+
             <h1 className="text-3xl md:text-4xl font-bold mb-6 dark:text-white">{article.title}</h1>
-            
+
             <p className="text-xl text-gray-600 mb-6">{article.description}</p>
-            
+
             <div className="flex items-center mb-8">
               <div className="w-10 h-10 rounded-full overflow-hidden mr-3">
-                <img 
-                  src={article.author.avatar || '/uploads/cyber.jpg'} 
+                <img
+                  src={article.author.avatar || '/uploads/cyber.jpg'}
                   alt={article.author.name}
-                  className="w-full h-full object-cover" 
+                  className="w-full h-full object-cover"
                 />
               </div>
               <div>
@@ -187,27 +194,23 @@ const BlogArticlePage = () => {
             </div>
           </div>
         </header>
-        
+
         <div className="container mx-auto px-4 mb-8">
           <div className="max-w-4xl mx-auto rounded-xl overflow-hidden">
-            <img 
-              src={article.thumbnailUrl} 
-              alt={article.title}
-              className="w-full h-auto"
-            />
+            <img src={article.thumbnailUrl} alt={article.title} className="w-full h-auto" />
           </div>
         </div>
-        
+
         <article className="container mx-auto px-4 py-8">
           <div className="max-w-3xl mx-auto">
             <div className="prose prose-lg dark:prose-invert mb-12">
               <ReactMarkdown>{article.content}</ReactMarkdown>
             </div>
-            
+
             <div className="glass-card p-6 mb-12">
               <div className="flex justify-between items-center">
                 <div className="flex items-center gap-4">
-                  <button 
+                  <button
                     onClick={handleLike}
                     className={`flex items-center gap-2 py-2 px-4 rounded-lg transition-colors ${
                       liked ? 'bg-blue-50 text-xelis-blue' : 'hover:bg-gray-100'
@@ -217,34 +220,40 @@ const BlogArticlePage = () => {
                     <span>{likes}</span>
                   </button>
                 </div>
-                
+
                 <div className="flex items-center gap-2">
                   <span className="text-sm text-gray-500 mr-2">Share:</span>
-                  <a 
-                    href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(article.title)}`}
+                  <a
+                    href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(
+                      window.location.href
+                    )}&text=${encodeURIComponent(article.title)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
                   >
                     <Twitter className="h-4 w-4" />
                   </a>
-                  <a 
-                    href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`}
+                  <a
+                    href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+                      window.location.href
+                    )}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
                   >
                     <Facebook className="h-4 w-4" />
                   </a>
-                  <a 
-                    href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`}
+                  <a
+                    href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
+                      window.location.href
+                    )}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
                   >
                     <Linkedin className="h-4 w-4" />
                   </a>
-                  <button 
+                  <button
                     onClick={copyToClipboard}
                     className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors relative"
                   >
@@ -260,41 +269,41 @@ const BlogArticlePage = () => {
             </div>
           </div>
         </article>
-        
+
         {relatedArticles.length > 0 && (
           <section className="container mx-auto px-4 py-8 mb-12">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl font-semibold mb-8 dark:text-white">Related Articles</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {relatedArticles.map((relatedArticle) => (
-                  <div 
+                  <div
                     key={relatedArticle.id}
                     className="glass-card p-4 flex flex-col h-full transition-transform duration-300 hover:scale-[1.02]"
                   >
-                    <div 
+                    <div
                       className="mb-3 rounded-lg overflow-hidden cursor-pointer"
                       onClick={() => navigate(`/blog/${relatedArticle.slug}`)}
                     >
-                      <img 
-                        src={relatedArticle.thumbnailUrl} 
-                        alt={relatedArticle.title} 
+                      <img
+                        src={relatedArticle.thumbnailUrl}
+                        alt={relatedArticle.title}
                         className="w-full h-40 object-cover"
                       />
                     </div>
-                    
-                    <h3 
+
+                    <h3
                       className="text-lg font-medium mb-2 cursor-pointer hover:text-xelis-blue"
                       onClick={() => navigate(`/blog/${relatedArticle.slug}`)}
                     >
                       {relatedArticle.title}
                     </h3>
-                    
+
                     <p className="text-sm text-gray-600 mb-3 line-clamp-2">
                       {relatedArticle.description}
                     </p>
-                    
+
                     <div className="mt-auto">
-                      <AnimatedButton 
+                      <AnimatedButton
                         variant="primary"
                         className="px-4 py-2"
                         onClick={() => navigate(`/blog/${relatedArticle.slug}`)}
@@ -309,7 +318,7 @@ const BlogArticlePage = () => {
           </section>
         )}
       </main>
-      
+
       <Footer />
     </div>
   );

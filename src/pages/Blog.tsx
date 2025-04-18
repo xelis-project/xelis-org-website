@@ -33,20 +33,6 @@ const BlogPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
 
-  // Add this function to handle navigation and scrolling
-  const navigateToArticle = (slug: string) => {
-    // First navigate to the article
-    navigate(`/blog/${slug}`);
-    
-    // Use setTimeout to ensure navigation happens first
-    setTimeout(() => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    }, 100);
-  };
-
   useEffect(() => {
     const loadArticles = async () => {
       try {
@@ -195,7 +181,8 @@ const BlogPage = () => {
                   className="glass-card p-6 flex flex-col h-full transition-transform duration-300 hover:scale-[1.02]"
                 >
                   <div
-                    onClick={() => navigateToArticle(article.slug)}
+                    onClick={() => navigate(`/blog/${article.slug}`)}
+
                     className="mb-4 rounded-lg overflow-hidden relative cursor-pointer"
                     style={{ height: '12rem' }}
                   >
@@ -220,7 +207,8 @@ const BlogPage = () => {
                   </div>
 
                   <h3
-                    onClick={() => navigateToArticle(article.slug)}
+                    onClick={() => navigate(`/blog/${article.slug}`)}
+
                     className="text-xl font-semibold mb-2 cursor-pointer hover:text-xelis-blue"
                   >
                     {article.title}
@@ -245,7 +233,8 @@ const BlogPage = () => {
                   <AnimatedButton
                     variant="secondary"
                     className="w-full justify-center"
-                    onClick={() => navigateToArticle(article.slug)}
+                    onClick={() => navigate(`/blog/${article.slug}`)}
+
                   >
                     Read Article
                     <ArrowRight className="ml-2 h-4 w-4" />
