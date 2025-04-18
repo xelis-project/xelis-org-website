@@ -95,29 +95,31 @@ const Roadmap = () => {
       id: 5,
       title: "Phase 5: Advancement",
       date: "Q1 2025",
-      completed: false,
-      inProgress: true,
+      completed: true,
+      inProgress: false,
       items: [
-        "Smart Contracts Testnet (Completed)",
+        "Smart Contracts Testnet",
         "VS Code Extension for XVM",
-        "Genesix Wallet v0.0.7 (Completed)",
+        "Genesix Wallet v0.0.7",
         "SDKs Releases",
-        "Fiat On-Ramp Interface (Completed)",
-        "Website Redesign (Completed)"
+        "Fiat On-Ramp Interface",
+        "Website Redesign"
       ]
     },
     {
       id: 6,
       title: "Phase 6: Ecosystem",
-      date: "2025+",
+      date: "Q2 2025+",
       completed: false,
+      inProgress: true,
       items: [
         "Smart Contracts Mainnet",
         "Xelis Decentralized Exchange",
         "Confidential Token Minting App",
         "Ledger Hardware Wallet Support",
         "Xelis Quests Interactive App",
-        "Developer Bounties"
+        "Developer Bounties",
+        "News/Blog on Website"
       ]
     }
   ];

@@ -92,11 +92,12 @@ const Navbar = () => {
         <div className="hidden md:flex items-center space-x-6">
           <button onClick={() => handleNavClick('about')} className="link-hover font-medium dark:text-white">About</button>
           <button onClick={() => handleNavClick('features')} className="link-hover font-medium dark:text-white">Features</button>
+          <Link to="/blog" className="link-hover font-medium dark:text-white">News</Link>
           <Link to="/roadmap" className="link-hover font-medium dark:text-white">Roadmap</Link>
           <Link to="/exchanges" className="link-hover font-medium dark:text-white">Exchanges</Link>
           <Link to="/resources" className="link-hover font-medium dark:text-white">Resources</Link>
           <Link to="/tokenomics" className="link-hover font-medium dark:text-white">Tokenomics</Link>
-          <a href="https://docs.xelis.io" target="_blank" rel="noopener noreferrer" className="link-hover font-medium dark:text-white">Documentation</a>
+          <a href="https://docs.xelis.io" target="_blank" rel="noopener noreferrer" className="link-hover font-medium dark:text-white">Docs</a>
           <a href="https://explorer.xelis.io" target="_blank" rel="noopener noreferrer" className="link-hover font-medium dark:text-white">Explorer</a>
           <a href="https://stats.xelis.io" target="_blank" rel="noopener noreferrer" className="link-hover font-medium dark:text-white">Stats</a>
           <a href="https://github.com/xelis-project" target="_blank" rel="noopener noreferrer" className="link-hover font-medium dark:text-white">GitHub</a>
@@ -126,11 +127,12 @@ const Navbar = () => {
         <div className="container mx-auto px-4 flex flex-col space-y-3 text-center dark:text-white overflow-y-auto max-h-[80vh] pt-10">
           <button onClick={() => handleNavClick('features')} className="text-base py-2">Features</button>
           <button onClick={() => handleNavClick('about')} className="text-base py-2">About</button>
+          <Link to="/blog" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>News</Link>
           <Link to="/roadmap" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Roadmap</Link>
           <Link to="/exchanges" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Exchanges</Link>
           <Link to="/resources" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Resources</Link>
           <Link to="/tokenomics" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Tokenomics</Link>
-          <a href="https://docs.xelis.io" target="_blank" rel="noopener noreferrer" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Documentation</a>
+          <a href="https://docs.xelis.io" target="_blank" rel="noopener noreferrer" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Docs</a>
           <a href="https://explorer.xelis.io" target="_blank" rel="noopener noreferrer" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Explorer</a>
           <a href="https://stats.xelis.io" target="_blank" rel="noopener noreferrer" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Stats</a>
           <a href="https://github.com/xelis-project" target="_blank" rel="noopener noreferrer" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>GitHub</a>
