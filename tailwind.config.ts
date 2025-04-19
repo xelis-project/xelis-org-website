@@ -109,7 +109,77 @@ export default {
 				'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
 				'button': '0 4px 14px 0 rgba(0, 0, 0, 0.08)',
 			},
+			typography: {
+				DEFAULT: {
+					css: {
+						maxWidth: '100%',
+						color: 'var(--tw-prose-body)',
+						a: {
+							color: 'var(--tw-prose-links)',
+							'&:hover': {
+								color: '#00f2c3',
+							},
+						},
+						h1: {
+							color: 'var(--tw-prose-headings)',
+							fontWeight: '700',
+						},
+						h2: {
+							color: 'var(--tw-prose-headings)',
+							fontWeight: '600',
+						},
+						h3: {
+							color: 'var(--tw-prose-headings)',
+							fontWeight: '600',
+						},
+						code: {
+							color: 'var(--tw-prose-code)',
+							backgroundColor: 'var(--tw-prose-code-bg)',
+							padding: '0.25rem 0.4rem',
+							borderRadius: '0.25rem',
+							fontWeight: '500',
+						},
+						'code::before': {
+							content: '""',
+						},
+						'code::after': {
+							content: '""',
+						},
+						blockquote: {
+							borderLeftColor: '#00f2c3',
+						},
+					},
+				},
+				dark: {
+					css: {
+						color: 'rgb(229, 231, 235)',
+						a: {
+							color: '#00f2c3',
+						},
+						h1: {
+							color: 'rgb(255, 255, 255)',
+						},
+						h2: {
+							color: 'rgb(255, 255, 255)',
+						},
+						h3: {
+							color: 'rgb(255, 255, 255)',
+						},
+						blockquote: {
+							color: 'rgb(229, 231, 235)',
+							borderLeftColor: '#00f2c3',
+						},
+						code: {
+							color: 'rgb(229, 231, 235)',
+							backgroundColor: 'rgba(55, 65, 81, 0.5)',
+						},
+					},
+				},
+			},
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [
+		require("tailwindcss-animate"),
+		require("@tailwindcss/typography")
+	],
 } satisfies Config;

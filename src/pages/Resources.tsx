@@ -6,7 +6,7 @@ import { Wallet, Download, Globe, Server, Shield, Clock, ArrowRight, Github, Dro
 import AnimatedButton from '@/components/AnimatedButton';
 
 const Resources = () => {
-  // Wallet options data with two new wallet types added
+  // Wallet options data with all wallets now set to primary
   const wallets = [
     {
       name: "Xelis Web Wallet",
@@ -18,33 +18,33 @@ const Resources = () => {
       primary: true
     },
     {
-      name: "Desktop Wallet",
+      name: "Genesix Desktop Wallet",
       description: "Download the official Xelis wallet for Windows, macOS, or Linux.",
       features: ["Full control", "Advanced features", "Highest security"],
       url: "https://github.com/xelis-project/xelis-genesix-wallet/releases",
       buttonText: "Download",
       icon: <Download className="h-6 w-6" />,
-      primary: false
+      primary: true
     },
     {
-      name: "CLI Wallet",
+      name: "Command Line Wallet",
       description: "Command-line interface wallet for developers and advanced users.",
       features: ["Fully featured", "Scripting support", "Developer-friendly"],
       url: "https://github.com/xelis-project/xelis-blockchain/releases/",
       buttonText: "View on GitHub",
       icon: <Server className="h-6 w-6" />,
-      primary: false
+      primary: true
     },
     {
-      name: "Mobile Wallet",
-      description: "The XELIS mobile wallet experience for Android. (iOS Coming Soon).",
+      name: "Genesix Android Mobile Wallet",
+      description: "The XELIS mobile wallet experience for Android.",
       features: ["On-the-go access", "Biometric security", "User-friendly"],
       url: "https://github.com/xelis-project/xelis-genesix-wallet/releases",
       buttonText: "Download",
       icon: <Wallet className="h-6 w-6" />,
-      primary: false,
+      primary: true,
     },
-    // New wallet option 1: Paper Wallet
+    // Paper Wallet - now primary
     {
       name: "Paper Wallet",
       description: "Generate offline XELIS paper wallets for cold storage and maximum security.",
@@ -52,18 +52,18 @@ const Resources = () => {
       url: "https://paperwallet.xelis.io/",
       buttonText: "Generate Wallet",
       icon: <FileText className="h-6 w-6" />,
-      primary: false,
+      primary: true,
     },
-    // New wallet option 2: Third Party MultiAsset Wallet     
+    // Third Party MultiAsset Wallet - now primary
     {       
-      name: "MultiAsset Wallet",       
-      description: "Store XELIS alongside other cryptocurrencies in a popular third-party wallet.",       
+      name: "MultiAsset Wallet (iOS, Android & Desktop)",       
+      description: "Store XELIS alongside other cryptocurrencies in popular third-party wallets.",       
       features: ["Multiple assets", "Broad ecosystem", "Simplified management"],       
-      url: "#", // Added to prevent navigation
-      buttonText: "Coming Soon",
+      url: "https://stackwallet.com", 
+      buttonText: "Stack Wallet",
       icon: <Briefcase className="h-6 w-6" />, 
-      primary: false,
-      disabled: true, // Added disabled property
+      primary: true,
+      disabled: false,
     }
   ];
 
@@ -89,12 +89,12 @@ const Resources = () => {
             {wallets.map((wallet, index) => (
               <div 
                 key={index}
-                className={`glass-card p-6 flex flex-col h-full transition-transform duration-300 hover:scale-[1.02] ${
-                  wallet.primary ? 'border-xelis-blue bg-white/90 shadow-lg' : ''
-                } ${wallet.disabled ? 'opacity-70 cursor-not-allowed' : ''}`}
+                className={`glass-card p-6 flex flex-col h-full transition-transform duration-300 hover:scale-[1.02] border-xelis-blue bg-white/90 shadow-lg ${
+                  wallet.disabled ? 'opacity-70 cursor-not-allowed' : ''
+                }`}
               >
                 <div className="flex items-center mb-4">
-                  <div className={`p-3 rounded-lg ${wallet.primary ? 'bg-xelis-blue text-white' : 'bg-gray-100'}`}>
+                  <div className="p-3 rounded-lg bg-xelis-blue text-white">
                     {wallet.icon}
                   </div>
                   <h3 className="text-xl font-semibold ml-4">{wallet.name}</h3>
@@ -114,7 +114,7 @@ const Resources = () => {
                 </div>
                 
                 <AnimatedButton
-                  variant={wallet.primary ? "primary" : "secondary"}
+                  variant="primary"
                   className={`w-full justify-center ${wallet.disabled ? 'pointer-events-none' : ''}`}
                   onClick={() => !wallet.disabled && window.open(wallet.url, "_blank")}
                 >
@@ -228,7 +228,7 @@ const Resources = () => {
               <div className="md:w-2/3 mb-6 md:mb-0 md:pr-8">
                 <h3 className="text-xl font-semibold mb-4">How to Mine Xelis</h3>
                 <p className="text-gray-600 mb-6">
-                Xelis is a Proof of Work (PoW) blockchain, where mining plays a crucial role in ensuring its security. At the heart of Xelis lies decentralization, which is why we’ve developed a unique mining algorithm that is resistant to ASIC and FPGA mining, making it efficiently mineable only with GPUs and CPUs. Our proprietary XelisHashV2 algorithm is highly memory-intensive, yet it operates with exceptionally low energy consumption, making it one of the most energy-efficient mining algorithms ever created.
+                Xelis is a Proof of Work (PoW) blockchain, where mining plays a crucial role in ensuring its security. At the heart of Xelis lies decentralization, which is why we've developed a unique mining algorithm that is resistant to ASIC and FPGA mining, making it efficiently mineable only with GPUs and CPUs. Our proprietary XelisHashV2 algorithm is highly memory-intensive, yet it operates with exceptionally low energy consumption, making it one of the most energy-efficient mining algorithms ever created.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <AnimatedButton 
