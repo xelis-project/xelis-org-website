@@ -2464,148 +2464,6 @@ Thank you for reading this article on **XELIS**! If you enjoyed the content and 
     likes: 2003
   },
   {
-    id: '38',
-    title: 'Xelite Pulse | Smart Contract Testnet Update (Episode 17)',
-    description: 'Now that Smart Contracts are live on testnet, the team has already identified new features and improvements, dive into the latest.',
-    content: `
-## ✅ Smart Contracts Testnet Update – @xelis_project
-
-Now that **Smart Contracts** have been successfully released on the XELIS Testnet, the team has identified several areas for improvement and exciting features to enhance the ecosystem. 🌐
-
----
-
-### ⚡ Fast Sync Improvements
-
-- Ongoing enhancements to **support better contract storage**
-- Goal: **Improve scalability and usability** across the network
-
----
-
-### 📝 Token Standard Mechanism
-
-- Plans to introduce a **token standard** within the **Silex ecosystem**
-- Enables **robust and flexible interactions** between contracts and applications
-
----
-
-### ⛽ Gas Fee Adjustments
-
-Adjustments are being made to create a **balanced and sustainable contract economy**:
-
-- Prevent attacks by **avoiding gas that's too cheap**
-- Ensure accessibility by **keeping fees reasonable**
-
----
-
-### 🧠 Memory Usage Limits
-
-- Introducing **caps on memory usage**
-- Prevents **exploits that could crash low-end nodes**
-- Ensures **stability** across the entire network
-
----
-
-### 📲 System Call Enhancements
-
-- Adding cryptographic support for:
-  - Blake3
-  - SHA256
-- Exploring **Elliptic Curve cryptography** for:
-  - Simplified development through direct APIs
-  - **High performance** by running cryptographic code in **Rust** rather than inside the VM
-
----
-
-### 💻 Entry System Rework
-
-A major rework of the contract entry system will introduce:
-
-- Ability for contracts to **return any value** (not just exit codes)
-- **Inter-contract communication** via entry points
-- **API functions** with limited gas to:
-  - Expose **RPC-like APIs**
-  - Enable **external system integration**
-
----
-
-### 👨‍💻 VSCode Extension
-
-- A newly developed **VSCode extension for Silex**
-- Now **as feature-rich as the official Rust extension**
-- Enhances developer experience with:
-  - Code highlighting
-  - Autocompletion
-  - Real-time diagnostics
-![VSCode Extension](/uploads/blog/contract-updates2.png)
----
-
-Stay tuned as we continue to expand and refine the XELIS Smart Contract ecosystem! 🚀  
-#XelisIsHere #SilexVM #SmartContracts
-
-
----
-
-Thank you for reading this article on **XELIS**! If you enjoyed the content and found it useful, please consider supporting my work with a tip in **Xelis ($XEL)**. Your contribution helps us keep producing quality content like this, and we genuinely appreciate your support!
-
-— **Cyber** (Telegram: \`cybernated_coinage\` | Discord: \`cybernatedcoinage\`)
-
-### Tipping Address (XELIS ONLY):
-
-\`xel:82zfcy3aa2pk2rzx6jpfnv7u3vkjcxhqs3hyghj45u9g2ccrrslsqk3vm3x\`
-
----
-
-### 📌 Important Links:
-
-- **Xelis VM Playground:** [https://playground.xelis.io](https://playground.xelis.io)
-- **Xelis LinkTree:** [https://linktr.ee/xelis](https://linktr.ee/xelis)
-- **Website:** [https://xelis.org](https://xelis.org) (Legacy: [https://xelis.io](https://xelis.io))
-- **Documentation:** [https://docs.xelis.io](https://docs.xelis.io)
-- **Whitepaper:** [https://whitepaper.xelis.io/](https://whitepaper.xelis.io/)
-- **Github:** [https://github.com/xelis-project/](https://github.com/xelis-project/)
-- **Fiat Onramp:** [https://onramp.xelis.io](https://onramp.xelis.io)
-- **Xelis Merchandise Store (PPN):** [https://xelis.io/merch](https://xelis.io/merch) or [https://poolpartynodes.com/product-category/xelis-clothing-store/](https://poolpartynodes.com/product-category/xelis-clothing-store/)
-
-### 📢 Social Links:
-- **Telegram:** [https://t.me/xelis_io](https://t.me/xelis_io)
-- **Discord:** [https://discord.gg/xelis](https://discord.gg/xelis)
-- **Twitter/X:** [https://twitter.com/xeliscurrency](https://twitter.com/xeliscurrency)
-- **Facebook:** [https://www.facebook.com/xeliscommunity](https://www.facebook.com/xeliscommunity)
-- **TikTok:** [https://www.tiktok.com/@xeliscommunity](https://www.tiktok.com/@xeliscommunity)
-- **Instagram:** [https://www.instagram.com/xeliscommunity/](https://www.instagram.com/xeliscommunity/)
-- **LinkedIn:** [https://www.linkedin.com/company/xelis](https://www.linkedin.com/company/xelis)
-- **Reddit:** [https://www.reddit.com/r/xelis/](https://www.reddit.com/r/xelis/)
-- **YouTube:** [https://www.youtube.com/@xelis_project](https://www.youtube.com/@xelis_project)
-- **Official Medium:** [https://xeliscommunity.org](https://xeliscommunity.org)
-
-### 🔎 Explorer & Stats:
-- **Explorer:** [https://explorer.xelis.io](https://explorer.xelis.io)
-- **Stats Page:** [https://stats.xelis.io](https://stats.xelis.io)
-
-### 💰 Listings:
-- **CoinGecko:** [https://www.coingecko.com/en/coins/xelis](https://www.coingecko.com/en/coins/xelis)
-- **LiveCoinWatch:** [https://www.livecoinwatch.com/price/XELIS-__XEL](https://www.livecoinwatch.com/price/XELIS-__XEL)
-- **CoinPaprika:** [https://coinpaprika.com/coin/xel-xelis/](https://coinpaprika.com/coin/xel-xelis/)
-
-### 🌐 Community & Tools:
-- **Community Medium:** [https://xeliscommunity.org](https://xeliscommunity.org)
-- **Desktop/Mobile Wallet:** [https://github.com/xelis-project/xelis-genesix-wallet/releases/latest/](https://github.com/xelis-project/xelis-genesix-wallet/releases/latest/)
-- **Web Wallet:** [https://wallet.xelis.io](https://wallet.xelis.io)
-- **Paper Wallet:** [https://paperwallet.xelis.io/](https://paperwallet.xelis.io/)
-- **Faucet:** [https://faucet.xelis.io](https://faucet.xelis.io)
-    `,
-    publishedDate: '2025-01-10T12:00:00Z',
-    slug: 'contract-updates',
-    thumbnailUrl: '/uploads/blog/contract-updates.png',
-    categories: ['Xelite Pulse', 'Update', 'Smart Contracts'],
-    author: {
-      name: 'Cyber Henry',
-      avatar: '/uploads/cyber.jpg'
-    },
-    readingTime: '2 min read',
-    likes: 4245
-  },
-  {
     id: '39',
     title: 'Xelite Pulse | XT Exchange to List XELIS (Episode 18)',
     description: 'XELIS to be listed on global exchange XT Exchange as continuation of our strategic adoption plan.',
@@ -5037,7 +4895,7 @@ Thank you for reading this article on **XELIS**! If you enjoyed the content and 
   },
 
   {
-    id: '6',
+    id: '49',
     title: 'Xelis vs. Leading Blockchains: A Comprehensive Cryptocurrency Comparison',
     description: 'Dive into an easy to understand comparison of Xelis compared to Bitcoin, Monero, Ethereum, and Kaspa.',
     content: `
@@ -8021,7 +7879,7 @@ Thank you for reading this article on **XELIS**! If you enjoyed the content and 
   },
 
   {
-    id: '25',
+    id: '50',
     title: 'Feature Deep Dive: XELIS — Balance Proofs & Ownership Proofs',
     description: 'Explore the innovative features of XELIS, including Balance Proofs and Ownership Proofs, which enhance transparency and compliance within Xelis Privacy Space.',
     content: `
