@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Features from '@/components/Features';
+import News from '@/components/News'; // Assuming you have a News component
 import Footer from '@/components/Footer';
 import { ArrowUp } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -33,6 +34,7 @@ const Index = () => {
       <Hero />
       <About /> {/* Moved above Features */}
       <Features />
+      <News /> {/* Assuming you have a News component */}
       <Footer />
 
       {/* Scroll to top button */}
