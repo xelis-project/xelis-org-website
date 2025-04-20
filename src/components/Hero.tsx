@@ -26,7 +26,7 @@ const Hero = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-gray-600 dark:text-white mb-8 max-w-2xl mx-auto animate-fade-in animate-delay-200">
-            XELIS is a modern Layer 1 blockchain, built to prioritize confidentiality, usability, and scalability. It offers innovative features for both developers and users, including robust smart contracts, a high-performance Virtual Machine, and seamless integration with DeFi.
+            XELIS is a modern Layer 1 blockDAG, built to prioritize confidentiality, usability, and scalability. It offers innovative features for both developers and users, including robust smart contracts, a high-performance Virtual Machine, and seamless integration with DeFi.
             <br />
             <br />Built for the people, by the people.
           </p>
