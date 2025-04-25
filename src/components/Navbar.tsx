@@ -101,7 +101,7 @@ const Navbar = () => {
           <a href="https://explorer.xelis.io" target="_blank" rel="noopener noreferrer" className="link-hover font-medium dark:text-white">Explorer</a>
           <a href="https://stats.xelis.io" target="_blank" rel="noopener noreferrer" className="link-hover font-medium dark:text-white">Stats</a>
           <a href="https://github.com/xelis-project" target="_blank" rel="noopener noreferrer" className="link-hover font-medium dark:text-white">GitHub</a>
-          <a href="/resources" className="button-primary">Get a Wallet</a>
+          <Link to="/resources" className="button-primary">Get a Wallet</Link>
           <ThemeToggle /> {/* Added ThemeToggle here for Desktop */}
         </div>
 
@@ -136,7 +136,7 @@ const Navbar = () => {
           <a href="https://explorer.xelis.io" target="_blank" rel="noopener noreferrer" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Explorer</a>
           <a href="https://stats.xelis.io" target="_blank" rel="noopener noreferrer" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Stats</a>
           <a href="https://github.com/xelis-project" target="_blank" rel="noopener noreferrer" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>GitHub</a>
-          <Link to="/resources" target="_blank" rel="noopener noreferrer" className="button-primary mx-auto mt-2" onClick={() => setIsMobileMenuOpen(false)}>Get A Wallet</a>
+          <Link to="/resources" className="button-primary mx-auto mt-2" onClick={() => setIsMobileMenuOpen(false)}>Get A Wallet</Link>
           <div className="mx-auto mt-4"> {/* Added ThemeToggle here for Mobile */}
             <ThemeToggle />
           </div>
