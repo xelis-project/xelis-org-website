@@ -47,7 +47,6 @@ The Xelis smart contract engine has received a **massive performance and feature
 - ✅ **RPC struct read bug resolved**
 
 **In the pipeline:**
-- 🧠 Inter-contract communication
 - 🔐 Caller verification (contract vs. user)
 - ⏰ Cron-style scheduled contract execution
 
@@ -74,6 +73,7 @@ Silex continues to evolve into one of the most powerful blockchain programming l
 - ✅ Runs on XVM (deterministic, secure execution)
 - ✅ Massive improvements in docs, including **Standard Library**
 - ✅ **VSCode extension** released with improved syntax highlighting
+- ✅ Secure sandboxed execution, fully cross platform, highly configurable
 
 Learn more: [Silex Docs](https://docs.xelis.io/features/smart-contracts/silex)
 
@@ -87,9 +87,14 @@ Learn more: [Silex Docs](https://docs.xelis.io/features/smart-contracts/silex)
 ---
 
 ### ⛓️ Core Node Enhancements
-- ↺ **Fast sync from genesis** now takes less than **30 seconds**
+- ↺ **Fast sync from genesis** now takes **~1 min**
 - 🧵 **Multi-threaded transaction verification** now supports **~7500 TPS** (up from ~2500), scaling based on CPU cores
 - 📊 Addresses a core bottleneck for confidential chains: **transaction bandwidth**
+- Available homomorphic encryption operations over Ciphertext in XVM
+- Shared Memory Storage across executions in the same block
+- Read only storage from one contract to another (allowing to read data stored by another contract)
+
+Read more about the node improvements in the full commit log: [Xelis Node v1.17.0](https://github.com/xelis-project/xelis-blockchain/pull/114/commits)
 
 ---
 
