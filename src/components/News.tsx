@@ -95,7 +95,7 @@ const News = () => {
                       <span>{formatDate(featuredPost.publishedDate)}</span>
                       <span className="mx-2">•</span>
                       <Clock className="h-4 w-4 mr-1" />
-                      <span>{featuredPost.readingTime} read</span>
+                      <span>{featuredPost.readingTime} </span>
                     </div>
                     
                     {/* Featured Post Title as clickable link */}
