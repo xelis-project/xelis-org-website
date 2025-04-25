@@ -136,7 +136,7 @@ const Navbar = () => {
           <a href="https://explorer.xelis.io" target="_blank" rel="noopener noreferrer" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Explorer</a>
           <a href="https://stats.xelis.io" target="_blank" rel="noopener noreferrer" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Stats</a>
           <a href="https://github.com/xelis-project" target="_blank" rel="noopener noreferrer" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>GitHub</a>
-          <a href="https://xelis.io/resources" target="_blank" rel="noopener noreferrer" className="button-primary mx-auto mt-2" onClick={() => setIsMobileMenuOpen(false)}>Get A Wallet</a>
+          <Link to="/resources" target="_blank" rel="noopener noreferrer" className="button-primary mx-auto mt-2" onClick={() => setIsMobileMenuOpen(false)}>Get A Wallet</a>
           <div className="mx-auto mt-4"> {/* Added ThemeToggle here for Mobile */}
             <ThemeToggle />
           </div>
