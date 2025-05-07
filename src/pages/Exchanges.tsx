@@ -112,12 +112,12 @@ const Exchanges = () => {
       url: "https://trocador.app/en/?ref=1JXff8w6Gx&ticker_to=xel",
       pairs: ["Many"],
       type: "Swap",
-      features: ["No KYC required", "Many Pairs", "Privacy Focused"]
+      features: ["No KYC required", "Many Pairs", "In-Wallet Swaps"]
     },
     {
-      name: "Exolix",
-      logo: "/uploads/exolix.png",
-      url: "https://exolix.com/currencies/xel",
+      name: "Swapter.io",
+      logo: "/uploads/swapter.jpg",
+      url: "https://swapter.io/",
       pairs: ["Many"],
       type: "Swap",
       features: ["Many Pairs", "Simple interface", "Aggregator"]
