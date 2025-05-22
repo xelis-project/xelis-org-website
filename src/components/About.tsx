@@ -58,13 +58,13 @@ const About = () => {
             
             <div className="space-y-6 text-gray-600 dark:text-white">
               <p>
-                XELIS is a cutting-edge Layer 1 blockchain platform designed for security, scalability, privacy, and a seamless user experience. Fully decentralized and built on an immutable ledger, XELIS ensures data integrity and trustless transactions. By introducing innovative solutions for consensus, transaction processing, and smart contract execution, XELIS overcomes the limitations of existing blockchain networks—delivering confidentiality, efficiency, and a future-ready blockchain ecosystem.
+              XELIS is a next-generation Layer 1 blockchain engineered for privacy, scalability, and real-world usability. Built on a fully decentralized and immutable ledger, XELIS ensures data integrity, security, and trustless transactions—without compromising confidentiality. Its BlockDAG architecture enables parallel block creation and confirmation, dramatically improving throughput and reducing latency compared to traditional chains, making XELIS fast, scalable, and future-ready.
               </p>
-              
+<p>
+Unlike traditional privacy chains that operate in complete obscurity or public chains that expose sensitive data, XELIS strikes a deliberate balance: confidential transaction data and wallet balances are protected through advanced cryptography, while public addresses remain visible for transparency and accountability. This design enables meaningful privacy while still supporting features important to users, developers, and regulators alike.
+</p>
               <p>
-                Built by a decentralized team of blockchain experts, cryptography specialists, and full stack developers, XELIS 
-                aims to provide a foundation for the next generation of decentralized applications 
-                and confidential digital infrastructure.
+With a high-performance Virtual Machine, programmable smart contracts, and innovative consensus and transaction architecture, XELIS goes beyond the limitations of earlier privacy networks—offering speed, flexibility, and compliance-aware confidentiality in a future-ready ecosystem.
               </p>
               
               <div className="pt-4">
@@ -87,7 +87,7 @@ const About = () => {
               
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center p-4 bg-white dark:bg-black rounded-lg shadow-sm">
-                  <div className="text-3xl font-bold text-xelis-blue mb-1">2,500+</div>
+                  <div className="text-3xl font-bold text-xelis-blue mb-1">7,500+</div>
                   <div className="text-sm text-gray-500 dark:text-white">Max Transactions Per Second</div>
                 </div>
                 
@@ -127,21 +127,21 @@ const About = () => {
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-gray-600 dark:text-black">Smart Contracts</span>
                     <div className="w-2/3 bg-gray-200 rounded-full h-2.5">
-                      <div className="bg-xelis-blue h-2.5 rounded-full" style={{ width: '95%' }}></div>
+                      <div className="bg-xelis-blue h-2.5 rounded-full" style={{ width: '85%' }}></div>
                     </div>
                   </div>
                   
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600 dark:text-black">TPS Increase</span>
+                    <span className="text-sm text-gray-600 dark:text-black">BPS Increase</span>
                     <div className="w-2/3 bg-gray-200 rounded-full h-2.5">
-                      <div className="bg-xelis-blue h-2.5 rounded-full" style={{ width: '95%' }}></div>
+                      <div className="bg-xelis-blue h-2.5 rounded-full" style={{ width: '90%' }}></div>
                     </div>
                   </div>
                   
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-gray-600 dark:text-black">Multiasset Wallet</span>
                     <div className="w-2/3 bg-gray-200 rounded-full h-2.5">
-                      <div className="bg-xelis-blue h-2.5 rounded-full" style={{ width: '75%' }}></div>
+                      <div className="bg-xelis-blue h-2.5 rounded-full" style={{ width: '100%' }}></div>
                     </div>
                   </div>
                 </div>

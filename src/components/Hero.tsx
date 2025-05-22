@@ -16,17 +16,17 @@ const Hero = () => {
         <div className="max-w-3xl mx-auto text-center">
           <div className="inline-block animate-fade-in">
             <span className="inline-flex items-center justify-center px-4 py-1.5 mb-6 rounded-full bg-[#02FFCF] border border-white dark:border-[#02FFCF] text-sm font-bold text-black">
-              Next Generation BlockDAG
+              Next Generation Privacy & Programmability
             </span>
           </div>
 
           <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-6 animate-fade-in">
-            <span className="block mb-4 dark:text-white">Secure, Scalable & Decentralized</span>
+            <span className="block mb-4 dark:text-white">Fast. Private. Scalable.</span>
             <span className="block text-xelis-blue">Confidential BlockDAG</span>
           </h1>
 
           <p className="text-lg md:text-xl text-gray-600 dark:text-white mb-8 max-w-2xl mx-auto animate-fade-in animate-delay-200">
-            XELIS is a modern Layer 1 blockDAG, built to prioritize confidentiality, usability, and scalability. It offers innovative features for both developers and users, including robust smart contracts, a high-performance Virtual Machine, and seamless integration with DeFi.
+            XELIS is a modern Layer 1 blockDAG, built to prioritize confidentiality, speed, usability, and scalability. By leveraging Homomorphic Encryption, XELIS keeps wallet balances and transaction amounts fully confidential—while maintaining publicly visible addresses. It also introduces advanced features like a high-performance Virtual Machine, powerful smart contracts, and native integration with DeFi.
             <br />
             <br />Built for the people, by the people.
           </p>

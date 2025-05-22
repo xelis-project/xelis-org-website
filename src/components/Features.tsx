@@ -40,7 +40,7 @@ const features = [
   },
   {
     icon: <Globe className="h-10 w-10" />,
-    title: 'Global Scalability',
+    title: 'BlockDAG Scalability',
     description: 'Engineered for global scalability, our platform leverages the power of the BlockDAG consensus mechanism to provide high transaction throughput, ensuring optimal performance even as the network grows and ecosystems expand.',
     color: 'text-cyan-500',
     bgColor: 'bg-cyan-50',
