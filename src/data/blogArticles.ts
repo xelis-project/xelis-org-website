@@ -3,6 +3,110 @@ import { BlogArticle } from '@/types';
 
 const SAMPLE_ARTICLES1: BlogArticle[] = [
   {
+    id: '52',
+    title: 'Xelite Pulse | 5 Second Block Times are Here!',
+    description: 'Xelis has officially lowered its blocktime on testnet to prepare for 5s blocks in the future on mainnet, this feat was make possible by a total db rewrite into rocksDB from Sled.',
+    content: `
+# 🚀 XELIS Testnet Hits Lightning Speed with 5-Second Blocks After Major DB Rewrite
+
+*Revolutionizing blockchain speed, performance, and accessibility—without compromising privacy or programmability.*
+
+The XELIS Project has just announced a major upgrade that marks a significant milestone for privacy-focused blockchain technology. In a bold leap forward, XELIS has reduced its testnet block times from **15 seconds to just 5 seconds**, delivering a threefold increase in speed—without altering its core consensus protocol.
+
+This speed boost comes thanks to a complete overhaul of the blockchain's database layer. The project has transitioned from using **Sled**, an embedded database engine, to **RocksDB**, a high-performance key-value store known for its efficiency and low-latency operation. The results are nothing short of impressive:
+
+- 💽 **Disk Usage**: Reduced from 15GB to just 4GB  
+- 🧠 **RAM Consumption**: Significantly reduced  
+- ✍️ **Code Rewritten**: Over 10,000 lines of code revamped  
+- ⚡ **Syncing**: Now faster, lighter, and more stable than ever  
+
+And perhaps most notably, all of these improvements come **without changing the blockchain's consensus model**, preserving the cryptographic integrity and trustless nature of the network.
+
+## 🧩 A Boost for Low-Spec Nodes
+
+In a space where many chains require powerful hardware to run nodes or rely on forced ledger pruning to keep nodes viable, XELIS is going in a different direction. This update further allows **full immutable ledgers** to be maintained even on **low-spec hardware** such as Raspberry Pi's, making it far more accessible to run a full node. That means greater decentralization, improved network resilience, and a lower barrier to entry for developers and users alike.
+
+## 🛠 Open Source and Transparent
+
+As always, XELIS continues to embrace transparency and open-source principles. The full differences of the database transition is available on GitHub:  
+🔍 [View the commit diff](https://github.com/xelis-project/xelis-blockchain/compare/master...rocksdb)
+
+## 🔮 What’s Next?
+
+With this infrastructure upgrade in place, XELIS is positioning itself as the fastest, most scalable, efficient and privacy-respecting blockchain in the world. The new testnet experience not only sets a benchmark in performance but also reinforces the project's long-term commitment to continuous improvement.
+
+You can explore more about the project and join the community at 🌐 [xelis.org](https://xelis.org)
+
+---
+
+## 🧱 About XELIS
+
+**XELIS** is a next-generation privacy blockchain (blockDAG) aiming to balance **performance, decentralization, and confidentiality**. It leverages cutting-edge cryptography and novel infrastructure designs to offer users a **secure, private, and scalable blockchain experience**.
+
+---
+
+Thank you for reading this article on **XELIS**! If you enjoyed the content and found it useful, please consider supporting my work with a tip in **Xelis ($XEL)**. Your contribution helps us keep producing quality content like this, and we genuinely appreciate your support!
+
+— **Cyber** (Telegram: \`cybernated_coinage\` | Discord: \`cybernatedcoinage\`)
+
+### Tipping Address (XELIS ONLY):
+
+\`xel:82zfcy3aa2pk2rzx6jpfnv7u3vkjcxhqs3hyghj45u9g2ccrrslsqk3vm3x\`
+
+---
+
+### 📌 Important Links:
+
+- **Xelis VM Playground:** [https://playground.xelis.io](https://playground.xelis.io)
+- **Xelis LinkTree:** [https://linktr.ee/xelis](https://linktr.ee/xelis)
+- **Website:** [https://xelis.org](https://xelis.org) (Legacy: [https://xelis.io](https://xelis.io))
+- **Documentation:** [https://docs.xelis.io](https://docs.xelis.io)
+- **Whitepaper:** [https://whitepaper.xelis.io/](https://whitepaper.xelis.io/)
+- **Github:** [https://github.com/xelis-project/](https://github.com/xelis-project/)
+- **Fiat Onramp:** [https://onramp.xelis.io](https://onramp.xelis.io)
+- **Xelis Merchandise Store (PPN):** [https://xelis.io/merch](https://xelis.io/merch) or [https://poolpartynodes.com/product-category/xelis-clothing-store/](https://poolpartynodes.com/product-category/xelis-clothing-store/)
+
+### 📢 Social Links:
+- **Telegram:** [https://t.me/xelis_io](https://t.me/xelis_io)
+- **Discord:** [https://discord.gg/xelis](https://discord.gg/xelis)
+- **Twitter/X:** [https://twitter.com/xeliscurrency](https://twitter.com/xeliscurrency)
+- **Facebook:** [https://www.facebook.com/xeliscommunity](https://www.facebook.com/xeliscommunity)
+- **TikTok:** [https://www.tiktok.com/@xeliscommunity](https://www.tiktok.com/@xeliscommunity)
+- **Instagram:** [https://www.instagram.com/xeliscommunity/](https://www.instagram.com/xeliscommunity/)
+- **LinkedIn:** [https://www.linkedin.com/company/xelis](https://www.linkedin.com/company/xelis)
+- **Reddit:** [https://www.reddit.com/r/xelis/](https://www.reddit.com/r/xelis/)
+- **YouTube:** [https://www.youtube.com/@xelis_project](https://www.youtube.com/@xelis_project)
+- **Official Medium:** [https://xeliscommunity.org](https://xeliscommunity.org)
+
+### 🔎 Explorer & Stats:
+- **Explorer:** [https://explorer.xelis.io](https://explorer.xelis.io)
+- **Stats Page:** [https://stats.xelis.io](https://stats.xelis.io)
+
+### 💰 Listings:
+- **CoinGecko:** [https://www.coingecko.com/en/coins/xelis](https://www.coingecko.com/en/coins/xelis)
+- **LiveCoinWatch:** [https://www.livecoinwatch.com/price/XELIS-__XEL](https://www.livecoinwatch.com/price/XELIS-__XEL)
+- **CoinPaprika:** [https://coinpaprika.com/coin/xel-xelis/](https://coinpaprika.com/coin/xel-xelis/)
+
+### 🌐 Community & Tools:
+- **Community Medium:** [https://xeliscommunity.org](https://xeliscommunity.org)
+- **Desktop/Mobile Wallet:** [https://github.com/xelis-project/xelis-genesix-wallet/releases/latest/](https://github.com/xelis-project/xelis-genesix-wallet/releases/latest/)
+- **Web Wallet:** [https://wallet.xelis.io](https://wallet.xelis.io)
+- **Paper Wallet:** [https://paperwallet.xelis.io/](https://paperwallet.xelis.io/)
+- **Faucet:** [https://faucet.xelis.io](https://faucet.xelis.io)
+    `,
+    publishedDate: '2025-05-22T12:00:00Z',
+    slug: '5-second-block-times',
+    thumbnailUrl: '/uploads/blog/5sec.jpg',
+    categories: ['Technology', 'Update', 'Scalability'],
+    author: {
+      name: 'Cyber Henry',
+      avatar: '/uploads/cyber.jpg'
+    },
+    readingTime: '2 min read',
+    likes: 56
+  },
+
+  {
     id: '51',
     title: 'Xelite Pulse | Episode 25: March & April Monthly Review',
     description: 'Dive into the Xelite Pulse, our monthly development, marketing, and community update, highlighting the previous months accomplishments.',

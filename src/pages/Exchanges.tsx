@@ -121,6 +121,30 @@ const Exchanges = () => {
       pairs: ["Many"],
       type: "Swap",
       features: ["Many Pairs", "Simple interface", "Aggregator"]
+    },
+    {
+      name: "Exolix",
+      logo: "/uploads/exolix.png",
+      url: "https://exolix.com/currencies/xel",
+      pairs: ["Many"],
+      type: "Swap",
+      features: ["Many Pairs", "Simple interface", "Aggregator"]
+    },
+    {
+      name: "Coming Soon",
+      logo: "/uploads/xel1.png",
+      
+      pairs: ["XEL-USDT"],
+      type: "Centralized",
+      features: ["Top 50 Exchange", "Low Fees", "High Volume"]
+    },
+    {
+      name: "Coming Soon",
+      logo: "/uploads/xel1.png",
+      
+      pairs: ["XEL-USDT"],
+      type: "Centralized",
+      features: ["Top 50 Exchange", "Low Fees", "High Volume"]
     }
   ];
 
@@ -206,7 +230,7 @@ const Exchanges = () => {
           <div className="mt-16 text-center">
             <p className="text-gray-600 dark:text-white max-w-2xl mx-auto mb-8">
               The XELIS team is working continuously to expand exchange listings. 
-              More trading options will be added as the project grows.
+              More trading options will be added as the project grows.  All exchanges are run by third parties and you must assess the risk of using them.
               <br />
               <br />
               Reminder: Not your Keys, not your crypto. 
