@@ -3,6 +3,201 @@ import { BlogArticle } from '@/types';
 
 const SAMPLE_ARTICLES1: BlogArticle[] = [
   {
+    id: '53',
+    title: 'Xelite Pulse | Episode 26: May Monthly Review',
+    description: 'Dive into the Xelite Pulse, our monthly development, marketing, and community update, highlighting the previous months accomplishments.',
+    content: `
+It's been another productive month for Xelis, with significant progress across several core projects and initiatives. While many of the latest developments may fly under the radar for newcomers, they're laying a strong foundation for major growth in 2025.
+
+## 🛠️ Development Highlights
+
+### 1.) Block Speed Reduction (5 seconds) launched on Testnet  
+![5 Second Blocktimes](/uploads/blog/5sec.jpg)
+On May 22nd the XELIS Project announced a major upgrade that marks a significant milestone for a privacy-focused blockchain technology. In a bold leap forward, XELIS has reduced its testnet block times from 15 seconds to just 5 seconds, delivering a threefold increase in speed - without altering its core consensus protocol. This improvement to testnet paves the path to block speed reduction on our mainnet as we head towards Smart Contracts becoming live on Mainnet.  
+
+Xelis has once again delivered on its promises - proving that 15-second block times were just the beginning. Our long-term goal has always been to maintain a lightweight, fully immutable ledger. We've been intentional in our approach, choosing not to accelerate block times prematurely. By waiting for real network usage before scaling, we avoid unnecessary bloat from empty blocks and ensure the network remains efficient and sustainable. This stands in contrast to many fast block speed chains that are forced to implement pruning due to excessive blockchain bloat (ie. Kaspa).
+
+### 2.) Xelis Node Database Rewrite to RocksDB from Sled  
+
+This May Xelis completed an overhaul of the blockchain's database layer. The project has transitioned from using Sled, an embedded database engine, to RocksDB, a high-performance key-value store known for its efficiency and low-latency operation. The results are nothing short of impressive:  
+
+💽 Disk Usage: Reduced from 15GB to just 4GB  
+🧠 RAM Consumption: Significantly reduced  
+✍️ Code Rewritten: Over 10,000 lines of code revamped  
+⚡ Syncing: Now faster, lighter, and more stable than ever  
+
+And perhaps most notably, all of these improvements come without changing the blockchain's consensus model, preserving the cryptographic integrity and trustless nature of the network.
+
+🧩 **A Boost for Low-Spec Nodes**  
+In a space where many chains require powerful hardware to run nodes or rely on forced ledger pruning to keep nodes viable, XELIS is going in a different direction. This database update further enables full immutable ledgers to be maintained even on low-spec hardware such as Raspberry Pi's, making it far more accessible to run a full node. That means greater decentralization, improved network resilience, and a lower barrier to entry for developers and users alike.
+
+🛠 **Open Source and Transparent**  
+As always, XELIS continues to embrace transparency and open-source principles. The full differences of the database transition is available on GitHub: https://github.com/xelis-project/xelis-blockchain/pull/115
+
+### 3.) Xelis Genesix Wallet Update 0.0.8  
+![Genesix 0.0.8 Update](/uploads/blog/genesix8.png)
+Genesix Wallet Version 0.0.8 brings forth probably the most impactful updates since we launched our native desktop and mobile wallet.  
+
+✅ **Full XSWD integration** - a user-managed, device-only permission layer for connecting to dApps and DeFi. (no third-party servers like WalletConnect!) This update is critical for our upcoming smart contracts and DeFi. Want to test XSWD? Dive in on testnet to https://xelisforge.app our token launching tool, and connect your wallet to the forge via XSWD.  
+
+✅ **Built-in address book and enhanced UI**. Now you can save your most frequently interacted with addresses  
+
+✅ **Multi-signature Wallets** - Require multiple approvals for transactions + view-only mode. This allows wallets to be utilized by groups/entities requiring a minimum # of signatures to send funds. It can also strategically be used by single users to further secure their wallet needing two separate seed phrases/wallets to send transactions.  
+
+✅ **Biometric Authentication**- Use Face ID, fingerprint & more for quick, secure access on mobile (android).  
+
+✅ **Confidential Asset Tracking** - Auto-detect & manage soon-to-be launched confidential tokens on Xelis L1  
+
+✅ **UX & Performance Upgrades**: 1.) Tx History Overhaul - Smoothly navigate large lists with filters & lazy loading. 2.) Precomputed Tables - Instant background table generation = zero wait time. 3.) General Fixes - Bug fixes, UI polish, and speed enhancements throughout.  
+
+Try it now: [Genesix Wallets](https://xelis.org/resources)
+
+### 4.) Node Stability & Stress Testing  
+May was a month of deep testing and critical improvements for the Xelis network. Our core focus was on node stability, stress testing, and validating performance under the new infrastructure updates.  
+
+🔧 Key highlights:  
+- Successfully tested the new RocksDB integration, a major upgrade aimed at improving data handling and long-term scalability.  
+- Continued testing of 5-second block times on testnet, pushing the network on it's speed performance.  
+- Identified and addressed several core issues affecting node syncing, stability, deadlocks and transaction processing throughput.  
+
+To support this, our developers launched "Xelis Storm" - an automated tool that spams the network with thousands of transactions to simulate high-load conditions and expose weaknesses. To date, we have already spammed the testnet with over 2 million transactions in just a couple weeks of our testing period  
+
+These efforts are laying the groundwork for a faster, more robust Xelis mainnet as we move toward smart contract deployment in 2025.
+
+### 5.) Xelis Token DEX (decentralized exchange)  
+
+The community development team, led by Dalkson and Triton, continued progress on the first iteration of a decentralized exchange (DEX) - a key component of the Xelis ecosystem. Similar in concept to platforms like Uniswap or PancakeSwap, this DEX will be essential to have in place prior to the launch of Smart Contracts and XELIS Tokens on mainnet, as day-one trading will play a vital role in the network's early success.  
+
+During this development phase, the team has been focused on building and refining the backend architecture, making significant strides toward completing the core framework that will power the exchange.
+
+### 6.) Another Multi-Asset Wallet Integration  
+
+Following up our success in implementing Xelis in Stack Wallet, a popular-privacy focused multi-asset wallet. The Xelis development team led by Triton is working again on another popular multi-asset wallet implementation that will not only include Xelis, but also our future Xelis Tokens. While the details are still confidential, you can be sure this will be big news for our users & the future Xelis ecosystem!
+
+## 🕊️ Marketing Updates
+
+### 1.) How to Run a Xelis Node YouTube  
+
+Thank you to Suggs for putting together a great tutorial video on how to run a node in Linux server or desktop environment. Dive into the calming voice of Suggs and spin up your Xelis node to aid in our decentralization. Xelis nodes can run on hardware of even the lower specs, such as old PCs or Raspberry Pis. [Watch Video](https://www.youtube.com/watch?v=XKaWtvmimXw)
+
+### 2.) Xelis AMA with Rarestone Compass Telegram community.  
+
+On April 30th, Cyber from the Xelis Core Team joined the Rarestone Compass Telegram community for an in-depth AMA (Ask Me Anything) session.  
+The discussion covered key aspects of Xelis' technology, including our privacy-focused architecture, upcoming smart contracts, and the roadmap for 2025. Cyber also highlighted the unique value of the Xelis protocol and how it differs from other layer 1s in the space.  
+
+A big thank you to the Rarestone team for the opportunity - and to everyone who tuned in with thoughtful questions! 🙌
+
+### 3.) Xelis + Octaspace Partnership Announcement  
+![Octaspace partnership](/uploads/blog/octa.jpg)
+We're excited to announce that Xelis mining is now live on the OctaSpace marketplace - allowing users to mine $XEL using either CPU or GPU nodes with just a few clicks.  
+This integration makes Proof-of-Work mining more accessible, flexible, and decentralized than ever before.  
+
+No setup, no hassle - just deploy and start earning.  
+
+🔗 Try it now on [OctaSpace Marketplace](https://octa.space)
+
+### 4.) Xelis listed on Swap Platform Swapter.io  
+
+We're excited to share that XELIS is now listed on Swapter.io - and in-wallet swaps are officially LIVE on @stack_wallet! 💥  
+
+Powered by Trocador in partnership with @swapter_io, this integration makes it easier than ever to swap XELIS directly from your wallet - no exchanges, no hassle.  
+We tested it ourselves, and it works flawlessly. Massive thanks to the teams at @TrocadorApp and @swapter_io for making this happen! 🙌
+
+## 🌎Community Stats:  
+
+Discord Members: 7259 members  
+(7444 4/25/2025, 7402 3/11/2025, 7350 2/3/25, 7218 1/2/25, 7126 12/5, 7030 members 11/11, 7051 members 10/9, 6950 members 9/6)  
+
+Telegram Members: 3018 members  
+(3018 4/25/2025, 2739 3/11/2025, 2837 2/3/25, 2855 members 1/2/25, 2813 members 12/5, 2853 members 11/11, 2964 members 10/9, 2983 members 9/6)  
+
+@xelis_project-Twitter/X Followers: 9504 followers  
+(9351 4/25/2025, 9179 3/11/25, 9049 2/3/25, 8247 followers 1/2/25, 7815 followers 12/5, 6700 followers 11/11, 6511 followers 10/9, 6165 followers 9/6)  
+
+@xeliscommunity, Twitter/X Followers: 2202 followers  
+(2058 4/25/2025, 1900 3/11/2025, 1820 2/3/25, 1669 followers 1/2/25, 1454 followers 12/5 1192 followers 11/11, 1079 followers 10/9, 860 followers 9/6)
+
+## ⛏️Mining Stats:  
+Current Hashrate: 1.3 GH (2.07 GH 4/25/2025, 2.96 GH3/11/25, 3.43 GH 2/3/25, 4.69GH 1/2/25, 4.22GH 12/5, 2.70GH 11/11, 3.45GH 10/9, 5.4GH 9/6)  
+
+Number of Pool Miners: 2437 Miners (3742 4/25/2024, 4661 3/11/25, 5985 2/3/25, 6198 1/2/2025, 6653 12/5, 4790 11/11, 5809 10/9, 7557 9/6, 6751 8/19) (as per https://www.miningpoolstats.stream/xelis )  
+
+Pool Percentage of Hashrate: 47.3% Herominers, 16.3% K1Pool, 14.6% MinerLab, 11% Vipor, 10% Kryptex (please decentralize your hashrate!)
+
+## 📝Community Post of the Month:  
+![May Twitter Post of Month](/uploads/blog/maytwitter.png)
+Thank you to @realdefimoney for the great twitter post and youtube video. [Watch Video](https://www.youtube.com/watch?app=desktop&v=-I01bGcpiQk)
+
+## 🔮 Looking Ahead  
+With a rapidly evolving codebase, a performance-first smart contract engine, and real-world adoption tools in motion, Xelis is building the future of decentralized privacy - not just for crypto users, but for everyone.  
+
+🧪 Take back Confidentiality. Stay Xelis.  
+🌐 [xelis.org](https://www.xelis.org)
+
+---
+
+Thank you for reading this article on **XELIS**! If you enjoyed the content and found it useful, please consider supporting my work with a tip in **Xelis ($XEL)**. Your contribution helps us keep producing quality content like this, and we genuinely appreciate your support!
+
+— **Cyber** (Telegram: \`cybernated_coinage\` | Discord: \`cybernatedcoinage\`)
+
+### Tipping Address (XELIS ONLY):
+
+\`xel:82zfcy3aa2pk2rzx6jpfnv7u3vkjcxhqs3hyghj45u9g2ccrrslsqk3vm3x\`
+
+---
+
+### 📌 Important Links:
+
+- **Xelis VM Playground:** [https://playground.xelis.io](https://playground.xelis.io)
+- **Xelis LinkTree:** [https://linktr.ee/xelis](https://linktr.ee/xelis)
+- **Website:** [https://xelis.org](https://xelis.org) (Legacy: [https://xelis.io](https://xelis.io))
+- **Documentation:** [https://docs.xelis.io](https://docs.xelis.io)
+- **Whitepaper:** [https://whitepaper.xelis.io/](https://whitepaper.xelis.io/)
+- **Github:** [https://github.com/xelis-project/](https://github.com/xelis-project/)
+- **Fiat Onramp:** [https://onramp.xelis.io](https://onramp.xelis.io)
+- **Xelis Merchandise Store (PPN):** [https://xelis.io/merch](https://xelis.io/merch) or [https://poolpartynodes.com/product-category/xelis-clothing-store/](https://poolpartynodes.com/product-category/xelis-clothing-store/)
+
+### 📢 Social Links:
+- **Telegram:** [https://t.me/xelis_io](https://t.me/xelis_io)
+- **Discord:** [https://discord.gg/xelis](https://discord.gg/xelis)
+- **Twitter/X:** [https://twitter.com/xeliscurrency](https://twitter.com/xeliscurrency)
+- **Facebook:** [https://www.facebook.com/xeliscommunity](https://www.facebook.com/xeliscommunity)
+- **TikTok:** [https://www.tiktok.com/@xeliscommunity](https://www.tiktok.com/@xeliscommunity)
+- **Instagram:** [https://www.instagram.com/xeliscommunity/](https://www.instagram.com/xeliscommunity/)
+- **LinkedIn:** [https://www.linkedin.com/company/xelis](https://www.linkedin.com/company/xelis)
+- **Reddit:** [https://www.reddit.com/r/xelis/](https://www.reddit.com/r/xelis/)
+- **YouTube:** [https://www.youtube.com/@xelis_project](https://www.youtube.com/@xelis_project)
+- **Official Medium:** [https://xeliscommunity.org](https://xeliscommunity.org)
+
+### 🔎 Explorer & Stats:
+- **Explorer:** [https://explorer.xelis.io](https://explorer.xelis.io)
+- **Stats Page:** [https://stats.xelis.io](https://stats.xelis.io)
+
+### 💰 Listings:
+- **CoinGecko:** [https://www.coingecko.com/en/coins/xelis](https://www.coingecko.com/en/coins/xelis)
+- **LiveCoinWatch:** [https://www.livecoinwatch.com/price/XELIS-__XEL](https://www.livecoinwatch.com/price/XELIS-__XEL)
+- **CoinPaprika:** [https://coinpaprika.com/coin/xel-xelis/](https://coinpaprika.com/coin/xel-xelis/)
+
+### 🌐 Community & Tools:
+- **Community Medium:** [https://xeliscommunity.org](https://xeliscommunity.org)
+- **Desktop/Mobile Wallet:** [https://github.com/xelis-project/xelis-genesix-wallet/releases/latest/](https://github.com/xelis-project/xelis-genesix-wallet/releases/latest/)
+- **Web Wallet:** [https://wallet.xelis.io](https://wallet.xelis.io)
+- **Paper Wallet:** [https://paperwallet.xelis.io/](https://paperwallet.xelis.io/)
+- **Faucet:** [https://faucet.xelis.io](https://faucet.xelis.io)
+    `,
+    publishedDate: '2025-06-10T12:00:00Z',
+    slug: 'May-2025-review',
+    thumbnailUrl: '/uploads/blog/mar25.png',
+    categories: ['Xelite Pulse', 'Monthly Updates', 'Progress Report'],
+    author: {
+      name: 'Cyber Henry',
+      avatar: '/uploads/cyber.jpg'
+    },
+    readingTime: '8 min read',
+    likes: 26
+  },
+  
+  {
     id: '52',
     title: 'Xelite Pulse | 5 Second Block Times are Here!',
     description: 'Xelis has officially lowered its blocktime on testnet to prepare for 5s blocks in the future on mainnet, this feat was make possible by a total db rewrite into rocksDB from Sled.',
@@ -363,7 +558,7 @@ Thank you for reading this article on **XELIS**! If you enjoyed the content and 
       avatar: '/uploads/cyber.jpg'
     },
     readingTime: '8 min read',
-    likes: 0
+    likes: 135
   },
   {
     id: '48',
