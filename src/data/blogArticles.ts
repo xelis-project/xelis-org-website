@@ -3,6 +3,226 @@ import { BlogArticle } from '@/types';
 
 const SAMPLE_ARTICLES1: BlogArticle[] = [
   {
+    id: '55',
+    title: 'Built Different: Why Xelis Isn’t Just “Adding Smart Contracts”',
+    description: 'Xelis isn’t retrofitting contracts onto an aging architecture. We’re building a modern, performant, and confidential smart contract platform natively at the protocol level.',
+    content: `
+In an era where every blockchain project claims to be “bringing smart contracts,” most are either:
+
+- Recycling outdated, restrictive, and slow EVM templates,
+
+- Relying on bloated, generalized VMs ill-suited for modern use cases,
+
+- Or, increasingly, projects are waving the white flag on proper layer 1 integration — pivoting to layer 2 gimmicks that only highlight the fact their base layer can’t scale and can’t compute. Some hype-up raw BPS numbers while quietly admitting they’ll never support real L1 programmability — because their architecture was never built for it.
+
+Hitting the easy button and reaching for Solidity or Rust — but it’s a compromise. Solidity is still stuck in “web3 2018” mode: limited, insecure, and bloated with outdated patterns. Rust, while powerful, is overengineered and clunky for most smart contract use cases. A purpose-built language changes that. One designed to feel familiar, yet strikes the right balance: expressive, secure, and tailored specifically for your chain’s architecture, with minimal boilerplage, cleaner/modern syntax, intuitive abstractions, and no legacy baggage dragging devs down. But…..most projects do not have the expertise to do language architecture from the ground up.
+
+## ❌ The Status Quo:
+
+- Projects bolt on smart contract support after the fact, using cookie-cutter EVM forks with limited language support, slow execution, and poor optimization.
+
+- Others are pushing complex and fragmented L2 solutions that fracture liquidity, reduce trust assumptions, and rely on centralized sequencers or bridges.
+
+- Even Ethereum’s own L2 rollups struggle to reconcile decentralization with usability and speed — sacrificing core layer-1 guarantees in the process.
+
+## ✅ The Xelis Approach: Built From the Ground Up
+
+Xelis isn’t retrofitting contracts onto an aging architecture. We’re building a modern, performant, and confidential smart contract platform natively at the protocol level. Here’s what sets us apart:
+
+- 🔥 Custom Virtual Machine built for speed, precision, and smart optimization — execution performance, variable control, and contract expressiveness far beyond EVM’s capabilities.
+
+- 🧠 Silex is not just another Solidity clone. It’s an elegant, Rust-like language purpose-built for secure, expressive, and high-performance smart contract development.
+
+- 🛠️ Everything runs on Layer 1 — no L2 workarounds, no fragmented trust, no multi-hop bridges.
+
+## What You’ll Get Natively on Xelis Layer 1:
+
+- 🛥️ Confidential Tokens
+
+- 💱 DeFi Protocols
+
+- ⚙️ Advanced dApps
+
+- 📊 Data-layer integrity built into every TX
+
+All of this is verified directly on the main blockchain layer, with scalability and confidentiality by default — not bolted on after launch.
+
+## 🔥 Why It Matters
+
+Other projects are admitting defeat, offloading complexity to rollups or sidechains. Xelis is doing the hard work now — so developers don’t have to later.
+
+> Instead of chasing compatibility, we’re chasing capability.
+
+> Instead of following the EVM, we’re redefining what a smart contract platform can be.
+
+## Xelis Smart Contracts Update: June 2025
+
+Advancing Silex, the VM, and Fair On-Chain Execution
+
+The Xelis smart contract ecosystem continues to evolve at a rapid pace, with major improvements landing across the Virtual Machine, Silex programming language, and tooling stack. June 2025 was a particularly productive month, featuring upgrades that boost developer ergonomics, unlock powerful new contract patterns, and lay the groundwork for advanced on-chain fairness mechanisms.
+
+## 🔧 Core Development Highlights
+
+**1. Improved Type Introspection in the VM**
+
+Developers can now inspect enum structures and parameter types more easily thanks to the new type_json field added to Parameter objects. This feature enhances tooling support and opens the door to richer editor integrations and better developer experience.
+
+“Exactly what I asked for weeks ago… haven’t had this much fun coding in forever.” — codehalo
+
+**2. Native Callback & Closure Support in Silex**
+
+A major leap forward in expressiveness: function pointers and closures are now fully supported in the Silex smart contract language.
+
+Inspired by Rust’s elegant syntax and safety-first design, the new features allow developers to define and pass executable logic within contracts, unlocking use cases such as lazy evaluation, deferred logic, and more:
+
+\`\`\`silex
+fn bar(f: fn(u64) -> u64) -> u64 {
+    return f(4) / 2
+}
+
+entry main() {
+    let closure: fn(u64) -> u64 = |v: u64| {
+        return v * 5
+    };
+
+    return bar(closure)
+}
+\`\`\`
+
+With closures now supported, Silex positions itself as one of the most ergonomic and powerful smart contract languages available.
+
+**3. Inter-Contract Calls**
+
+Slated for the next VM update, inter-contract calls are being implemented with native support in the virtual machine, allowing multiple contracts to call each other efficiently by sharing the call stack.
+
+This enables complex composability between contracts — essential for DeFi, DAOs, and layered protocol logic — with minimal overhead.
+
+## 🧠 Experimental Features in Discussion
+
+**Delayed Execution for On-Chain MEV Protection**
+
+A new experimental feature under design is Delayed Execution, aimed at mitigating Miner/Validator Extractable Value (MEV) issues such as sandwich attacks.
+
+The concept:Instead of processing DEX swap transactions based on their order in the block, all swap requests are recorded in memory during block execution. Then, at the end of the block, the contract is re-executed to calculate a fair market price based on all TXs.
+
+**🔍 Use Case:**
+
+- Prevents front-running and transaction-order-dependent manipulation
+
+- Ideal for DEXs and protocols needing block-level fairness
+
+This could represent a significant innovation in MEV resistance — if fully realized in the Xelis architecture.
+
+## 🛠️ Tooling & Playground Enhancements
+
+**1. Live Playground Enhancements**
+
+Significant work has been done on the Xelis Playground UI: https://playground.xelis.io
+
+- Enhanced parameter editing interface
+
+- New “apply” and “cancel” buttons for clarity
+
+- CSS and layout refinements
+
+- More obvious entry point selection
+
+- Fixes to ensure compound types like maps and structs are correctly passed from frontend to backend
+
+![Playground Updates](/uploads/blog/playground1.PNG)
+
+**2. UX & Design Contributions**
+
+Developer codehalo contributed new layout and design changes to improve usability across the playground interface. These collaborative UI/UX efforts continue to make Xelis development smoother and more accessible.
+
+## 💬 Dev Collaboration & Community Spirit
+
+Xelis development is deeply community-driven. From Slixe’s lightning-fast feature turnarounds to codehalo’s frontend debugging, and the Xelis Forge Token Launching App & DEX work by Dalkson and Triton, the pace and transparency of development have impressed many in the community:
+
+> “This is what Slixe does — mention a feature and it’s done the next day.”
+> “One time I half-joked about a vanity wallet generator… an hour later it was live.”
+
+There’s clear momentum and pride in building a language and stack that developers actually enjoy using.
+
+> “I think this will be the most painless SC language out there, honestly.”
+
+## 🚀 What’s Next
+
+Here’s what’s on the immediate horizon for Xelis smart contracts:
+
+- ✅ Finalize and ship inter-contract call support
+
+- 🛠️ Continue playground polishing and responsiveness fixes
+
+- 🧪 Prototype Delayed Execution logic and MEV protections
+
+- 🔍 Explore advanced closures, lazy evaluation, and improved runtime scheduling
+
+- 🧱 Lay foundations for future innovations like contract versioning and sandboxed simulation environments
+
+---
+
+Thank you for reading this article on **XELIS**! If you enjoyed the content and found it useful, please consider supporting my work with a tip in **Xelis ($XEL)**. Your contribution helps us keep producing quality content like this, and we genuinely appreciate your support!
+
+— **Cyber** (Telegram: \`cybernated_coinage\` | Discord: \`cybernatedcoinage\`)
+
+### Tipping Address (XELIS ONLY):
+
+\`xel:82zfcy3aa2pk2rzx6jpfnv7u3vkjcxhqs3hyghj45u9g2ccrrslsqk3vm3x\`
+
+---
+
+### 📌 Important Links:
+
+- **Xelis VM Playground:** [https://playground.xelis.io](https://playground.xelis.io)
+- **Xelis LinkTree:** [https://linktr.ee/xelis](https://linktr.ee/xelis)
+- **Website:** [https://xelis.org](https://xelis.org) (Legacy: [https://xelis.io](https://xelis.io))
+- **Documentation:** [https://docs.xelis.io](https://docs.xelis.io)
+- **Whitepaper:** [https://whitepaper.xelis.io/](https://whitepaper.xelis.io/)
+- **Github:** [https://github.com/xelis-project/](https://github.com/xelis-project/)
+- **Fiat Onramp:** [https://onramp.xelis.io](https://onramp.xelis.io)
+- **Xelis Merchandise Store (PPN):** [https://xelis.io/merch](https://xelis.io/merch) or [https://poolpartynodes.com/product-category/xelis-clothing-store/](https://poolpartynodes.com/product-category/xelis-clothing-store/)
+
+### 📢 Social Links:
+- **Telegram:** [https://t.me/xelis_io](https://t.me/xelis_io)
+- **Discord:** [https://discord.gg/xelis](https://discord.gg/xelis)
+- **Twitter/X:** [https://twitter.com/xeliscurrency](https://twitter.com/xeliscurrency)
+- **Facebook:** [https://www.facebook.com/xeliscommunity](https://www.facebook.com/xeliscommunity)
+- **TikTok:** [https://www.tiktok.com/@xeliscommunity](https://www.tiktok.com/@xeliscommunity)
+- **Instagram:** [https://www.instagram.com/xeliscommunity/](https://www.instagram.com/xeliscommunity/)
+- **LinkedIn:** [https://www.linkedin.com/company/xelis](https://www.linkedin.com/company/xelis)
+- **Reddit:** [https://www.reddit.com/r/xelis/](https://www.reddit.com/r/xelis/)
+- **YouTube:** [https://www.youtube.com/@xelis_project](https://www.youtube.com/@xelis_project)
+- **Official Medium:** [https://xeliscommunity.org](https://xeliscommunity.org)
+
+### 🔎 Explorer & Stats:
+- **Explorer:** [https://explorer.xelis.io](https://explorer.xelis.io)
+- **Stats Page:** [https://stats.xelis.io](https://stats.xelis.io)
+
+### 💰 Listings:
+- **CoinGecko:** [https://www.xelis.org/exchanges/](https://www.xelis.org/exchanges/)
+- **CoinGecko:** [https://www.coingecko.com/en/coins/xelis](https://www.coingecko.com/en/coins/xelis)
+- **LiveCoinWatch:** [https://www.livecoinwatch.com/price/XELIS-__XEL](https://www.livecoinwatch.com/price/XELIS-__XEL)
+- **CoinPaprika:** [https://coinpaprika.com/coin/xel-xelis/](https://coinpaprika.com/coin/xel-xelis/)
+
+### 🌐 Community & Tools:
+- **Community Medium:** [https://xeliscommunity.org](https://xeliscommunity.org)
+- **Wallets:** [https://www.xelis.org/resources/](https://www.xelis.org/resources/)
+- **Faucet:** [https://faucet.xelis.io](https://faucet.xelis.io)
+    `,
+    publishedDate: '2025-06-29T13:00:00Z',
+    slug: 'Built-Different-Smart-Contracts',
+    thumbnailUrl: '/uploads/blog/builtdifferent.png',
+    categories: ['Smart Contracts', 'Technology', 'Update'],
+    author: {
+      name: 'Cyber Henry',
+      avatar: '/uploads/cyber.jpg'
+    },
+    readingTime: '5 min read',
+    likes: 185
+  },
+  
+  {
     id: '54',
     title: 'Redefining Crypto Privacy: How Xelis Brings Confidentiality to the Forefront',
     description: 'Xelis redefines crypto privacy by introducing confidentiality—protecting balances and transactions while maintaining traceability—offering a secure, user-friendly & compliance-friendly alternative to traditional privacy coins.',
