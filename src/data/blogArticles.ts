@@ -3,6 +3,774 @@ import { BlogArticle } from '@/types';
 
 const SAMPLE_ARTICLES1: BlogArticle[] = [
   {
+    id: '56',
+    title: 'XelisForge DEX: Enabling Decentralized Trading of Confidential Tokens launched Xelis',
+    description: 'The XelisForge DEX development is advancing at a rapid-pace, ensuring that trading of confidential tokens on the Xelis network will be available when Smart Contracts move to Mainnet in a couple months!',
+    content: `
+The Xelis ecosystem is pushing into one of its most anticipated milestones: a fully operational, DEX for native confidential tokens on Xelis L1. While most blockchains settle for wrapping their assets into fragmented L2s or borrowing legacy DeFi tooling, Xelis is building its own primitive - from scratch, with security & speed to support native confidential tokens.
+This update brings bullish proof: adding liquidity, removing liquidity, and executing swaps all now work directly on-chain.
+
+---
+
+💧 **Liquidity Engine is Live**
+
+Xelis smart contracts can now support full LP flows.
+
+> "First time adding liquidity I added 1 XEL 1 TEST. This created the LP token and sent it to me. Second time I added 10 XEL and 50 TEST - it took 10 of each and refunded my 40 TEST token."
+
+\`\`\`json
+add_liquidity Contract Call
+{
+  "jsonrpc": "2.0",
+  "method": "build_transaction",
+  "id": 1,
+  "params": {
+    "invoke_contract": {
+      "contract": "acac21aea8910727319c7fd03bc4ee3c399288cb2ce53c8643f5b4759e5a7c4c",
+      "max_gas": 200000000,
+      "chunk_id": 10,
+      "parameters": [
+        { "type": "default", "value": { "type": "opaque", "value": { "type": "Hash", "value": "0000000000000000000000000000000000000000000000000000000000000000" } } },
+        { "type": "default", "value": { "type": "opaque", "value": { "type": "Hash", "value": "21813ed81419c6d9de3f235df0f46e818767c5e590cc8c95aafced5ffb2d5051" } } }
+      ],
+      "deposits": {
+        "0000000000000000000000000000000000000000000000000000000000000000": {
+          "amount": 1000000000
+        },
+        "21813ed81419c6d9de3f235df0f46e818767c5e590cc8c95aafced5ffb2d5051": {
+          "amount": 5000000000
+        }
+      }
+    },
+    "broadcast": true
+  }
+}
+\`\`\`
+
+---
+
+♻️ **Removing Liquidity Works Seamlessly**
+
+\`\`\`json
+remove_liquidity Contract Call
+{
+  "jsonrpc": "2.0",
+  "method": "build_transaction",
+  "id": 1,
+  "params": {
+    "invoke_contract": {
+      "contract": "acac21aea8910727319c7fd03bc4ee3c399288cb2ce53c8643f5b4759e5a7c4c",
+      "max_gas": 200000000,
+      "chunk_id": 11,
+      "parameters": [
+        { "type": "default", "value": { "type": "opaque", "value": { "type": "Hash", "value": "3934ef68ab9e93bd30a7f6763d9c0aea8e23059a74e516d373b58ba307dcd7b1" } } }
+      ],
+      "deposits": {
+        "3934ef68ab9e93bd30a7f6763d9c0aea8e23059a74e516d373b58ba307dcd7b1": {
+          "amount": 1000000000
+        }
+      }
+    },
+    "broadcast": true
+  }
+}
+\`\`\`
+
+---
+
+🔁 **Swaps Executing with Proper Rates**
+
+> "Big news - swap works. I sent 10 XEL, I got 9 TEST. (Low liquidity test, so pricing changed - expected behavior.)"
+
+\`\`\`json
+swap Contract Call
+{
+  "jsonrpc": "2.0",
+  "method": "build_transaction",
+  "id": 1,
+  "params": {
+    "invoke_contract": {
+      "contract": "acac21aea8910727319c7fd03bc4ee3c399288cb2ce53c8643f5b4759e5a7c4c",
+      "max_gas": 200000000,
+      "chunk_id": 12,
+      "parameters": [
+        { "type": "default", "value": { "type": "opaque", "value": { "type": "Hash", "value": "0000000000000000000000000000000000000000000000000000000000000000" } } },
+        { "type": "default", "value": { "type": "opaque", "value": { "type": "Hash", "value": "21813ed81419c6d9de3f235df0f46e818767c5e590cc8c95aafced5ffb2d5051" } } },
+        { "type": "default", "value": { "type": "u64", "value": 1 } }
+      ],
+      "deposits": {
+        "0000000000000000000000000000000000000000000000000000000000000000": {
+          "amount": 1000000000
+        }
+      }
+    },
+    "broadcast": true
+  }
+}
+\`\`\`
+
+---
+
+📈 **Real-Time Price Feeds With On-Chain Reserves**
+
+You can now query liquidity pool reserves directly from the contract to calculate token prices off-chain.
+
+✅ get_contract_data Call to Read Reserves
+
+\`\`\`json
+{
+  "jsonrpc": "2.0",
+  "method": "get_contract_data",
+  "id": 1,
+  "params": {
+    "contract": "acac21aea8910727319c7fd03bc4ee3c399288cb2ce53c8643f5b4759e5a7c4c",
+    "key": {
+      "type": "default", "value": { "type": "opaque", "value": { "type": "Hash", "value": "3934ef68ab9e93bd30a7f6763d9c0aea8e23059a74e516d373b58ba307dcd7b1" } }
+    }
+  }
+}
+\`\`\`
+
+The reserve struct includes the amount of both tokens and the topoheight of the last update. With this, the client can calculate pricing like so:
+
+> Constant product automated market maker (AMM) Formula:  
+> price of B in A = Reserve A / Reserve B
+
+\`\`\`text
+# for example
+# price of xel in usdt = usdt reserve / xel reserve
+# 200 / 100 = 2 usdt per xel
+\`\`\`
+
+This allows lightweight price charts, off-chain indexing, and real-time rate displays in wallets and dApps.
+
+---
+
+🎨 **UX Flow & DEX Frontend Design**
+
+Frontend development is underway with a clean MVP and full-stack integration in view.
+
+> "First step on the path toward in-wallet swaps through our platform. Eventually it'll work in other wallets too." - Tritonn
+
+> "The amazing part is that it all just worked well in the first iteration and is ready for UI embedded testing." - Dalkson
+
+---
+
+🧠 **220 Lines of Code vs 495+ in Uniswap V2**
+
+Let this sink in: Xelis' DEX smart contract is just 220 lines of Silex. That's over 50% smaller than the most comparable version of Uniswap V2.
+
+Why? Because Silex and Xelis Smart Contracts were purpose-built for this.  
+No bloated boilerplate. No fragile abstractions. Just simple, readable, and secure core logic - one contract that can handle multiple token pairs, thanks to native multi-asset support. It's easier to write, easier to read, and radically easier to audit.
+
+> "The code is probably simple enough that you could understand everything but the math behind it. If I sent you PancakeSwap's code, you'd be lost." - Dalkson
+
+This is what it means to design a chain and language together from the ground up.  
+Security through simplicity. Power through architecture.
+
+---
+
+🚀 **Conclusion**
+
+✅ Liquidity logic: complete  
+✅ Swapping verified live  
+✅ Contract reserve reads working  
+✅ Community Devs calling it the "most painless" stack they've worked with  
+
+The Xelis DEX isn't just coming. It's working.  
+Not a clone. Not a fork. A native, confidential token, performant DeFi layer built into the heart of Xelis Layer 1.  
+More to come soon!
+
+---
+
+Thank you for reading this article on **XELIS**! If you enjoyed the content and found it useful, please consider supporting my work with a tip in **Xelis ($XEL)**. Your contribution helps us keep producing quality content like this, and we genuinely appreciate your support!
+
+— **Cyber** (Telegram: \`cybernated_coinage\` | Discord: \`cybernatedcoinage\`)
+
+### Tipping Address (XELIS ONLY):
+
+\`xel:82zfcy3aa2pk2rzx6jpfnv7u3vkjcxhqs3hyghj45u9g2ccrrslsqk3vm3x\`
+
+---
+
+### 📌 Important Links:
+
+- **Xelis VM Playground:** [https://playground.xelis.io](https://playground.xelis.io)
+- **Xelis LinkTree:** [https://linktr.ee/xelis](https://linktr.ee/xelis)
+- **Website:** [https://xelis.org](https://xelis.org) (Legacy: [https://xelis.io](https://xelis.io))
+- **Documentation:** [https://docs.xelis.io](https://docs.xelis.io)
+- **Whitepaper:** [https://whitepaper.xelis.io/](https://whitepaper.xelis.io/)
+- **Github:** [https://github.com/xelis-project/](https://github.com/xelis-project/)
+- **Fiat Onramp:** [https://onramp.xelis.io](https://onramp.xelis.io)
+- **Xelis Merchandise Store (PPN):** [https://xelis.io/merch](https://xelis.io/merch) or [https://poolpartynodes.com/product-category/xelis-clothing-store/](https://poolpartynodes.com/product-category/xelis-clothing-store/)
+
+### 📢 Social Links:
+- **Telegram:** [https://t.me/xelis_io](https://t.me/xelis_io)
+- **Discord:** [https://discord.gg/xelis](https://discord.gg/xelis)
+- **Twitter/X:** [https://twitter.com/xeliscurrency](https://twitter.com/xeliscurrency)
+- **Facebook:** [https://www.facebook.com/xeliscommunity](https://www.facebook.com/xeliscommunity)
+- **TikTok:** [https://www.tiktok.com/@xeliscommunity](https://www.tiktok.com/@xeliscommunity)
+- **Instagram:** [https://www.instagram.com/xeliscommunity/](https://www.instagram.com/xeliscommunity/)
+- **LinkedIn:** [https://www.linkedin.com/company/xelis](https://www.linkedin.com/company/xelis)
+- **Reddit:** [https://www.reddit.com/r/xelis/](https://www.reddit.com/r/xelis/)
+- **YouTube:** [https://www.youtube.com/@xelis_project](https://www.youtube.com/@xelis_project)
+- **Official Medium:** [https://xeliscommunity.org](https://xeliscommunity.org)
+
+### 🔎 Explorer & Stats:
+- **Explorer:** [https://explorer.xelis.io](https://explorer.xelis.io)
+- **Stats Page:** [https://stats.xelis.io](https://stats.xelis.io)
+
+### 💰 Listings:
+- **CoinGecko:** [https://www.xelis.org/exchanges/](https://www.xelis.org/exchanges/)
+- **CoinGecko:** [https://www.coingecko.com/en/coins/xelis](https://www.coingecko.com/en/coins/xelis)
+- **LiveCoinWatch:** [https://www.livecoinwatch.com/price/XELIS-__XEL](https://www.livecoinwatch.com/price/XELIS-__XEL)
+- **CoinPaprika:** [https://coinpaprika.com/coin/xel-xelis/](https://coinpaprika.com/coin/xel-xelis/)
+
+### 🌐 Community & Tools:
+- **Community Medium:** [https://xeliscommunity.org](https://xeliscommunity.org)
+- **Wallets:** [https://www.xelis.org/resources/](https://www.xelis.org/resources/)
+- **Faucet:** [https://faucet.xelis.io](https://faucet.xelis.io)
+    `,
+    publishedDate: '2025-06-29T13:00:00Z',
+    slug: 'XelisForge',
+    thumbnailUrl: '/uploads/blog/forge.png',
+    categories: ['Tokens', 'DEX', 'Update'],
+    author: {
+      name: 'Cyber Henry',
+      avatar: '/uploads/cyber.jpg'
+    },
+    readingTime: '4 min read',
+    likes: 985
+  },
+  
+  {
+    id: '55',
+    title: 'Built Different: Why Xelis Isn’t Just “Adding Smart Contracts”',
+    description: 'Xelis isn’t retrofitting contracts onto an aging architecture. We’re building a modern, performant, and confidential smart contract platform natively at the protocol level.',
+    content: `
+In an era where every blockchain project claims to be “bringing smart contracts,” most are either:
+
+- Recycling outdated, restrictive, and slow EVM templates,
+
+- Relying on bloated, generalized VMs ill-suited for modern use cases,
+
+- Or, increasingly, projects are waving the white flag on proper layer 1 integration — pivoting to layer 2 gimmicks that only highlight the fact their base layer can’t scale and can’t compute. Some hype-up raw BPS numbers while quietly admitting they’ll never support real L1 programmability — because their architecture was never built for it.
+
+Hitting the easy button and reaching for Solidity or Rust — but it’s a compromise. Solidity is still stuck in “web3 2018” mode: limited, insecure, and bloated with outdated patterns. Rust, while powerful, is overengineered and clunky for most smart contract use cases. A purpose-built language changes that. One designed to feel familiar, yet strikes the right balance: expressive, secure, and tailored specifically for your chain’s architecture, with minimal boilerplage, cleaner/modern syntax, intuitive abstractions, and no legacy baggage dragging devs down. But…..most projects do not have the expertise to do language architecture from the ground up.
+
+## ❌ The Status Quo:
+
+- Projects bolt on smart contract support after the fact, using cookie-cutter EVM forks with limited language support, slow execution, and poor optimization.
+
+- Others are pushing complex and fragmented L2 solutions that fracture liquidity, reduce trust assumptions, and rely on centralized sequencers or bridges.
+
+- Even Ethereum’s own L2 rollups struggle to reconcile decentralization with usability and speed — sacrificing core layer-1 guarantees in the process.
+
+## ✅ The Xelis Approach: Built From the Ground Up
+
+Xelis isn’t retrofitting contracts onto an aging architecture. We’re building a modern, performant, and confidential smart contract platform natively at the protocol level. Here’s what sets us apart:
+
+- 🔥 Custom Virtual Machine built for speed, precision, and smart optimization — execution performance, variable control, and contract expressiveness far beyond EVM’s capabilities.
+
+- 🧠 Silex is not just another Solidity clone. It’s an elegant, Rust-like language purpose-built for secure, expressive, and high-performance smart contract development.
+
+- 🛠️ Everything runs on Layer 1 — no L2 workarounds, no fragmented trust, no multi-hop bridges.
+
+## What You’ll Get Natively on Xelis Layer 1:
+
+- 🛥️ Confidential Tokens
+
+- 💱 DeFi Protocols
+
+- ⚙️ Advanced dApps
+
+- 📊 Data-layer integrity built into every TX
+
+All of this is verified directly on the main blockchain layer, with scalability and confidentiality by default — not bolted on after launch.
+
+## 🔥 Why It Matters
+
+Other projects are admitting defeat, offloading complexity to rollups or sidechains. Xelis is doing the hard work now — so developers don’t have to later.
+
+> Instead of chasing compatibility, we’re chasing capability.
+
+> Instead of following the EVM, we’re redefining what a smart contract platform can be.
+
+## Xelis Smart Contracts Update: June 2025
+
+Advancing Silex, the VM, and Fair On-Chain Execution
+
+The Xelis smart contract ecosystem continues to evolve at a rapid pace, with major improvements landing across the Virtual Machine, Silex programming language, and tooling stack. June 2025 was a particularly productive month, featuring upgrades that boost developer ergonomics, unlock powerful new contract patterns, and lay the groundwork for advanced on-chain fairness mechanisms.
+
+## 🔧 Core Development Highlights
+
+**1. Improved Type Introspection in the VM**
+
+Developers can now inspect enum structures and parameter types more easily thanks to the new type_json field added to Parameter objects. This feature enhances tooling support and opens the door to richer editor integrations and better developer experience.
+
+“Exactly what I asked for weeks ago… haven’t had this much fun coding in forever.” — codehalo
+
+**2. Native Callback & Closure Support in Silex**
+
+A major leap forward in expressiveness: function pointers and closures are now fully supported in the Silex smart contract language.
+
+Inspired by Rust’s elegant syntax and safety-first design, the new features allow developers to define and pass executable logic within contracts, unlocking use cases such as lazy evaluation, deferred logic, and more:
+
+\`\`\`silex
+fn bar(f: fn(u64) -> u64) -> u64 {
+    return f(4) / 2
+}
+
+entry main() {
+    let closure: fn(u64) -> u64 = |v: u64| {
+        return v * 5
+    };
+
+    return bar(closure)
+}
+\`\`\`
+
+With closures now supported, Silex positions itself as one of the most ergonomic and powerful smart contract languages available.
+
+**3. Inter-Contract Calls**
+
+Slated for the next VM update, inter-contract calls are being implemented with native support in the virtual machine, allowing multiple contracts to call each other efficiently by sharing the call stack.
+
+This enables complex composability between contracts — essential for DeFi, DAOs, and layered protocol logic — with minimal overhead.
+
+## 🧠 Experimental Features in Discussion
+
+**Delayed Execution for On-Chain MEV Protection**
+
+A new experimental feature under design is Delayed Execution, aimed at mitigating Miner/Validator Extractable Value (MEV) issues such as sandwich attacks.
+
+The concept:Instead of processing DEX swap transactions based on their order in the block, all swap requests are recorded in memory during block execution. Then, at the end of the block, the contract is re-executed to calculate a fair market price based on all TXs.
+
+**🔍 Use Case:**
+
+- Prevents front-running and transaction-order-dependent manipulation
+
+- Ideal for DEXs and protocols needing block-level fairness
+
+This could represent a significant innovation in MEV resistance — if fully realized in the Xelis architecture.
+
+## 🛠️ Tooling & Playground Enhancements
+
+**1. Live Playground Enhancements**
+
+Significant work has been done on the Xelis Playground UI: https://playground.xelis.io
+
+- Enhanced parameter editing interface
+
+- New “apply” and “cancel” buttons for clarity
+
+- CSS and layout refinements
+
+- More obvious entry point selection
+
+- Fixes to ensure compound types like maps and structs are correctly passed from frontend to backend
+
+![Playground Updates](/uploads/blog/playground1.PNG)
+
+**2. UX & Design Contributions**
+
+Developer codehalo contributed new layout and design changes to improve usability across the playground interface. These collaborative UI/UX efforts continue to make Xelis development smoother and more accessible.
+
+## 💬 Dev Collaboration & Community Spirit
+
+Xelis development is deeply community-driven. From Slixe’s lightning-fast feature turnarounds to codehalo’s frontend debugging, and the Xelis Forge Token Launching App & DEX work by Dalkson and Triton, the pace and transparency of development have impressed many in the community:
+
+> “This is what Slixe does — mention a feature and it’s done the next day.”
+> “One time I half-joked about a vanity wallet generator… an hour later it was live.”
+
+There’s clear momentum and pride in building a language and stack that developers actually enjoy using.
+
+> “I think this will be the most painless SC language out there, honestly.”
+
+## 🚀 What’s Next
+
+Here’s what’s on the immediate horizon for Xelis smart contracts:
+
+- ✅ Finalize and ship inter-contract call support
+
+- 🛠️ Continue playground polishing and responsiveness fixes
+
+- 🧪 Prototype Delayed Execution logic and MEV protections
+
+- 🔍 Explore advanced closures, lazy evaluation, and improved runtime scheduling
+
+- 🧱 Lay foundations for future innovations like contract versioning and sandboxed simulation environments
+
+---
+
+Thank you for reading this article on **XELIS**! If you enjoyed the content and found it useful, please consider supporting my work with a tip in **Xelis ($XEL)**. Your contribution helps us keep producing quality content like this, and we genuinely appreciate your support!
+
+— **Cyber** (Telegram: \`cybernated_coinage\` | Discord: \`cybernatedcoinage\`)
+
+### Tipping Address (XELIS ONLY):
+
+\`xel:82zfcy3aa2pk2rzx6jpfnv7u3vkjcxhqs3hyghj45u9g2ccrrslsqk3vm3x\`
+
+---
+
+### 📌 Important Links:
+
+- **Xelis VM Playground:** [https://playground.xelis.io](https://playground.xelis.io)
+- **Xelis LinkTree:** [https://linktr.ee/xelis](https://linktr.ee/xelis)
+- **Website:** [https://xelis.org](https://xelis.org) (Legacy: [https://xelis.io](https://xelis.io))
+- **Documentation:** [https://docs.xelis.io](https://docs.xelis.io)
+- **Whitepaper:** [https://whitepaper.xelis.io/](https://whitepaper.xelis.io/)
+- **Github:** [https://github.com/xelis-project/](https://github.com/xelis-project/)
+- **Fiat Onramp:** [https://onramp.xelis.io](https://onramp.xelis.io)
+- **Xelis Merchandise Store (PPN):** [https://xelis.io/merch](https://xelis.io/merch) or [https://poolpartynodes.com/product-category/xelis-clothing-store/](https://poolpartynodes.com/product-category/xelis-clothing-store/)
+
+### 📢 Social Links:
+- **Telegram:** [https://t.me/xelis_io](https://t.me/xelis_io)
+- **Discord:** [https://discord.gg/xelis](https://discord.gg/xelis)
+- **Twitter/X:** [https://twitter.com/xeliscurrency](https://twitter.com/xeliscurrency)
+- **Facebook:** [https://www.facebook.com/xeliscommunity](https://www.facebook.com/xeliscommunity)
+- **TikTok:** [https://www.tiktok.com/@xeliscommunity](https://www.tiktok.com/@xeliscommunity)
+- **Instagram:** [https://www.instagram.com/xeliscommunity/](https://www.instagram.com/xeliscommunity/)
+- **LinkedIn:** [https://www.linkedin.com/company/xelis](https://www.linkedin.com/company/xelis)
+- **Reddit:** [https://www.reddit.com/r/xelis/](https://www.reddit.com/r/xelis/)
+- **YouTube:** [https://www.youtube.com/@xelis_project](https://www.youtube.com/@xelis_project)
+- **Official Medium:** [https://xeliscommunity.org](https://xeliscommunity.org)
+
+### 🔎 Explorer & Stats:
+- **Explorer:** [https://explorer.xelis.io](https://explorer.xelis.io)
+- **Stats Page:** [https://stats.xelis.io](https://stats.xelis.io)
+
+### 💰 Listings:
+- **CoinGecko:** [https://www.xelis.org/exchanges/](https://www.xelis.org/exchanges/)
+- **CoinGecko:** [https://www.coingecko.com/en/coins/xelis](https://www.coingecko.com/en/coins/xelis)
+- **LiveCoinWatch:** [https://www.livecoinwatch.com/price/XELIS-__XEL](https://www.livecoinwatch.com/price/XELIS-__XEL)
+- **CoinPaprika:** [https://coinpaprika.com/coin/xel-xelis/](https://coinpaprika.com/coin/xel-xelis/)
+
+### 🌐 Community & Tools:
+- **Community Medium:** [https://xeliscommunity.org](https://xeliscommunity.org)
+- **Wallets:** [https://www.xelis.org/resources/](https://www.xelis.org/resources/)
+- **Faucet:** [https://faucet.xelis.io](https://faucet.xelis.io)
+    `,
+    publishedDate: '2025-06-29T13:00:00Z',
+    slug: 'Built-Different-Smart-Contracts',
+    thumbnailUrl: '/uploads/blog/builtdifferent.png',
+    categories: ['Smart Contracts', 'Technology', 'Update'],
+    author: {
+      name: 'Cyber Henry',
+      avatar: '/uploads/cyber.jpg'
+    },
+    readingTime: '5 min read',
+    likes: 185
+  },
+  
+  {
+    id: '54',
+    title: 'Redefining Crypto Privacy: How Xelis Brings Confidentiality to the Forefront',
+    description: 'Xelis redefines crypto privacy by introducing confidentiality—protecting balances and transactions while maintaining traceability—offering a secure, user-friendly & compliance-friendly alternative to traditional privacy coins.',
+    content: `
+As cryptocurrency continues to evolve, one essential pillar has been overlooked and often misunderstood — privacy.
+
+Blockchain technology promised a decentralized future, yet the very transparency that powers it can expose users to surveillance, scams, and serious security risks. It’s time to reframe the discussion around privacy — and Xelis is leading the charge.
+
+## Why Privacy Still Matters
+Privacy isn’t about secrecy — it’s about freedom, safety, and control. In a digital economy, where every transaction can be traced, users deserve financial autonomy without becoming targets. Unlike traditional finance, where balances and payments are confidential by design, most cryptocurrencies expose transaction data on public ledgers.
+
+This visibility can be exploited — and has been. Users are vulnerable to phishing, extortion, and even real-world threats simply for holding crypto. Yet, calls for privacy are often met with suspicion, painted as harboring criminal intent.
+
+It’s a dangerous misconception. Privacy is not the problem — it’s the lack of nuance in its implementation.
+
+## The Misunderstanding of Privacy Coins
+Privacy coins have long battled negative perceptions. While some bad actors abuse anonymity, the overwhelming majority of users seek protection — not concealment. Traditional banks don’t publish your account balance for public viewing — why should your wallet?
+
+Regulators, exchanges, and even users often recoil from privacy coins, fearing de-listings and compliance hurdles. As a result, crypto users are forced into an impossible choice: security or functionality.
+
+This is the gap Xelis fills.
+
+## Xelis: The Rise of Confidential Crypto
+Rather than pursuing total anonymity, Xelis redefines privacy as confidentiality.
+
+Here’s what that means:
+
+- Transaction amounts and wallet balances are hidden
+- Addresses and transaction flows remain visible for traceability
+- Compliance-friendly design with privacy that doesn’t raise red flags
+
+This selective approach creates a hybrid system: one that protects users from bad actors while allowing integrations with regulated platforms. Xelis doesn’t hide everything — it protects what matters.
+
+## A Practical Path to Adoption
+Thanks to its balanced architecture, Xelis has already seen interest from exchanges and services that traditionally avoid privacy coins. Its design mirrors the confidentiality of traditional finance while avoiding the blanket opacity that raises compliance concerns.
+
+In an industry often forced into extremes, Xelis proves that privacy can coexist with accountability.
+
+Why Confidentiality Is the Future
+As crypto adoption accelerates, so do the risks. Public ledgers have made it easier than ever to track, dox, or exploit users — something no one would tolerate in the legacy financial system. Xelis eliminates these risks without resorting to full anonymity.
+
+Confidentiality isn’t a luxury — it’s a requirement for mass adoption. Xelis offers a future where privacy isn’t suspicious — it’s responsible.
+
+## TL;DR
+Xelis isn’t a privacy coin. It’s a confidential coin — blending user protection with transparency. It protects your financial data without triggering red flags, proving that crypto privacy doesn’t have to be all or nothing.
+
+🧪 Take back Confidentiality. Stay Xelis.  
+🌐 [xelis.org](https://www.xelis.org)
+
+---
+
+Thank you for reading this article on **XELIS**! If you enjoyed the content and found it useful, please consider supporting my work with a tip in **Xelis ($XEL)**. Your contribution helps us keep producing quality content like this, and we genuinely appreciate your support!
+
+— **Cyber** (Telegram: \`cybernated_coinage\` | Discord: \`cybernatedcoinage\`)
+
+### Tipping Address (XELIS ONLY):
+
+\`xel:82zfcy3aa2pk2rzx6jpfnv7u3vkjcxhqs3hyghj45u9g2ccrrslsqk3vm3x\`
+
+---
+
+### 📌 Important Links:
+
+- **Xelis VM Playground:** [https://playground.xelis.io](https://playground.xelis.io)
+- **Xelis LinkTree:** [https://linktr.ee/xelis](https://linktr.ee/xelis)
+- **Website:** [https://xelis.org](https://xelis.org) (Legacy: [https://xelis.io](https://xelis.io))
+- **Documentation:** [https://docs.xelis.io](https://docs.xelis.io)
+- **Whitepaper:** [https://whitepaper.xelis.io/](https://whitepaper.xelis.io/)
+- **Github:** [https://github.com/xelis-project/](https://github.com/xelis-project/)
+- **Fiat Onramp:** [https://onramp.xelis.io](https://onramp.xelis.io)
+- **Xelis Merchandise Store (PPN):** [https://xelis.io/merch](https://xelis.io/merch) or [https://poolpartynodes.com/product-category/xelis-clothing-store/](https://poolpartynodes.com/product-category/xelis-clothing-store/)
+
+### 📢 Social Links:
+- **Telegram:** [https://t.me/xelis_io](https://t.me/xelis_io)
+- **Discord:** [https://discord.gg/xelis](https://discord.gg/xelis)
+- **Twitter/X:** [https://twitter.com/xeliscurrency](https://twitter.com/xeliscurrency)
+- **Facebook:** [https://www.facebook.com/xeliscommunity](https://www.facebook.com/xeliscommunity)
+- **TikTok:** [https://www.tiktok.com/@xeliscommunity](https://www.tiktok.com/@xeliscommunity)
+- **Instagram:** [https://www.instagram.com/xeliscommunity/](https://www.instagram.com/xeliscommunity/)
+- **LinkedIn:** [https://www.linkedin.com/company/xelis](https://www.linkedin.com/company/xelis)
+- **Reddit:** [https://www.reddit.com/r/xelis/](https://www.reddit.com/r/xelis/)
+- **YouTube:** [https://www.youtube.com/@xelis_project](https://www.youtube.com/@xelis_project)
+- **Official Medium:** [https://xeliscommunity.org](https://xeliscommunity.org)
+
+### 🔎 Explorer & Stats:
+- **Explorer:** [https://explorer.xelis.io](https://explorer.xelis.io)
+- **Stats Page:** [https://stats.xelis.io](https://stats.xelis.io)
+
+### 💰 Listings:
+- **CoinGecko:** [https://www.coingecko.com/en/coins/xelis](https://www.coingecko.com/en/coins/xelis)
+- **LiveCoinWatch:** [https://www.livecoinwatch.com/price/XELIS-__XEL](https://www.livecoinwatch.com/price/XELIS-__XEL)
+- **CoinPaprika:** [https://coinpaprika.com/coin/xel-xelis/](https://coinpaprika.com/coin/xel-xelis/)
+
+### 🌐 Community & Tools:
+- **Community Medium:** [https://xeliscommunity.org](https://xeliscommunity.org)
+- **Desktop/Mobile Wallet:** [https://github.com/xelis-project/xelis-genesix-wallet/releases/latest/](https://github.com/xelis-project/xelis-genesix-wallet/releases/latest/)
+- **Web Wallet:** [https://wallet.xelis.io](https://wallet.xelis.io)
+- **Paper Wallet:** [https://paperwallet.xelis.io/](https://paperwallet.xelis.io/)
+- **Faucet:** [https://faucet.xelis.io](https://faucet.xelis.io)
+    `,
+    publishedDate: '2025-06-20T12:00:00Z',
+    slug: 'confidentiality-redfined',
+    thumbnailUrl: '/uploads/blog/xelconfidential.png',
+    categories: ['Partial Privacy', 'Confidential', 'Feature Deepdive'],
+    author: {
+      name: 'Cyber Henry',
+      avatar: '/uploads/cyber.jpg'
+    },
+    readingTime: '4 min read',
+    likes: 33
+  },
+  {
+    id: '53',
+    title: 'Xelite Pulse | Episode 26: May Monthly Review',
+    description: 'Dive into the Xelite Pulse, our monthly development, marketing, and community update, highlighting the previous months accomplishments.',
+    content: `
+It's been another productive month for Xelis, with significant progress across several core projects and initiatives. While many of the latest developments may fly under the radar for newcomers, they're laying a strong foundation for major growth in 2025.
+
+## 🛠️ Development Highlights
+
+### 1.) Block Speed Reduction (5 seconds) launched on Testnet  
+![5 Second Blocktimes](/uploads/blog/5sec.jpg)
+On May 22nd the XELIS Project announced a major upgrade that marks a significant milestone for a privacy-focused blockchain technology. In a bold leap forward, XELIS has reduced its testnet block times from 15 seconds to just 5 seconds, delivering a threefold increase in speed - without altering its core consensus protocol. This improvement to testnet paves the path to block speed reduction on our mainnet as we head towards Smart Contracts becoming live on Mainnet.  
+
+Xelis has once again delivered on its promises - proving that 15-second block times were just the beginning. Our long-term goal has always been to maintain a lightweight, fully immutable ledger. We've been intentional in our approach, choosing not to accelerate block times prematurely. By waiting for real network usage before scaling, we avoid unnecessary bloat from empty blocks and ensure the network remains efficient and sustainable. This stands in contrast to many fast block speed chains that are forced to implement pruning due to excessive blockchain bloat (ie. Kaspa).
+
+### 2.) Xelis Node Database Rewrite to RocksDB from Sled  
+
+This May Xelis completed an overhaul of the blockchain's database layer. The project has transitioned from using Sled, an embedded database engine, to RocksDB, a high-performance key-value store known for its efficiency and low-latency operation. The results are nothing short of impressive:  
+
+💽 Disk Usage: Reduced from 15GB to just 4GB  
+🧠 RAM Consumption: Significantly reduced  
+✍️ Code Rewritten: Over 10,000 lines of code revamped  
+⚡ Syncing: Now faster, lighter, and more stable than ever  
+
+And perhaps most notably, all of these improvements come without changing the blockchain's consensus model, preserving the cryptographic integrity and trustless nature of the network.
+
+🧩 **A Boost for Low-Spec Nodes**  
+In a space where many chains require powerful hardware to run nodes or rely on forced ledger pruning to keep nodes viable, XELIS is going in a different direction. This database update further enables full immutable ledgers to be maintained even on low-spec hardware such as Raspberry Pi's, making it far more accessible to run a full node. That means greater decentralization, improved network resilience, and a lower barrier to entry for developers and users alike.
+
+🛠 **Open Source and Transparent**  
+As always, XELIS continues to embrace transparency and open-source principles. The full differences of the database transition is available on GitHub: https://github.com/xelis-project/xelis-blockchain/pull/115
+
+### 3.) Xelis Genesix Wallet Update 0.0.8  
+![Genesix 0.0.8 Update](/uploads/blog/genesix8.png)
+Genesix Wallet Version 0.0.8 brings forth probably the most impactful updates since we launched our native desktop and mobile wallet.  
+
+✅ **Full XSWD integration** - a user-managed, device-only permission layer for connecting to dApps and DeFi. (no third-party servers like WalletConnect!) This update is critical for our upcoming smart contracts and DeFi. Want to test XSWD? Dive in on testnet to https://xelisforge.app our token launching tool, and connect your wallet to the forge via XSWD.  
+
+✅ **Built-in address book and enhanced UI**. Now you can save your most frequently interacted with addresses  
+
+✅ **Multi-signature Wallets** - Require multiple approvals for transactions + view-only mode. This allows wallets to be utilized by groups/entities requiring a minimum # of signatures to send funds. It can also strategically be used by single users to further secure their wallet needing two separate seed phrases/wallets to send transactions.  
+
+✅ **Biometric Authentication**- Use Face ID, fingerprint & more for quick, secure access on mobile (android).  
+
+✅ **Confidential Asset Tracking** - Auto-detect & manage soon-to-be launched confidential tokens on Xelis L1  
+
+✅ **UX & Performance Upgrades**: 1.) Tx History Overhaul - Smoothly navigate large lists with filters & lazy loading. 2.) Precomputed Tables - Instant background table generation = zero wait time. 3.) General Fixes - Bug fixes, UI polish, and speed enhancements throughout.  
+
+Try it now: [Genesix Wallets](https://xelis.org/resources)
+
+### 4.) Node Stability & Stress Testing  
+May was a month of deep testing and critical improvements for the Xelis network. Our core focus was on node stability, stress testing, and validating performance under the new infrastructure updates.  
+
+🔧 Key highlights:  
+- Successfully tested the new RocksDB integration, a major upgrade aimed at improving data handling and long-term scalability.  
+- Continued testing of 5-second block times on testnet, pushing the network on it's speed performance.  
+- Identified and addressed several core issues affecting node syncing, stability, deadlocks and transaction processing throughput.  
+
+To support this, our developers launched "Xelis Storm" - an automated tool that spams the network with thousands of transactions to simulate high-load conditions and expose weaknesses. To date, we have already spammed the testnet with over 2 million transactions in just a couple weeks of our testing period  
+
+These efforts are laying the groundwork for a faster, more robust Xelis mainnet as we move toward smart contract deployment in 2025.
+
+### 5.) Xelis Token DEX (decentralized exchange)  
+
+The community development team, led by Dalkson and Triton, continued progress on the first iteration of a decentralized exchange (DEX) - a key component of the Xelis ecosystem. Similar in concept to platforms like Uniswap or PancakeSwap, this DEX will be essential to have in place prior to the launch of Smart Contracts and XELIS Tokens on mainnet, as day-one trading will play a vital role in the network's early success.  
+
+During this development phase, the team has been focused on building and refining the backend architecture, making significant strides toward completing the core framework that will power the exchange.
+
+### 6.) Another Multi-Asset Wallet Integration  
+
+Following up our success in implementing Xelis in Stack Wallet, a popular-privacy focused multi-asset wallet. The Xelis development team led by Triton is working again on another popular multi-asset wallet implementation that will not only include Xelis, but also our future Xelis Tokens. While the details are still confidential, you can be sure this will be big news for our users & the future Xelis ecosystem!
+
+## 🕊️ Marketing Updates
+
+### 1.) How to Run a Xelis Node YouTube  
+
+Thank you to Suggs for putting together a great tutorial video on how to run a node in Linux server or desktop environment. Dive into the calming voice of Suggs and spin up your Xelis node to aid in our decentralization. Xelis nodes can run on hardware of even the lower specs, such as old PCs or Raspberry Pis. [Watch Video](https://www.youtube.com/watch?v=XKaWtvmimXw)
+
+### 2.) Xelis AMA with Rarestone Compass Telegram community.  
+
+On April 30th, Cyber from the Xelis Core Team joined the Rarestone Compass Telegram community for an in-depth AMA (Ask Me Anything) session.  
+The discussion covered key aspects of Xelis' technology, including our privacy-focused architecture, upcoming smart contracts, and the roadmap for 2025. Cyber also highlighted the unique value of the Xelis protocol and how it differs from other layer 1s in the space.  
+
+A big thank you to the Rarestone team for the opportunity - and to everyone who tuned in with thoughtful questions! 🙌
+
+### 3.) Xelis + Octaspace Partnership Announcement  
+![Octaspace partnership](/uploads/blog/octa.jpg)
+We're excited to announce that Xelis mining is now live on the OctaSpace marketplace - allowing users to mine $XEL using either CPU or GPU nodes with just a few clicks.  
+This integration makes Proof-of-Work mining more accessible, flexible, and decentralized than ever before.  
+
+No setup, no hassle - just deploy and start earning.  
+
+🔗 Try it now on [OctaSpace Marketplace](https://octa.space)
+
+### 4.) Xelis listed on Swap Platform Swapter.io  
+
+We're excited to share that XELIS is now listed on Swapter.io - and in-wallet swaps are officially LIVE on @stack_wallet! 💥  
+
+Powered by Trocador in partnership with @swapter_io, this integration makes it easier than ever to swap XELIS directly from your wallet - no exchanges, no hassle.  
+We tested it ourselves, and it works flawlessly. Massive thanks to the teams at @TrocadorApp and @swapter_io for making this happen! 🙌
+
+## 🌎Community Stats:  
+
+Discord Members: 7259 members  
+(7444 4/25/2025, 7402 3/11/2025, 7350 2/3/25, 7218 1/2/25, 7126 12/5, 7030 members 11/11, 7051 members 10/9, 6950 members 9/6)  
+
+Telegram Members: 3018 members  
+(3018 4/25/2025, 2739 3/11/2025, 2837 2/3/25, 2855 members 1/2/25, 2813 members 12/5, 2853 members 11/11, 2964 members 10/9, 2983 members 9/6)  
+
+@xelis_project-Twitter/X Followers: 9504 followers  
+(9351 4/25/2025, 9179 3/11/25, 9049 2/3/25, 8247 followers 1/2/25, 7815 followers 12/5, 6700 followers 11/11, 6511 followers 10/9, 6165 followers 9/6)  
+
+@xeliscommunity, Twitter/X Followers: 2202 followers  
+(2058 4/25/2025, 1900 3/11/2025, 1820 2/3/25, 1669 followers 1/2/25, 1454 followers 12/5 1192 followers 11/11, 1079 followers 10/9, 860 followers 9/6)
+
+## ⛏️Mining Stats:  
+Current Hashrate: 1.3 GH (2.07 GH 4/25/2025, 2.96 GH3/11/25, 3.43 GH 2/3/25, 4.69GH 1/2/25, 4.22GH 12/5, 2.70GH 11/11, 3.45GH 10/9, 5.4GH 9/6)  
+
+Number of Pool Miners: 2437 Miners (3742 4/25/2024, 4661 3/11/25, 5985 2/3/25, 6198 1/2/2025, 6653 12/5, 4790 11/11, 5809 10/9, 7557 9/6, 6751 8/19) (as per https://www.miningpoolstats.stream/xelis )  
+
+Pool Percentage of Hashrate: 47.3% Herominers, 16.3% K1Pool, 14.6% MinerLab, 11% Vipor, 10% Kryptex (please decentralize your hashrate!)
+
+## 📝Community Post of the Month:  
+![May Twitter Post of Month](/uploads/blog/maytwitter.png)
+Thank you to @realdefimoney for the great twitter post and youtube video. [Watch Video](https://www.youtube.com/watch?app=desktop&v=-I01bGcpiQk)
+
+## 🔮 Looking Ahead  
+With a rapidly evolving codebase, a performance-first smart contract engine, and real-world adoption tools in motion, Xelis is building the future of decentralized privacy - not just for crypto users, but for everyone.  
+
+🧪 Take back Confidentiality. Stay Xelis.  
+🌐 [xelis.org](https://www.xelis.org)
+
+---
+
+Thank you for reading this article on **XELIS**! If you enjoyed the content and found it useful, please consider supporting my work with a tip in **Xelis ($XEL)**. Your contribution helps us keep producing quality content like this, and we genuinely appreciate your support!
+
+— **Cyber** (Telegram: \`cybernated_coinage\` | Discord: \`cybernatedcoinage\`)
+
+### Tipping Address (XELIS ONLY):
+
+\`xel:82zfcy3aa2pk2rzx6jpfnv7u3vkjcxhqs3hyghj45u9g2ccrrslsqk3vm3x\`
+
+---
+
+### 📌 Important Links:
+
+- **Xelis VM Playground:** [https://playground.xelis.io](https://playground.xelis.io)
+- **Xelis LinkTree:** [https://linktr.ee/xelis](https://linktr.ee/xelis)
+- **Website:** [https://xelis.org](https://xelis.org) (Legacy: [https://xelis.io](https://xelis.io))
+- **Documentation:** [https://docs.xelis.io](https://docs.xelis.io)
+- **Whitepaper:** [https://whitepaper.xelis.io/](https://whitepaper.xelis.io/)
+- **Github:** [https://github.com/xelis-project/](https://github.com/xelis-project/)
+- **Fiat Onramp:** [https://onramp.xelis.io](https://onramp.xelis.io)
+- **Xelis Merchandise Store (PPN):** [https://xelis.io/merch](https://xelis.io/merch) or [https://poolpartynodes.com/product-category/xelis-clothing-store/](https://poolpartynodes.com/product-category/xelis-clothing-store/)
+
+### 📢 Social Links:
+- **Telegram:** [https://t.me/xelis_io](https://t.me/xelis_io)
+- **Discord:** [https://discord.gg/xelis](https://discord.gg/xelis)
+- **Twitter/X:** [https://twitter.com/xeliscurrency](https://twitter.com/xeliscurrency)
+- **Facebook:** [https://www.facebook.com/xeliscommunity](https://www.facebook.com/xeliscommunity)
+- **TikTok:** [https://www.tiktok.com/@xeliscommunity](https://www.tiktok.com/@xeliscommunity)
+- **Instagram:** [https://www.instagram.com/xeliscommunity/](https://www.instagram.com/xeliscommunity/)
+- **LinkedIn:** [https://www.linkedin.com/company/xelis](https://www.linkedin.com/company/xelis)
+- **Reddit:** [https://www.reddit.com/r/xelis/](https://www.reddit.com/r/xelis/)
+- **YouTube:** [https://www.youtube.com/@xelis_project](https://www.youtube.com/@xelis_project)
+- **Official Medium:** [https://xeliscommunity.org](https://xeliscommunity.org)
+
+### 🔎 Explorer & Stats:
+- **Explorer:** [https://explorer.xelis.io](https://explorer.xelis.io)
+- **Stats Page:** [https://stats.xelis.io](https://stats.xelis.io)
+
+### 💰 Listings:
+- **CoinGecko:** [https://www.coingecko.com/en/coins/xelis](https://www.coingecko.com/en/coins/xelis)
+- **LiveCoinWatch:** [https://www.livecoinwatch.com/price/XELIS-__XEL](https://www.livecoinwatch.com/price/XELIS-__XEL)
+- **CoinPaprika:** [https://coinpaprika.com/coin/xel-xelis/](https://coinpaprika.com/coin/xel-xelis/)
+
+### 🌐 Community & Tools:
+- **Community Medium:** [https://xeliscommunity.org](https://xeliscommunity.org)
+- **Desktop/Mobile Wallet:** [https://github.com/xelis-project/xelis-genesix-wallet/releases/latest/](https://github.com/xelis-project/xelis-genesix-wallet/releases/latest/)
+- **Web Wallet:** [https://wallet.xelis.io](https://wallet.xelis.io)
+- **Paper Wallet:** [https://paperwallet.xelis.io/](https://paperwallet.xelis.io/)
+- **Faucet:** [https://faucet.xelis.io](https://faucet.xelis.io)
+    `,
+    publishedDate: '2025-06-10T12:00:00Z',
+    slug: 'May-2025-review',
+    thumbnailUrl: '/uploads/blog/mar25.png',
+    categories: ['Xelite Pulse', 'Monthly Updates', 'Progress Report'],
+    author: {
+      name: 'Cyber Henry',
+      avatar: '/uploads/cyber.jpg'
+    },
+    readingTime: '8 min read',
+    likes: 26
+  },
+  
+  {
     id: '52',
     title: 'Xelite Pulse | 5 Second Block Times are Here!',
     description: 'Xelis has officially lowered its blocktime on testnet to prepare for 5s blocks in the future on mainnet, this feat was make possible by a total db rewrite into rocksDB from Sled.',
@@ -363,7 +1131,7 @@ Thank you for reading this article on **XELIS**! If you enjoyed the content and 
       avatar: '/uploads/cyber.jpg'
     },
     readingTime: '8 min read',
-    likes: 0
+    likes: 135
   },
   {
     id: '48',

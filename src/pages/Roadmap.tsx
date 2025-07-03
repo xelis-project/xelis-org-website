@@ -113,13 +113,18 @@ const Roadmap = () => {
       completed: false,
       inProgress: true,
       items: [
+        "News/Blog on Website (Completed)",
+        "Database Rewrite in RocksDB (Completed)",
+        "5 Second Block Times on Testnet (Completed)",
+        "Genesix Updates: Multisig, XSWD, BioAuth, Address Book (Completed)",
+        "5 Second Block Times on Mainnet",
         "Smart Contracts Mainnet",
         "Xelis Decentralized Exchange",
         "Confidential Token Minting App",
         "Ledger Hardware Wallet Support",
         "Xelis Quests Interactive App",
         "Developer Bounties",
-        "News/Blog on Website"
+        
       ]
     }
   ];
