@@ -3,6 +3,247 @@ import { BlogArticle } from '@/types';
 
 const SAMPLE_ARTICLES1: BlogArticle[] = [
   {
+    id: '56',
+    title: 'XelisForge DEX: Enabling Decentralized Trading of Confidential Tokens launched Xelis',
+    description: 'The XelisForge DEX development is advancing at a rapid-pace, ensuring that trading of confidential tokens on the Xelis network will be available when Smart Contracts move to Mainnet in a couple months!',
+    content: `
+The Xelis ecosystem is pushing into one of its most anticipated milestones: a fully operational, DEX for native confidential tokens on Xelis L1. While most blockchains settle for wrapping their assets into fragmented L2s or borrowing legacy DeFi tooling, Xelis is building its own primitive - from scratch, with security & speed to support native confidential tokens.
+This update brings bullish proof: adding liquidity, removing liquidity, and executing swaps all now work directly on-chain.
+
+---
+
+💧 **Liquidity Engine is Live**
+
+Xelis smart contracts can now support full LP flows.
+
+> "First time adding liquidity I added 1 XEL 1 TEST. This created the LP token and sent it to me. Second time I added 10 XEL and 50 TEST - it took 10 of each and refunded my 40 TEST token."
+
+\`\`\`json
+add_liquidity Contract Call
+{
+  "jsonrpc": "2.0",
+  "method": "build_transaction",
+  "id": 1,
+  "params": {
+    "invoke_contract": {
+      "contract": "acac21aea8910727319c7fd03bc4ee3c399288cb2ce53c8643f5b4759e5a7c4c",
+      "max_gas": 200000000,
+      "chunk_id": 10,
+      "parameters": [
+        { "type": "default", "value": { "type": "opaque", "value": { "type": "Hash", "value": "0000000000000000000000000000000000000000000000000000000000000000" } } },
+        { "type": "default", "value": { "type": "opaque", "value": { "type": "Hash", "value": "21813ed81419c6d9de3f235df0f46e818767c5e590cc8c95aafced5ffb2d5051" } } }
+      ],
+      "deposits": {
+        "0000000000000000000000000000000000000000000000000000000000000000": {
+          "amount": 1000000000
+        },
+        "21813ed81419c6d9de3f235df0f46e818767c5e590cc8c95aafced5ffb2d5051": {
+          "amount": 5000000000
+        }
+      }
+    },
+    "broadcast": true
+  }
+}
+\`\`\`
+
+---
+
+♻️ **Removing Liquidity Works Seamlessly**
+
+\`\`\`json
+remove_liquidity Contract Call
+{
+  "jsonrpc": "2.0",
+  "method": "build_transaction",
+  "id": 1,
+  "params": {
+    "invoke_contract": {
+      "contract": "acac21aea8910727319c7fd03bc4ee3c399288cb2ce53c8643f5b4759e5a7c4c",
+      "max_gas": 200000000,
+      "chunk_id": 11,
+      "parameters": [
+        { "type": "default", "value": { "type": "opaque", "value": { "type": "Hash", "value": "3934ef68ab9e93bd30a7f6763d9c0aea8e23059a74e516d373b58ba307dcd7b1" } } }
+      ],
+      "deposits": {
+        "3934ef68ab9e93bd30a7f6763d9c0aea8e23059a74e516d373b58ba307dcd7b1": {
+          "amount": 1000000000
+        }
+      }
+    },
+    "broadcast": true
+  }
+}
+\`\`\`
+
+---
+
+🔁 **Swaps Executing with Proper Rates**
+
+> "Big news - swap works. I sent 10 XEL, I got 9 TEST. (Low liquidity test, so pricing changed - expected behavior.)"
+
+\`\`\`json
+swap Contract Call
+{
+  "jsonrpc": "2.0",
+  "method": "build_transaction",
+  "id": 1,
+  "params": {
+    "invoke_contract": {
+      "contract": "acac21aea8910727319c7fd03bc4ee3c399288cb2ce53c8643f5b4759e5a7c4c",
+      "max_gas": 200000000,
+      "chunk_id": 12,
+      "parameters": [
+        { "type": "default", "value": { "type": "opaque", "value": { "type": "Hash", "value": "0000000000000000000000000000000000000000000000000000000000000000" } } },
+        { "type": "default", "value": { "type": "opaque", "value": { "type": "Hash", "value": "21813ed81419c6d9de3f235df0f46e818767c5e590cc8c95aafced5ffb2d5051" } } },
+        { "type": "default", "value": { "type": "u64", "value": 1 } }
+      ],
+      "deposits": {
+        "0000000000000000000000000000000000000000000000000000000000000000": {
+          "amount": 1000000000
+        }
+      }
+    },
+    "broadcast": true
+  }
+}
+\`\`\`
+
+---
+
+📈 **Real-Time Price Feeds With On-Chain Reserves**
+
+You can now query liquidity pool reserves directly from the contract to calculate token prices off-chain.
+
+✅ get_contract_data Call to Read Reserves
+
+\`\`\`json
+{
+  "jsonrpc": "2.0",
+  "method": "get_contract_data",
+  "id": 1,
+  "params": {
+    "contract": "acac21aea8910727319c7fd03bc4ee3c399288cb2ce53c8643f5b4759e5a7c4c",
+    "key": {
+      "type": "default", "value": { "type": "opaque", "value": { "type": "Hash", "value": "3934ef68ab9e93bd30a7f6763d9c0aea8e23059a74e516d373b58ba307dcd7b1" } }
+    }
+  }
+}
+\`\`\`
+
+The reserve struct includes the amount of both tokens and the topoheight of the last update. With this, the client can calculate pricing like so:
+
+> Constant product automated market maker (AMM) Formula:  
+> price of B in A = Reserve A / Reserve B
+
+\`\`\`text
+# for example
+# price of xel in usdt = usdt reserve / xel reserve
+# 200 / 100 = 2 usdt per xel
+\`\`\`
+
+This allows lightweight price charts, off-chain indexing, and real-time rate displays in wallets and dApps.
+
+---
+
+🎨 **UX Flow & DEX Frontend Design**
+
+Frontend development is underway with a clean MVP and full-stack integration in view.
+
+> "First step on the path toward in-wallet swaps through our platform. Eventually it'll work in other wallets too." - Tritonn
+
+> "The amazing part is that it all just worked well in the first iteration and is ready for UI embedded testing." - Dalkson
+
+---
+
+🧠 **220 Lines of Code vs 495+ in Uniswap V2**
+
+Let this sink in: Xelis' DEX smart contract is just 220 lines of Silex. That's over 50% smaller than the most comparable version of Uniswap V2.
+
+Why? Because Silex and Xelis Smart Contracts were purpose-built for this.  
+No bloated boilerplate. No fragile abstractions. Just simple, readable, and secure core logic - one contract that can handle multiple token pairs, thanks to native multi-asset support. It's easier to write, easier to read, and radically easier to audit.
+
+> "The code is probably simple enough that you could understand everything but the math behind it. If I sent you PancakeSwap's code, you'd be lost." - Dalkson
+
+This is what it means to design a chain and language together from the ground up.  
+Security through simplicity. Power through architecture.
+
+---
+
+🚀 **Conclusion**
+
+✅ Liquidity logic: complete  
+✅ Swapping verified live  
+✅ Contract reserve reads working  
+✅ Community Devs calling it the "most painless" stack they've worked with  
+
+The Xelis DEX isn't just coming. It's working.  
+Not a clone. Not a fork. A native, confidential token, performant DeFi layer built into the heart of Xelis Layer 1.  
+More to come soon!
+
+---
+
+Thank you for reading this article on **XELIS**! If you enjoyed the content and found it useful, please consider supporting my work with a tip in **Xelis ($XEL)**. Your contribution helps us keep producing quality content like this, and we genuinely appreciate your support!
+
+— **Cyber** (Telegram: \`cybernated_coinage\` | Discord: \`cybernatedcoinage\`)
+
+### Tipping Address (XELIS ONLY):
+
+\`xel:82zfcy3aa2pk2rzx6jpfnv7u3vkjcxhqs3hyghj45u9g2ccrrslsqk3vm3x\`
+
+---
+
+### 📌 Important Links:
+
+- **Xelis VM Playground:** [https://playground.xelis.io](https://playground.xelis.io)
+- **Xelis LinkTree:** [https://linktr.ee/xelis](https://linktr.ee/xelis)
+- **Website:** [https://xelis.org](https://xelis.org) (Legacy: [https://xelis.io](https://xelis.io))
+- **Documentation:** [https://docs.xelis.io](https://docs.xelis.io)
+- **Whitepaper:** [https://whitepaper.xelis.io/](https://whitepaper.xelis.io/)
+- **Github:** [https://github.com/xelis-project/](https://github.com/xelis-project/)
+- **Fiat Onramp:** [https://onramp.xelis.io](https://onramp.xelis.io)
+- **Xelis Merchandise Store (PPN):** [https://xelis.io/merch](https://xelis.io/merch) or [https://poolpartynodes.com/product-category/xelis-clothing-store/](https://poolpartynodes.com/product-category/xelis-clothing-store/)
+
+### 📢 Social Links:
+- **Telegram:** [https://t.me/xelis_io](https://t.me/xelis_io)
+- **Discord:** [https://discord.gg/xelis](https://discord.gg/xelis)
+- **Twitter/X:** [https://twitter.com/xeliscurrency](https://twitter.com/xeliscurrency)
+- **Facebook:** [https://www.facebook.com/xeliscommunity](https://www.facebook.com/xeliscommunity)
+- **TikTok:** [https://www.tiktok.com/@xeliscommunity](https://www.tiktok.com/@xeliscommunity)
+- **Instagram:** [https://www.instagram.com/xeliscommunity/](https://www.instagram.com/xeliscommunity/)
+- **LinkedIn:** [https://www.linkedin.com/company/xelis](https://www.linkedin.com/company/xelis)
+- **Reddit:** [https://www.reddit.com/r/xelis/](https://www.reddit.com/r/xelis/)
+- **YouTube:** [https://www.youtube.com/@xelis_project](https://www.youtube.com/@xelis_project)
+- **Official Medium:** [https://xeliscommunity.org](https://xeliscommunity.org)
+
+### 🔎 Explorer & Stats:
+- **Explorer:** [https://explorer.xelis.io](https://explorer.xelis.io)
+- **Stats Page:** [https://stats.xelis.io](https://stats.xelis.io)
+
+### 💰 Listings:
+- **CoinGecko:** [https://www.xelis.org/exchanges/](https://www.xelis.org/exchanges/)
+- **CoinGecko:** [https://www.coingecko.com/en/coins/xelis](https://www.coingecko.com/en/coins/xelis)
+- **LiveCoinWatch:** [https://www.livecoinwatch.com/price/XELIS-__XEL](https://www.livecoinwatch.com/price/XELIS-__XEL)
+- **CoinPaprika:** [https://coinpaprika.com/coin/xel-xelis/](https://coinpaprika.com/coin/xel-xelis/)
+
+### 🌐 Community & Tools:
+- **Community Medium:** [https://xeliscommunity.org](https://xeliscommunity.org)
+- **Wallets:** [https://www.xelis.org/resources/](https://www.xelis.org/resources/)
+- **Faucet:** [https://faucet.xelis.io](https://faucet.xelis.io)
+    `,
+    publishedDate: '2025-06-29T13:00:00Z',
+    slug: 'XelisForge',
+    thumbnailUrl: '/uploads/blog/forge.png',
+    categories: ['Tokens', 'DEX', 'Update'],
+    author: {
+      name: 'Cyber Henry',
+      avatar: '/uploads/cyber.jpg'
+    },
+    readingTime: '4 min read',
+    likes: 985
+  },
+  
+  {
     id: '55',
     title: 'Built Different: Why Xelis Isn’t Just “Adding Smart Contracts”',
     description: 'Xelis isn’t retrofitting contracts onto an aging architecture. We’re building a modern, performant, and confidential smart contract platform natively at the protocol level.',
