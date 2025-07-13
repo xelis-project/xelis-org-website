@@ -5301,7 +5301,6 @@ Started as CPU mineable; now **GPU mining** is most efficient.
 ## 💱 Where to Buy Xelis?
 Available on these exchanges (⚠️ *Use at your own risk*):
 - [TradeOgre](https://tradeogre.com/exchange/XEL-USDT)
-- [Xeggex (XEL/USDT)](https://xeggex.com/market/XEL_USDT)
 - [NonKYC](https://nonkyc.io/market/XEL_USDT)
 - [Exbitron](https://exbitron.com/trade?market=xel-usdt)
 - [SevenSeas](https://www.sevenseas.exchange/market/XEL-USDT)
