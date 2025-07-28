@@ -75,14 +75,6 @@ const Exchanges = () => {
       features: ["Mobile App", "Alt Coins", "Institutional Services"]
     },
     {
-      name: "Xeggex",
-      logo: "/uploads/xeggex.png",
-      url: "https://xeggex.com/market/XEL_USDT",
-      pairs: ["XEL-USDT"],
-      type: "Centralized",
-      features: ["PoW Projects", "Simple Interface", "Low fees"]
-    },
-    {
       name: "NonKYC",
       logo: "/uploads/nonkyc.png",
       url: "https://nonkyc.io/market/XEL_USDT",
