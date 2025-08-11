@@ -3,183 +3,75 @@ import { BlogArticle } from '@/types';
 
 const SAMPLE_ARTICLES1: BlogArticle[] = [
   {
-    id: '56',
-    title: 'XelisForge DEX: Enabling Decentralized Trading of Confidential Tokens launched Xelis',
-    description: 'The XelisForge DEX development is advancing at a rapid-pace, ensuring that trading of confidential tokens on the Xelis network will be available when Smart Contracts move to Mainnet in a couple months!',
+    id: '58',
+    title: 'Xelis Smart Contracts Take a Giant Leap Forward: Inter-Contract Calls Are Here',
+    description: 'One of the biggest and last milestones before Xelis Smart Contracts go live on Mainnet is here: Inter-Contract Calls.',
     content: `
-The Xelis ecosystem is pushing into one of its most anticipated milestones: a fully operational, DEX for native confidential tokens on Xelis L1. While most blockchains settle for wrapping their assets into fragmented L2s or borrowing legacy DeFi tooling, Xelis is building its own primitive - from scratch, with security & speed to support native confidential tokens.
-This update brings bullish proof: adding liquidity, removing liquidity, and executing swaps all now work directly on-chain.
+If you’ve been following Xelis’ journey, you know we’re not building “just another” smart contract platform. From day one, our goal has been ambitious:
 
----
+- No shortcuts.  
+- No cloning someone else’s decade-old design or language.  
+- No sacrificing performance or security for convenience.  
+- Completely on Layer 1  
 
-💧 **Liquidity Engine is Live**
+We’ve built Xelis Smart Contracts from the ground up — not an EVM copy, not a dated bolt-on to an existing chain. Our VM is engineered for 10x the speed of the EVM, richer functionality, more developer flexibility, and our own developed programming language (Silex) that’s more powerful than Solidity, yet clean and developer friendly with a syntax similiar to Rust.
 
-Xelis smart contracts can now support full LP flows.
+While others take the easy road — either cloning Ethereum’s limitations or conceding defeat on L1 scalability and falling back on roll-ups and other Layer 2 workarounds — Xelis doubles down on doing things right. We believe true scalability, security, and privacy must be baked into Layer 1 itself. Anything else is a compromise we’re not willing to make.
 
-> "First time adding liquidity I added 1 XEL 1 TEST. This created the LP token and sent it to me. Second time I added 10 XEL and 50 TEST - it took 10 of each and refunded my 40 TEST token."
+(Looking at you, projects that brag about “innovation” while shipping EVM clones or punting to L2… cough, cough.)
 
-\`\`\`json
-add_liquidity Contract Call
-{
-  "jsonrpc": "2.0",
-  "method": "build_transaction",
-  "id": 1,
-  "params": {
-    "invoke_contract": {
-      "contract": "acac21aea8910727319c7fd03bc4ee3c399288cb2ce53c8643f5b4759e5a7c4c",
-      "max_gas": 200000000,
-      "chunk_id": 10,
-      "parameters": [
-        { "type": "default", "value": { "type": "opaque", "value": { "type": "Hash", "value": "0000000000000000000000000000000000000000000000000000000000000000" } } },
-        { "type": "default", "value": { "type": "opaque", "value": { "type": "Hash", "value": "21813ed81419c6d9de3f235df0f46e818767c5e590cc8c95aafced5ffb2d5051" } } }
-      ],
-      "deposits": {
-        "0000000000000000000000000000000000000000000000000000000000000000": {
-          "amount": 1000000000
-        },
-        "21813ed81419c6d9de3f235df0f46e818767c5e590cc8c95aafced5ffb2d5051": {
-          "amount": 5000000000
-        }
-      }
-    },
-    "broadcast": true
-  }
-}
+## The Final Big Piece Before Mainnet: Inter-Contract Calls
+
+After months of building and refining, the Inter-Contract Call system — one of the most powerful and complex features of the Xelis Smart Contract ecosystem — is here on testnet in its first working form.
+
+### What is an Inter-Contract Call?
+
+It’s the ability for one smart contract to directly call functions inside another smart contract. This is a foundational capability for complex dApps and modular design patterns — think DeFi protocols that use multiple composable contracts, game economies with multiple modules, or cross-service APIs in a decentralized environment.
+
+But like everything in Xelis, we didn’t just implement it the “standard” way. We designed it for security-first usuability
+
+### Key Design Features
+
+1. **Public vs Entry Functions**  
+Entry functions are the “front door” — they run in the scope of the called contract and are meant for wallet/user interaction.  
+Public functions are callable by other contracts for internal logic and are still isolated in their own sandboxed storage.  
+This separation means contracts can’t just hijack another contract’s state without permission. Developers can expose only the exact functions they want others to call.
+
+2. **Sandboxed Storage**  
+When one contract calls another, the storage changes happen in the called contract’s namespace, unless specifically using a planned delegate_invoke mode — which executes the called contract in the caller’s scope. This gives developers precise control over state modification and prevents accidental or malicious cross-contamination.
+
+3. **Permission System**  
+This is where Xelis’ approach blows Ethereum out of the water.
+On Ethereum, when you approve a contract to spend your tokens, you’re often granting global, permanent permissions — and shady contracts can drain your entire wallet. In Xelis, we’ve designed a granular permission model:
+
+- None — The contract you call can’t invoke any other contracts on your behalf.  
+- All — You fully trust the contract to call any others.  
+- Whitelist — You approve a list of specific contracts (up to 255) it can call.  
+
+This is similar to XSWD’s (another innovation by Xelis) permission handling and prevents malicious dApp scams where a hijacked contract suddenly drains unrelated balances (typically referred to as “drainer” scams).
+
+4. **Deposits Between Contracts**  
+Contracts can now send value (assets) directly to each other as part of a call. The syntax is simple:
+
+\`\`\`silex
+module.invoke(chunk_id, [params], { asset: amount });
 \`\`\`
 
----
+This makes atomic, multi-step value transfers between contracts possible without awkward workarounds.
 
-♻️ **Removing Liquidity Works Seamlessly**
+## TL;DR — What’s Left Before Mainnet
 
-\`\`\`json
-remove_liquidity Contract Call
-{
-  "jsonrpc": "2.0",
-  "method": "build_transaction",
-  "id": 1,
-  "params": {
-    "invoke_contract": {
-      "contract": "acac21aea8910727319c7fd03bc4ee3c399288cb2ce53c8643f5b4759e5a7c4c",
-      "max_gas": 200000000,
-      "chunk_id": 11,
-      "parameters": [
-        { "type": "default", "value": { "type": "opaque", "value": { "type": "Hash", "value": "3934ef68ab9e93bd30a7f6763d9c0aea8e23059a74e516d373b58ba307dcd7b1" } } }
-      ],
-      "deposits": {
-        "3934ef68ab9e93bd30a7f6763d9c0aea8e23059a74e516d373b58ba307dcd7b1": {
-          "amount": 1000000000
-        }
-      }
-    },
-    "broadcast": true
-  }
-}
-\`\`\`
+We’re down to the final stretch before Xelis Smart Contracts go live on mainnet:
 
----
+- Finalize & test the permission system.  
+- Extensive stress-testing of inter-contract calls and the entire SC engine.  
+- Polish Silex developer experience (interface helpers, documentation).  
 
-🔁 **Swaps Executing with Proper Rates**
+Once that’s done — we’re there.
 
-> "Big news - swap works. I sent 10 XEL, I got 9 TEST. (Low liquidity test, so pricing changed - expected behavior.)"
+Xelis is proving what’s possible when you refuse to take shortcuts and always put community, users, and developers first. We’ve built a smart contract platform from the ground up, optimized for speed, security, and developer freedom — and now, with inter-contract calls working, the most complex piece is in place.
 
-\`\`\`json
-swap Contract Call
-{
-  "jsonrpc": "2.0",
-  "method": "build_transaction",
-  "id": 1,
-  "params": {
-    "invoke_contract": {
-      "contract": "acac21aea8910727319c7fd03bc4ee3c399288cb2ce53c8643f5b4759e5a7c4c",
-      "max_gas": 200000000,
-      "chunk_id": 12,
-      "parameters": [
-        { "type": "default", "value": { "type": "opaque", "value": { "type": "Hash", "value": "0000000000000000000000000000000000000000000000000000000000000000" } } },
-        { "type": "default", "value": { "type": "opaque", "value": { "type": "Hash", "value": "21813ed81419c6d9de3f235df0f46e818767c5e590cc8c95aafced5ffb2d5051" } } },
-        { "type": "default", "value": { "type": "u64", "value": 1 } }
-      ],
-      "deposits": {
-        "0000000000000000000000000000000000000000000000000000000000000000": {
-          "amount": 1000000000
-        }
-      }
-    },
-    "broadcast": true
-  }
-}
-\`\`\`
-
----
-
-📈 **Real-Time Price Feeds With On-Chain Reserves**
-
-You can now query liquidity pool reserves directly from the contract to calculate token prices off-chain.
-
-✅ get_contract_data Call to Read Reserves
-
-\`\`\`json
-{
-  "jsonrpc": "2.0",
-  "method": "get_contract_data",
-  "id": 1,
-  "params": {
-    "contract": "acac21aea8910727319c7fd03bc4ee3c399288cb2ce53c8643f5b4759e5a7c4c",
-    "key": {
-      "type": "default", "value": { "type": "opaque", "value": { "type": "Hash", "value": "3934ef68ab9e93bd30a7f6763d9c0aea8e23059a74e516d373b58ba307dcd7b1" } }
-    }
-  }
-}
-\`\`\`
-
-The reserve struct includes the amount of both tokens and the topoheight of the last update. With this, the client can calculate pricing like so:
-
-> Constant product automated market maker (AMM) Formula:  
-> price of B in A = Reserve A / Reserve B
-
-\`\`\`text
-# for example
-# price of xel in usdt = usdt reserve / xel reserve
-# 200 / 100 = 2 usdt per xel
-\`\`\`
-
-This allows lightweight price charts, off-chain indexing, and real-time rate displays in wallets and dApps.
-
----
-
-🎨 **UX Flow & DEX Frontend Design**
-
-Frontend development is underway with a clean MVP and full-stack integration in view.
-
-> "First step on the path toward in-wallet swaps through our platform. Eventually it'll work in other wallets too." - Tritonn
-
-> "The amazing part is that it all just worked well in the first iteration and is ready for UI embedded testing." - Dalkson
-
----
-
-🧠 **220 Lines of Code vs 495+ in Uniswap V2**
-
-Let this sink in: Xelis' DEX smart contract is just 220 lines of Silex. That's over 50% smaller than the most comparable version of Uniswap V2.
-
-Why? Because Silex and Xelis Smart Contracts were purpose-built for this.  
-No bloated boilerplate. No fragile abstractions. Just simple, readable, and secure core logic - one contract that can handle multiple token pairs, thanks to native multi-asset support. It's easier to write, easier to read, and radically easier to audit.
-
-> "The code is probably simple enough that you could understand everything but the math behind it. If I sent you PancakeSwap's code, you'd be lost." - Dalkson
-
-This is what it means to design a chain and language together from the ground up.  
-Security through simplicity. Power through architecture.
-
----
-
-🚀 **Conclusion**
-
-✅ Liquidity logic: complete  
-✅ Swapping verified live  
-✅ Contract reserve reads working  
-✅ Community Devs calling it the "most painless" stack they've worked with  
-
-The Xelis DEX isn't just coming. It's working.  
-Not a clone. Not a fork. A native, confidential token, performant DeFi layer built into the heart of Xelis Layer 1.  
-More to come soon!
+Mainnet is coming. And it’s going to be huge!
 
 ---
 
@@ -231,16 +123,16 @@ Thank you for reading this article on **XELIS**! If you enjoyed the content and 
 - **Wallets:** [https://www.xelis.org/resources/](https://www.xelis.org/resources/)
 - **Faucet:** [https://faucet.xelis.io](https://faucet.xelis.io)
     `,
-    publishedDate: '2025-06-29T13:00:00Z',
-    slug: 'XelisForge',
-    thumbnailUrl: '/uploads/blog/forge.png',
-    categories: ['Tokens', 'DEX', 'Update'],
+    publishedDate: '2025-08-11T13:00:00Z',
+    slug: 'Inter-Contract_Calls',
+    thumbnailUrl: '/uploads/blog/Intercontract.png',
+    categories: ['Feature Deepdive', 'Smart Contracts', 'Update'],
     author: {
       name: 'Cyber Henry',
       avatar: '/uploads/cyber.jpg'
     },
     readingTime: '4 min read',
-    likes: 985
+    likes: 23
   },
   
    {
@@ -632,7 +524,7 @@ Thank you for reading this article on **XELIS**! If you enjoyed the content and 
 - **Wallets:** [https://www.xelis.org/resources/](https://www.xelis.org/resources/)
 - **Faucet:** [https://faucet.xelis.io](https://faucet.xelis.io)
     `,
-    publishedDate: '2025-06-29T13:00:00Z',
+    publishedDate: '2025-07-03T13:00:00Z',
     slug: 'XelisForge',
     thumbnailUrl: '/uploads/blog/forge.png',
     categories: ['Tokens', 'DEX', 'Update'],
