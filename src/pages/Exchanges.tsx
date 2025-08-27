@@ -26,14 +26,14 @@ const Exchanges = () => {
 
   // Exchange data
   const exchanges = [
-    {
+    /*{
       name: "TradeOgre",
       logo: "/uploads/tradeogre.png",
       url: "https://tradeogre.com/exchange/XEL-USDT",
       pairs: ["XEL-USDT"],
       type: "Centralized",
       features: ["No KYC required", "Simple interface", "Low fees"]
-    },
+    },*/
     {
       name: "MEXC Global",
       logo: "/uploads/mexc.png",
@@ -42,14 +42,14 @@ const Exchanges = () => {
       type: "Centralized",
       features: ["High liquidity", "Mobile app", "1000s of trading pairs"]
     },
-    {
+    /*{
       name: "XT",
       logo: "/uploads/xt.png",
       url: "https://www.xt.com/en/trade/xel_usdt",
       pairs: ["XEL-USDT"],
       type: "Centralized",
       features: ["Low Fees", "Advanced trading tools", "24-7 Support"]
-    },
+    },*/
     {
       name: "CoinEx",
       logo: "/uploads/coinex.png",
@@ -122,22 +122,14 @@ const Exchanges = () => {
       type: "Swap",
       features: ["Many Pairs", "Simple interface", "Aggregator"]
     },
-    {
+    /*{
       name: "Coming Soon",
       logo: "/uploads/xel1.png",
       
       pairs: ["XEL-USDT"],
       type: "Centralized",
       features: ["Top 50 Exchange", "Low Fees", "High Volume"]
-    },
-    {
-      name: "Coming Soon",
-      logo: "/uploads/xel1.png",
-      
-      pairs: ["XEL-USDT"],
-      type: "Centralized",
-      features: ["Top 50 Exchange", "Low Fees", "High Volume"]
-    }
+    }*/
   ];
 
   return (
