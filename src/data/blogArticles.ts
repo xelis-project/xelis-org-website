@@ -2,7 +2,238 @@
 import { BlogArticle } from '@/types';
 
 const SAMPLE_ARTICLES1: BlogArticle[] = [
-  {
+ {
+    id: '59',
+    title: 'XELITE PULSE | Xelis Monthly Update - August 2025 🚀',
+    description: 'August was a solid month for Xelis. Development accelerated across core infrastructure, major upgrades landed, and big ecosystem updates.',
+    content: `
+# Introduction  
+
+August was a solid month for Xelis. Development accelerated across core infrastructure, major upgrades landed, and big ecosystem updates.  
+
+Highlights include:  
+🔐 Ledger hardware wallet support hitting a major milestone  
+⚡ Dynamic transaction fees to fight spam and preserve scalability  
+📊 Forge DEX backend and charting system advancing rapidly  
+🔒 Next-generation cryptography primitives added to Silex smart contracts  
+🎨 Facelifts coming soon for both the Explorer and Genesix wallet  
+🌍 Exchange strategy updates, reflecting our long-term values  
+👥 Expansion of the core team with four new members  
+
+---
+
+# Xelis Ledger Wallet Support - Community Update 🔐  
+
+Secure storage is critical, and August brought massive progress on Ledger hardware wallet integration.  
+
+Tritonn has developed a working Ledger application with key functionality already live:  
+- Xelis-compatible keypair generation and address derivation  
+- Full sr25519 transaction signing and cryptographic verification  
+- Balance decryption and Pedersen commitment validation  
+- Multi-output support for complex transfers and burns  
+
+### Efficiency and Design  
+The app is compact at only ~43KB, estimated at ~80KB when complete (smaller than both Monero and Polkadot). It is memory-optimized for Ledger's constrained environment, and all sensitive operations run directly on-device for maximum security.  
+
+### Next Steps  
+Support for additional transaction types, polishing the on-device UI, direct integration with the Genesix wallet, and preparation for a security audit and potential Ledger App Catalog submission. This achievement elevates Xelis security to institutional-grade standards, ensuring holders can confidently store assets offline.  
+
+---
+
+# Dynamic Transaction Fees - Fighting Spam at Layer 1 ⚡  
+One of Xelis's superpowers is its ability to scale under stress, even during extreme "storm" spam transaction loads. But high-volume spam can quickly bloat the chain.  
+To combat this, we introduced Dynamic Transaction Fees.  
+
+### How It Works  
+Transaction fees adjust based on average block size compared to the maximum block size. As blocks become fuller, minimum required fees rise automatically. This makes spamming prohibitively expensive and protects the chain.  
+
+### Results So Far  
+The system is already reducing spam pressure as intended. The only drawback is ~1ms overhead during block execution and verification, which the team is actively optimizing.  
+
+### Challenges and Next Steps  
+Handling nodes with network latency that attempt outdated transactions, and further refining fee calculation and propagation efficiency.  
+This system ensures Xelis remains scalable, spam-resistant, and efficient even under the heaviest loads.  
+
+---
+
+# Smart Contracts - Next-Level Cryptography in Silex 🔒  
+August unlocked powerful new capabilities for developers building in Silex, our custom smart contract language.  
+- **Ristretto Points and Scalars**: Core building blocks for advanced zero-knowledge cryptography  
+- **RangeProof Verification**: Prove hidden values are within ranges without revealing them  
+- **Transcript Control and Native Signature Verification**: Build fully custom cryptographic flows  
+
+### Why It Matters  
+These upgrades enable private DeFi, zk-KYC systems, auctions, mixers, and privacy pools. They support confidential stablecoins and private voting with verifiable results. They streamline zk-bridges and atomic swaps. Unlike the EVM, which struggles with heavy cryptographic math, Xelis runs it natively at Layer 1 speed with no precompiles or middlemen. Silex is becoming a privacy-first cryptography lab at the base layer - the kind of toolkit usually reserved for specialized chains.  
+
+---
+
+# Forge DEX Development Update 📊  
+The Forge DEX team has been building fast, with major strides across backend, charting, and smart contract layers.  
+
+### Indexer and Price Feeds  
+The indexer now captures events in real time rather than relying on constant polling. Candle charts are live in proof-of-concept with one-minute, five-minute, fifteen-minute, hourly, and daily resolutions. SQL backend pruning ensures scalability, with one-minute data kept for thirty days and then rolled into higher resolutions. Price feeds in USD, BTC, and ratios are already functional.  
+
+### Charting and UI  
+TradingView-style charts are built from backend data. Mini "spark line" charts for swaps and a full advanced chart view with history and EMA indicators are in progress.  
+
+### Smart Contracts  
+Cleaner contract-to-contract deposit flows are live, along with iteration improvements (entries() support) for fee and distribution logic.  
+
+### Other Progress  
+A devnet transaction-blocking bug has been resolved, and fee-handling and indexing logic are being refined.  
+
+### Next Steps  
+Finalize the SQL backend rewrite, integrate backend with Forge's front end, and continue optimizing contracts for efficiency and scalability.  
+
+Forge is shaping up to deliver a premium, on-chain trading experience that is fast, private, and fully native to Xelis.  
+
+---
+
+# Silex Studio Project Manager 🛠  
+One of the biggest quality-of-life improvements this month came from Codehalo's work on Silex Studio, the next evolution of the Silex Playground (the developers coding playground and studio for the Silex Smart Contract Language).  
+Originally, the Playground was useful for quick tests, but as developers began building more serious smart contracts its limitations became clear. Clicking "compile" could erase previous work, and juggling between external editors like IntelliJ or Emacs and the Playground was inefficient.  
+
+The new Project Manager fixes these pain points and takes Silex development to the next level:  
+- Create and manage entire projects with multiple files  
+- Preserve work across sessions, avoiding lost progress  
+- Export projects as zip files for use in advanced IDEs  
+- Future-ready for imports once they are fully supported  
+
+As Dalkson put it, *"it's like coding in Notepad vs coding in VSCode."*  
+
+For newcomers experimenting with their first contracts, Silex Studio offers a unified, easy-to-use environment. For experienced developers, it provides the structure and flexibility needed to build and debug real applications efficiently. This upgrade is more than convenience - it's a step toward making Xelis development approachable, powerful, and professional-grade from day one.  
+
+---
+
+# Facelifts Coming: Explorer and Genesix Wallet 🎨  
+Alongside technical upgrades, the team has been working on a fresh design refresh. The Explorer will have a cleaner interface with improved data visibility and smoother navigation. The Genesix wallet will receive an upgraded look and feel, bringing a more intuitive and polished user experience that matches the high standards of the Xelis ecosystem.  
+
+![Facelift](/uploads/blog/Frame_101.png)
+
+![Facelift2](/uploads/blog/Frame_102.png)
+
+![Facelift3](/uploads/blog/Frame_103.png)
+
+![Facelift4](/uploads/blog/Frame_104.png)
+
+---
+
+# Core Team Growth 👥  
+For those who may have missed the announcement on Discord from g45, we are pleased to officially welcome four new members to the Xelis core team.  
+- Tritonn (Stack Wallet, Cake Wallet, ECDLP and Silex bounties, Ledger)  
+- Cyber (Marketing, Blog, Whitepaper, Moderator, Speaker)  
+- Dalkson (Smart Contract Coding, Ideas and Extensive Testing)  
+- Codehalo (Silex Playground)  
+
+Each of these contributors has already shown tremendous skill, respect, and commitment to the project. Their work has strengthened the ecosystem in meaningful ways, from technical innovation to community outreach. We believe it is important to recognize their dedication and officially welcome them as part of the team. We are always open to the next wave of talented individuals eager to climb and join us in building the future of Xelis.  
+
+---
+
+# Exchanges Update 🌍  
+We made important changes this month to strengthen the long-term integrity of XELIS markets.  
+- **XT Exchange**: We requested removal due to values misalignment. Their reliance on long-term artificial market-making conflicted with Xelis's cypherpunk, transparency-first principles.  
+- **Biconomy Exchange**: Biconomy independently ran a 90% APR promotion for XEL holders. This was their program, not managed by Xelis.  
+- **SafeTrade**: We began conversations with SafeTrade to potentially bring market making and arbitrage tools to improve liquidity, especially after TradeOgre's closure left a gap.  
+
+Our focus remains clear: supporting exchanges that reflect fair, organic markets while continuing to build a healthy ecosystem.  
+
+---
+
+# Community and Ecosystem 🌱  
+Developers such as Tritonn and RZR are driving critical progress on hardware wallet support. Miners continue to optimize their hardware and miner devs continue to work to optimize XelisHash. The community testnet continues to grow, with builders experimenting with inter-contract calls and cryptographic functions. Engagement across social platforms is solid, showing that Xelis is not just another project but a foundation for the future of confidential, programmable, & scalable blockchains.  
+
+---
+
+# Looking Ahead 🔮  
+September will bring further Smart Contract refinements, Ledger programming, Explorer and Genesix improvements, optimizations to the Dynamic Fee system, Forge DEX front-end integration, Explorer and Genesix facelifts, and continued market improvements.  
+The vision is becoming reality: a performant, confidential, Layer-1 ecosystem with the tools to rival and surpass existing platforms.  
+
+---
+
+# Wen Smart Contracts? ⏳  
+This is the single most common question we hear from the community. The truth is, smart contracts on Xelis are already live and running strong on the testnet. In fact, they could theoretically be moved to mainnet at any time.  
+
+But doing that right now would only be words. Without dApps ready to launch on day one, it would feel hollow and empty. That's why we are waiting until the ecosystem has the essentials: a fully functioning token launching tool and a decentralized exchange - both of which the Forge team is actively developing.  
+
+This approach has another benefit. Building real dApps alongside improving Silex smart contracts helps us quickly identify which features, functions, and fixes are needed in practice, not just in theory.  
+
+So, wen smart contracts? The short answer: soon. Not promises, not hype, but real development and action - exactly the way Xelis has always operated.  
+
+---
+
+# Closing ✨  
+August was a solid and hard-working month - one where progress touched almost every layer of the stack: cryptography, contracts, wallets, exchanges, team growth, and community.  
+
+Every milestone proves our commitment to doing things the right way, from scratch, without shortcuts, and always aligned with our values.  
+
+Thank you to our developers, contributors, and community. Together, we WILL set a new standard for privacy, DeFi and usability.  
+
+Stay tuned, stay involved, and we will keep building.  
+
+
+---
+
+Thank you for reading this article on **XELIS**! If you enjoyed the content and found it useful, please consider supporting my work with a tip in **Xelis ($XEL)**. Your contribution helps us keep producing quality content like this, and we genuinely appreciate your support!
+
+— **Cyber** (Telegram: \`cybernated_coinage\` | Discord: \`cybernatedcoinage\`)
+
+### Tipping Address (XELIS ONLY):
+
+\`xel:82zfcy3aa2pk2rzx6jpfnv7u3vkjcxhqs3hyghj45u9g2ccrrslsqk3vm3x\`
+
+---
+
+### 📌 Important Links:
+
+- **Xelis VM Playground:** [https://playground.xelis.io](https://playground.xelis.io)
+- **Xelis LinkTree:** [https://linktr.ee/xelis](https://linktr.ee/xelis)
+- **Website:** [https://xelis.org](https://xelis.org) (Legacy: [https://xelis.io](https://xelis.io))
+- **Documentation:** [https://docs.xelis.io](https://docs.xelis.io)
+- **Whitepaper:** [https://whitepaper.xelis.io/](https://whitepaper.xelis.io/)
+- **Github:** [https://github.com/xelis-project/](https://github.com/xelis-project/)
+- **Fiat Onramp:** [https://onramp.xelis.io](https://onramp.xelis.io)
+- **Xelis Merchandise Store (PPN):** [https://xelis.io/merch](https://xelis.io/merch) or [https://poolpartynodes.com/product-category/xelis-clothing-store/](https://poolpartynodes.com/product-category/xelis-clothing-store/)
+
+### 📢 Social Links:
+- **Telegram:** [https://t.me/xelis_io](https://t.me/xelis_io)
+- **Discord:** [https://discord.gg/xelis](https://discord.gg/xelis)
+- **Twitter/X:** [https://twitter.com/xeliscurrency](https://twitter.com/xeliscurrency)
+- **Facebook:** [https://www.facebook.com/xeliscommunity](https://www.facebook.com/xeliscommunity)
+- **TikTok:** [https://www.tiktok.com/@xeliscommunity](https://www.tiktok.com/@xeliscommunity)
+- **Instagram:** [https://www.instagram.com/xeliscommunity/](https://www.instagram.com/xeliscommunity/)
+- **LinkedIn:** [https://www.linkedin.com/company/xelis](https://www.linkedin.com/company/xelis)
+- **Reddit:** [https://www.reddit.com/r/xelis/](https://www.reddit.com/r/xelis/)
+- **YouTube:** [https://www.youtube.com/@xelis_project](https://www.youtube.com/@xelis_project)
+- **Official Medium:** [https://xeliscommunity.org](https://xeliscommunity.org)
+
+### 🔎 Explorer & Stats:
+- **Explorer:** [https://explorer.xelis.io](https://explorer.xelis.io)
+- **Stats Page:** [https://stats.xelis.io](https://stats.xelis.io)
+
+### 💰 Listings:
+- **CoinGecko:** [https://www.xelis.org/exchanges/](https://www.xelis.org/exchanges/)
+- **CoinGecko:** [https://www.coingecko.com/en/coins/xelis](https://www.coingecko.com/en/coins/xelis)
+- **LiveCoinWatch:** [https://www.livecoinwatch.com/price/XELIS-__XEL](https://www.livecoinwatch.com/price/XELIS-__XEL)
+- **CoinPaprika:** [https://coinpaprika.com/coin/xel-xelis/](https://coinpaprika.com/coin/xel-xelis/)
+
+### 🌐 Community & Tools:
+- **Community Medium:** [https://xeliscommunity.org](https://xeliscommunity.org)
+- **Wallets:** [https://www.xelis.org/resources/](https://www.xelis.org/resources/)
+- **Faucet:** [https://faucet.xelis.io](https://faucet.xelis.io)
+    `,
+    publishedDate: '2025-09-10T13:00:00Z',
+    slug: 'Aug2025-Update',
+    thumbnailUrl: '/uploads/blog/aug2025.png',
+    categories: ['Progress Report', 'Monthly Updates', 'Update'],
+    author: {
+      name: 'Cyber Henry',
+      avatar: '/uploads/cyber.jpg'
+    },
+    readingTime: '7 min read',
+    likes: 51
+  }, 
+
+{
     id: '58',
     title: 'Xelis Smart Contracts Take a Giant Leap Forward: Inter-Contract Calls Are Here',
     description: 'One of the biggest and last milestones before Xelis Smart Contracts go live on Mainnet is here: Inter-Contract Calls.',
