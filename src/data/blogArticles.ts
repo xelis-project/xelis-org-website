@@ -3,6 +3,147 @@ import { BlogArticle } from '@/types';
 
 const SAMPLE_ARTICLES1: BlogArticle[] = [
  {
+    id: '60',
+    title: 'The Countdown is On: Smart Contracts, Faster Blocks, Dynamic Fee & Burn Mechanism & XelisHashV3🚀',
+    description: 'Our most important update yet: Smart Contracts are nearly here, along with major upgrades to block times, transaction fees, and XelisHash.',
+    content: `
+As we move into what promises to be the most pivotal moment in the history of XELIS, the community and broader crypto world are about to witness the culmination of over a year of dedicated development. Our major planned hardfork will bring to mainnet everything we have worked tirelessly to build.
+
+Here’s what’s coming:
+
+## 1. Smart Contracts and XVM (Xelis Virtual Machine)
+
+At the heart of this hardfork is the introduction of Xelis Smart Contracts and our revolutionary Xelis Virtual Machine (XVM). Unlike many projects that opt for shortcuts, XVM has been built from the ground up with a focus on programmability, execution speed, and deep optimization.
+
+But XVM is more than just another virtual machine. Our team has developed a new programming language called Silex with a Rust-like syntax, but tailored specifically for the demands of smart contracts. It’s more powerful, more efficient, and designed to unlock possibilities that EVM and Solidity simply can’t match.
+
+For the first time, smart contracts and decentralized applications (dApps) can be deployed with tokens that have the same level of confidentiality and privacy as the native Xelis Coin itself. Native token creation, dApps, and confidential token transactions will become a reality, setting Xelis apart from every other smart contract platform in the space.
+
+And the best part? Development is complete. Everything needed for smart contracts and the XVM is ready for mainnet. Currently everything is running on testnet and is being utilized for real dApps creation (DEX, Token Launching Tool, Bridge) and final testing
+
+---
+
+## 2. Faster Block Times
+
+From the beginning, Xelis was launched with 15-second block times to avoid unnecessary chain bloat and keep node storage requirements manageable. Unlike projects that prune and sacrifice blockchain history, we’ve remained committed to full transparency and permanent data availability.
+
+This year, we’ve invested significant time in rewriting node logic, adopting RocksDB over Sled for improved performance, and optimizing sync times to make running a full node more efficient. With these advances in place, the time is right to accelerate.
+
+With the upcoming hardfork, block times will speed up 300% — from 15 seconds down to just 5 seconds per block.
+
+This upgrade makes Xelis the fastest privacy-focused Proof-of-Work coin in the world, all while maintaining encryption and confidentiality. The only projects that come close in speed are non-private coins. With this leap, Xelis becomes unmatched in the balance of speed, privacy, and DeFi programmability.
+
+---
+
+## 3. XelisHashV3: Mining for Everyone
+
+From day one, Xelis has championed the vision of egalitarian mining, where CPUs and GPUs can coexist in a balanced, fair mining ecosystem.
+
+Our algorithm has evolved through XelisHash V1 and V2, each iteration improving resistance to specialized hardware like ASICs and FPGAs. Now, with XelisHashV3, we’re closer than ever to realizing true mining harmony across all consumer-grade hardware.
+
+V3 is currently undergoing heavy testing by leading GPU and CPU miner developers. While some refinements remain, the progress is remarkable. The upgrade will reinforce our long-standing resistance to centralization by ASIC or FPGA manufacturers and ensure Xelis mining remains fair, accessible, and community-driven.
+
+When V3 rolls out, expect to see conversations light up across Twitter, YouTube, Discord, and Telegram as miners everywhere embrace this new chapter.
+
+---
+
+## 4. Dynamic Base Fee + Burn Mechanism
+
+The Dynamic Base Fee mechanism will algorithmically adjust transaction costs to maintain network stability, mitigate spam attacks, and provide predictable, low fees for users. To further secure the protocol, 30% of all contract invoking transaction fees will be burned, preventing miners from manipulating the fee market and reinforcing the deflationary pressure on XELIS.
+
+---
+
+## What is a HardFork?
+
+A hardfork is simply an upgrade to a blockchain’s rules that requires everyone to update their software. Think of it like installing the latest version of an app on your phone, if you don’t update, your app won’t work properly with everyone else’s.
+
+In the case of a blockchain, node operators and miners just need to update their software to the new version so the whole network stays in sync and benefits from the improvements.
+
+From our last hardfork, we learned a few important lessons:
+
+- Give plenty of notice so miner developers, pools, node runners, exchanges, and service providers have time to prepare.
+- Coordinate upgrades carefully, ensuring everyone is on the same page before activation.
+- Set a minimum difficulty adjustment to prevent sudden increases in block speed, which can cause unnecessary orphans and instability.
+
+By taking these steps, we make sure the transition is smooth, secure, and beneficial for the entire Xelis ecosystem.
+
+---
+
+## A Pivotal Moment for Xelis
+
+This hardfork marks more than just an upgrade, it’s a major milestone for XELIS. With the introduction of smart contracts, the XVM, faster block times, dynamic fees with a burn mechanism, and a new era of egalitarian mining, Xelis is poised to deliver the utility it has promised. We’re deeply grateful to our community for the support and dedication over the past year that made this achievement possible.
+
+---
+
+## Alright…Most Importantly…..Wen?
+
+The team’s goal is to bring these features to mainnet before the end of 2025. As always, timelines may shift if additional testing or new feature improvements are required, since network security and stability remain the top priority.
+
+Stay tuned, stay involved, and we will keep building.
+
+---
+
+Thank you for reading this article on **XELIS**! If you enjoyed the content and found it useful, please consider supporting my work with a tip in **Xelis ($XEL)**. Your contribution helps us keep producing quality content like this, and we genuinely appreciate your support!
+
+— **Cyber** (Telegram: \`cybernated_coinage\` | Discord: \`cybernatedcoinage\`)
+
+### Tipping Address (XELIS ONLY):
+
+\`xel:82zfcy3aa2pk2rzx6jpfnv7u3vkjcxhqs3hyghj45u9g2ccrrslsqk3vm3x\`
+
+---
+
+### 📌 Important Links:
+
+- **Xelis VM Playground:** [https://playground.xelis.io](https://playground.xelis.io)
+- **Xelis LinkTree:** [https://linktr.ee/xelis](https://linktr.ee/xelis)
+- **Website:** [https://xelis.org](https://xelis.org) (Legacy: [https://xelis.io](https://xelis.io))
+- **Documentation:** [https://docs.xelis.io](https://docs.xelis.io)
+- **Whitepaper:** [https://whitepaper.xelis.io/](https://whitepaper.xelis.io/)
+- **Github:** [https://github.com/xelis-project/](https://github.com/xelis-project/)
+- **Fiat Onramp:** [https://onramp.xelis.io](https://onramp.xelis.io)
+- **Xelis Merchandise Store (PPN):** [https://xelis.io/merch](https://xelis.io/merch) or [https://poolpartynodes.com/product-category/xelis-clothing-store/](https://poolpartynodes.com/product-category/xelis-clothing-store/)
+
+### 📢 Social Links:
+- **Telegram:** [https://t.me/xelis_io](https://t.me/xelis_io)
+- **Discord:** [https://discord.gg/xelis](https://discord.gg/xelis)
+- **Twitter/X:** [https://twitter.com/xeliscurrency](https://twitter.com/xeliscurrency)
+- **Facebook:** [https://www.facebook.com/xeliscommunity](https://www.facebook.com/xeliscommunity)
+- **TikTok:** [https://www.tiktok.com/@xeliscommunity](https://www.tiktok.com/@xeliscommunity)
+- **Instagram:** [https://www.instagram.com/xeliscommunity/](https://www.instagram.com/xeliscommunity/)
+- **LinkedIn:** [https://www.linkedin.com/company/xelis](https://www.linkedin.com/company/xelis)
+- **Reddit:** [https://www.reddit.com/r/xelis/](https://www.reddit.com/r/xelis/)
+- **YouTube:** [https://www.youtube.com/@xelis_project](https://www.youtube.com/@xelis_project)
+- **Official Medium:** [https://xeliscommunity.org](https://xeliscommunity.org)
+
+### 🔎 Explorer & Stats:
+- **Explorer:** [https://explorer.xelis.io](https://explorer.xelis.io)
+- **Stats Page:** [https://stats.xelis.io](https://stats.xelis.io)
+
+### 💰 Listings:
+- **CoinGecko:** [https://www.xelis.org/exchanges/](https://www.xelis.org/exchanges/)
+- **CoinGecko:** [https://www.coingecko.com/en/coins/xelis](https://www.coingecko.com/en/coins/xelis)
+- **LiveCoinWatch:** [https://www.livecoinwatch.com/price/XELIS-__XEL](https://www.livecoinwatch.com/price/XELIS-__XEL)
+- **CoinPaprika:** [https://coinpaprika.com/coin/xel-xelis/](https://coinpaprika.com/coin/xel-xelis/)
+
+### 🌐 Community & Tools:
+- **Community Medium:** [https://xeliscommunity.org](https://xeliscommunity.org)
+- **Wallets:** [https://www.xelis.org/resources/](https://www.xelis.org/resources/)
+- **Faucet:** [https://faucet.xelis.io](https://faucet.xelis.io)
+    `,
+    publishedDate: '2025-09-19T13:00:00Z',
+    slug: 'Countdown-SmartContracts',
+    thumbnailUrl: '/uploads/blog/hardfork3.png',
+    categories: ['Progress Report', 'Smart Contracts', 'Update'],
+    author: {
+      name: 'Cyber Henry',
+      avatar: '/uploads/cyber.jpg'
+    },
+    readingTime: '5 min read',
+    likes: 239
+  },
+ 
+  {
     id: '59',
     title: 'XELITE PULSE | Xelis Monthly Update - August 2025 🚀',
     description: 'August was a solid month for Xelis. Development accelerated across core infrastructure, major upgrades landed, and big ecosystem updates.',
