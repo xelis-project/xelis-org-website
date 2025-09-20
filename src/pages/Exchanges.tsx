@@ -5,7 +5,6 @@ import { ArrowUp, ExternalLink } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const BuyWidget: React.FC = () => {
-  // Load LetsExchange widget script once when component mounts
   useEffect(() => {
     const script = document.createElement("script");
     script.src = "https://letsexchange.io/init_widget.js";
@@ -28,7 +27,6 @@ const BuyWidget: React.FC = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto animate-fade-in">
           <div className="flex flex-col md:flex-row items-center md:items-start gap-10">
-
             {/* Text Column */}
             <div className="md:w-1/2 text-center md:text-left">
               <div className="inline-block mb-4">
@@ -51,10 +49,10 @@ const BuyWidget: React.FC = () => {
             </div>
 
             {/* Widget Column */}
-            <div className="md:w-1/2 flex justify-center">
-              <div className="relative w-full max-w-md" style={{ paddingTop: "100%" }}>
+            <div className="md:w-1/2 flex justify-center w-full">
+              <div className="relative w-full max-w-md h-[450px] sm:h-[490px] md:h-[530px]">
                 <iframe
-                  className="absolute top-0 left-0 w-full h-full"
+                  className="absolute top-0 left-0 w-full h-full rounded-lg shadow"
                   src="https://letsexchange.io/v2/widget?affiliate_id=0EJubVqWb68EJYIN&is_iframe=true"
                   frameBorder={0}
                   allow="clipboard-read; clipboard-write"
@@ -62,7 +60,6 @@ const BuyWidget: React.FC = () => {
                 />
               </div>
             </div>
-
           </div>
         </div>
       </div>
