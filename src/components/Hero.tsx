@@ -71,7 +71,7 @@ const Hero = () => {
             <div className="w-full sm:w-auto">
               <AnimatedButton
                 size="lg"
-                className="w-full sm:w-auto bg-xelis-blue hover:bg-xelis-dark-blue text-white"
+                className="w-full sm:w-auto bg-xelis-blue hover:bg-xelis-dark-blue text-black"
                 onClick={() => handleScrollTo('buy')}
               >
                 Buy Xelis

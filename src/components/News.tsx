@@ -130,7 +130,7 @@ const News = () => {
                 <h3 className="text-xl font-semibold dark:text-white">Recent Posts</h3>
                 <AnimatedButton 
                   variant="primary"
-                  className="text-white flex items-center text-sm"
+                  className="text-black flex items-center text-sm"
                   onClick={() => window.location.href = '/blog'}
                 >
                   View All

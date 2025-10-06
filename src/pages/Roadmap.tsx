@@ -226,7 +226,7 @@ const Roadmap = () => {
         aria-label="Scroll to top"
         onClick={scrollToTop}
         className={cn(
-          "fixed right-6 bottom-6 p-3 rounded-full bg-xelis-blue text-white shadow-lg transition-all duration-300 hover:bg-xelis-dark-blue",
+          "fixed right-6 bottom-6 p-3 rounded-full bg-xelis-blue text-black shadow-lg transition-all duration-300 hover:bg-xelis-dark-blue",
           showScrollTop ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
         )}
       >
