@@ -230,7 +230,7 @@ const Exchanges = () => {
                     href={exchange.url} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center w-full bg-xelis-blue text-white py-3 rounded-lg font-medium group-hover:bg-xelis-dark-blue transition-colors"
+                    className="flex items-center justify-center w-full bg-xelis-blue text-black py-3 rounded-lg font-medium group-hover:bg-xelis-dark-blue transition-colors"
                   >
                     Trade XELIS
                     <ExternalLink className="ml-2 h-4 w-4" />
@@ -306,7 +306,7 @@ const Exchanges = () => {
         aria-label="Scroll to top"
         onClick={scrollToTop}
         className={cn(
-          "fixed right-6 bottom-6 p-3 rounded-full bg-xelis-blue text-white shadow-lg transition-all duration-300 hover:bg-xelis-dark-blue",
+          "fixed right-6 bottom-6 p-3 rounded-full bg-xelis-blue text-black shadow-lg transition-all duration-300 hover:bg-xelis-dark-blue",
           showScrollTop ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
         )}
       >
