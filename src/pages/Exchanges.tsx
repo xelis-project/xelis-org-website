@@ -97,13 +97,13 @@ const Exchanges = () => {
       type: "Centralized",
       features: ["Low Fees", "Wide Asset Pairs", "Spot Trading"]
     },
-    {
-      name: "Biconomy",
-      logo: "/uploads/biconomy.png",
-      url: "https://www.biconomy.com/exchange/XEL_USDT",
-      pairs: ["XEL-USDT"],
-      type: "Centralized",
-      features: ["USA Friendly", "Simple interface", "Low fees"]
+ {
+      name: "LetsExchange",
+      logo: "/uploads/letsexchange.png",
+      url: "https://letsexchange.io/coin/xel",
+      pairs: ["Many"],
+      type: "Swap",
+      features: ["Many Pairs", "Simple interface", "Aggregator"]
     },
     {
       name: "BIT",
@@ -160,15 +160,8 @@ const Exchanges = () => {
       pairs: ["Many"],
       type: "Swap",
       features: ["Many Pairs", "Simple interface", "Aggregator"]
-    },
-    {
-      name: "LetsExchange",
-      logo: "/uploads/letsexchange.png",
-      url: "https://letsexchange.io/coin/xel",
-      pairs: ["Many"],
-      type: "Swap",
-      features: ["Many Pairs", "Simple interface", "Aggregator"]
     }
+   
   ];
 
   return (

@@ -3,6 +3,208 @@ import { BlogArticle } from '@/types';
 
 const SAMPLE_ARTICLES1: BlogArticle[] = [
  {
+    id: '61',
+    title: '🛠️ XELITE PULSE: Xelis September 2025 Development Update',
+    description: 'Dive into our progress in the Month of September 2025 as we inch closer to Smart Contracts, faster block-times, dynamic fees and burns, and XelisHashV3',
+    content: `
+# Xelis Development Update
+
+As we move closer to the launch of **Xelis Smart Contracts** and our **DeFi ecosystem**, the past month has been one of significant technical progress, design upgrades, and ecosystem partnerships.  
+
+Here's what the team has been working on across all fronts:
+
+---
+
+## ⚙️ 1. Smart Contract Finalization
+
+The Smart Contract module is essentially complete!  
+
+**Key progress this month includes:**
+- **Inter-contract Calls** and **Scheduled Execution**, allowing contracts to interact seamlessly and perform actions at specified intervals.  
+- Ongoing collaboration with the **Xelis Forge DEX Team**, adding specific functions and support for their decentralized exchange launch.  
+
+These features lay the foundation for a powerful and flexible **DeFi ecosystem built directly on Xelis**.
+
+---
+
+## 💻 2. Xelis Explorer & Genesix Wallet Improvements
+
+Both the **Xelis Explorer** and **Genesix Wallet** have received major visual and technical upgrades:  
+- Sleeker, modern professional UI.  
+- Enhanced functionality to display tokens and smart contracts, preparing the ecosystem for the upcoming DeFi launch.  
+
+Users can expect a smoother, more intuitive experience as we continue refining both tools for **mainnet readiness**.
+
+![Genesix Redesign](/uploads/blog/genesixdesign.jpg)
+![Explorer Redesign](/uploads/blog/explorerdesign.jpg)
+
+---
+
+## 🧱 3. Xelis Playground (Developers Studio)
+
+The **Xelis Playground** – our upcoming Developer Studio – has seen significant progress:  
+- Improved developer experience and project management capabilities.  
+- Designed to become the central hub for onboarding **dApp builders** once smart contracts go live.  
+
+This tool will empower developers to create, test, and deploy on Xelis more efficiently than ever.  
+👉 Check out the studio here: **[playground.xelis.io](https://playground.xelis.io)**
+
+![Xelis Playground](/uploads/blog/playgrounddesign.png)
+
+---
+
+## 🔥 4. Xelis Forge DEX Development
+
+The **Xelis Forge** team continues to make strong progress on the decentralized exchange (DEX).
+
+**Recent backend milestones include:**
+- Implementation of **Liquidity Pools** and **Automated Market Making (AMM)** logic.  
+- Development of the **DAO contract**.  
+- Full **database infrastructure creation** (from scratch).  
+
+With core backend systems maturing, the team will soon shift focus to **frontend development** and **UI integration**.
+
+![Forge DEX](/uploads/blog/forgedesign.jpg)
+
+---
+
+## 🤝 5. Partnership with LetsExchange.io
+
+We're excited to announce our new partnership with **LetsExchange.io**, a leading non-custodial swap platform.  
+
+Through this collaboration:
+- Users can now **swap directly on xelis.org**.  
+- **In-wallet swaps** and **non-KYC exchange options** are enabled, tapping into deep liquidity from major exchanges.  
+👉 Trade now at: **[letsexchange.io](https://letsexchange.io)**  
+
+This partnership enhances accessibility and liquidity within the **Xelis ecosystem**.  
+It will also serve as a cornerstone partnership for **in-wallet swaps in Genesix** and as part of our **XelisForge DEX**.
+
+![LetsExchange](/uploads/blog/letsexchange.png)
+
+---
+
+## 👨‍💻 6. Other Developer Work
+
+**Common (Core):**
+- Smart Contract environment improvements  
+- General bug fixes  
+- New API types  
+
+**Daemon:**
+- P2P improvements  
+- Enhanced chain synchronization  
+
+**Wallet:**
+- General bug fixes  
+- Integrated XSWD Relayer  
+
+**Database Engine Enhancements:**
+- Reworked DB engine for improved Snapshot mode and database independence  
+- Removed overhead of iterators by using raw iterators  
+- Unique chain cache per storage/snapshot to prevent cache corruption during reorganizations  
+- Reworked Snapshot API for consistency and performance  
+- Introduced Dynamic Length for contract objects  
+
+These updates improve **performance and stability** across the entire network infrastructure.
+
+---
+
+## ⛏️ 7. XelisHashV3 Mining Algorithm
+
+Development of the **XelisHashV3 algorithm** continues with active testing by leading miner developers.  
+
+This next-generation mining algorithm aims to:
+- Strengthen decentralization and egalitarian mining.  
+- Further balance hashrate between CPUs and GPUs.  
+- Reduce unfair advantages from non-consumer-grade GPUs.  
+
+This step is key to maintaining a **truly fair and decentralized mining environment** for all participants.
+
+![XelisHashV3](/uploads/blog/v3.png)
+
+---
+
+## 🚀 Looking Ahead
+
+With **Smart Contracts nearing completion**, **visual tools ready for DeFi**, and a **growing network of partners and developers**, the Xelis ecosystem is entering its most exciting phase yet.  
+
+Our next update to the community will include the **scheduled date of the hardfork** to enable:
+1. Smart Contracts and XVM on Mainnet  
+2. Block Time Speed-up (15s → 5s blocks)  
+3. Dynamic Fee System, including Smart Contract Fee Burns 🔥  
+4. XelisHashV3 Mining Algorithm  
+
+Stay tuned for:
+- The **Smart Contract launch**  
+- **Forge DEX user testing**  
+- Further updates as we continue to **build the future of decentralized & confidential finance**, powered by **Xelis**.
+
+Stay tuned, stay involved, and we will keep building.
+
+---
+
+Thank you for reading this article on **XELIS**! If you enjoyed the content and found it useful, please consider supporting my work with a tip in **Xelis ($XEL)**. Your contribution helps us keep producing quality content like this, and we genuinely appreciate your support!
+
+— **Cyber** (Telegram: \`cybernated_coinage\` | Discord: \`cybernatedcoinage\`)
+
+### Tipping Address (XELIS ONLY):
+
+\`xel:82zfcy3aa2pk2rzx6jpfnv7u3vkjcxhqs3hyghj45u9g2ccrrslsqk3vm3x\`
+
+---
+
+### 📌 Important Links:
+
+- **Xelis VM Playground:** [https://playground.xelis.io](https://playground.xelis.io)
+- **Xelis LinkTree:** [https://linktr.ee/xelis](https://linktr.ee/xelis)
+- **Website:** [https://xelis.org](https://xelis.org) (Legacy: [https://xelis.io](https://xelis.io))
+- **Documentation:** [https://docs.xelis.io](https://docs.xelis.io)
+- **Whitepaper:** [https://whitepaper.xelis.io/](https://whitepaper.xelis.io/)
+- **Github:** [https://github.com/xelis-project/](https://github.com/xelis-project/)
+- **Fiat Onramp:** [https://onramp.xelis.io](https://onramp.xelis.io)
+- **Xelis Merchandise Store (PPN):** [https://xelis.io/merch](https://xelis.io/merch) or [https://poolpartynodes.com/product-category/xelis-clothing-store/](https://poolpartynodes.com/product-category/xelis-clothing-store/)
+
+### 📢 Social Links:
+- **Telegram:** [https://t.me/xelis_io](https://t.me/xelis_io)
+- **Discord:** [https://discord.gg/xelis](https://discord.gg/xelis)
+- **Twitter/X:** [https://twitter.com/xeliscurrency](https://twitter.com/xeliscurrency)
+- **Facebook:** [https://www.facebook.com/xeliscommunity](https://www.facebook.com/xeliscommunity)
+- **TikTok:** [https://www.tiktok.com/@xeliscommunity](https://www.tiktok.com/@xeliscommunity)
+- **Instagram:** [https://www.instagram.com/xeliscommunity/](https://www.instagram.com/xeliscommunity/)
+- **LinkedIn:** [https://www.linkedin.com/company/xelis](https://www.linkedin.com/company/xelis)
+- **Reddit:** [https://www.reddit.com/r/xelis/](https://www.reddit.com/r/xelis/)
+- **YouTube:** [https://www.youtube.com/@xelis_project](https://www.youtube.com/@xelis_project)
+- **Official Medium:** [https://xeliscommunity.org](https://xeliscommunity.org)
+
+### 🔎 Explorer & Stats:
+- **Explorer:** [https://explorer.xelis.io](https://explorer.xelis.io)
+- **Stats Page:** [https://stats.xelis.io](https://stats.xelis.io)
+
+### 💰 Listings:
+- **CoinGecko:** [https://www.xelis.org/exchanges/](https://www.xelis.org/exchanges/)
+- **CoinGecko:** [https://www.coingecko.com/en/coins/xelis](https://www.coingecko.com/en/coins/xelis)
+- **LiveCoinWatch:** [https://www.livecoinwatch.com/price/XELIS-__XEL](https://www.livecoinwatch.com/price/XELIS-__XEL)
+- **CoinPaprika:** [https://coinpaprika.com/coin/xel-xelis/](https://coinpaprika.com/coin/xel-xelis/)
+
+### 🌐 Community & Tools:
+- **Community Medium:** [https://xeliscommunity.org](https://xeliscommunity.org)
+- **Wallets:** [https://www.xelis.org/resources/](https://www.xelis.org/resources/)
+- **Faucet:** [https://faucet.xelis.io](https://faucet.xelis.io)
+    `,
+    publishedDate: '2025-10-20T13:00:00Z',
+    slug: 'September-2025-Update',
+    thumbnailUrl: '/uploads/blog/sept2025.png',
+    categories: ['Progress Report', 'Monthly Updates', 'Update'],
+    author: {
+      name: 'Cyber Henry',
+      avatar: '/uploads/cyber.jpg'
+    },
+    readingTime: '5 min read',
+    likes: 182
+  },
+ 
+  {
     id: '60',
     title: 'The Countdown is On: Smart Contracts, Faster Blocks, Dynamic Fee & Burn Mechanism & XelisHashV3🚀',
     description: 'Our most important update yet: Smart Contracts are nearly here, along with major upgrades to block times, transaction fees, and XelisHash.',
