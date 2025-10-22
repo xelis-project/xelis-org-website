@@ -164,7 +164,7 @@ const Exchanges = () => {
      {
       name: "CoinoSwap",
       logo: "/uploads/coino.png",
-      url: "https://www.coinoswap.com/?to=Xelis&toNetwork=XELIS&from=usdc&fromNetwork=sol&sellAmount=500&direction=direct",
+      url: "https://www.coinoswap.com/?to=xelis&toNetwork=XEL&from=usdc&fromNetwork=sol&sellAmount=500&direction=direct",
       pairs: ["Many"],
       type: "Swap",
       features: ["Many Pairs", "Simple interface", "Aggregator"]
