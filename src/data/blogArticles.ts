@@ -3,6 +3,156 @@ import { BlogArticle } from '@/types';
 
 const SAMPLE_ARTICLES1: BlogArticle[] = [
  {
+  id: '62',
+  title: 'SMART CONTRACTS ON XELIS MAINNET (Dec. 13th, 2025): XVM, Silex, Faster Blocks, Dynamic Fees & Burns, XelisHashV3 🚀',
+  description: 'The long awaited Xelis Smart Contracts and XVM are launching on mainnet on December 13th, 2025! This major upgrade also includes faster block times, dynamic fees & burns, and XelisHashV3. Read on for all the details!',
+  content: `
+# The next Xelis network upgrade is scheduled for December 13th, 2025 at 17:00 UTC
+
+This upgrade introduces several major anticipated protocol changes and features, including **Smart Contracts**, the **Xelis Virtual Machine (XVM)**, the **Silex Programming Language**, faster block times, dynamic transaction fees and burns, and **XelisHashV3**.
+
+---
+
+### 🎥 Watch the announcement video:
+
+[Xelis Smart Contract Launch](https://www.youtube.com/embed/Hni_JQIo2Us)
+
+---
+
+## Overview of the Upgrade
+
+### Smart Contracts
+With this update, Xelis will support on-chain smart contracts, allowing developers to deploy and interact with decentralized applications (dApps) directly on the mainnet. This marks the beginning of a programmable layer within Xelis, expanding the scope of what can be built on the network beyond standard transactions.
+
+### Xelis Virtual Machine (XVM)
+The Xelis Virtual Machine (XVM) is the execution layer for Xelis smart contracts. It’s designed to be flexible, highly programmable, and developer-friendly, while maintaining the scalability characteristics of the Xelis protocol.
+
+Developers can define new functions and opcodes, introduce new data structures, and experiment freely with smart contract logic. The system is intentionally modular, allowing future updates and extensions without major protocol disruption.
+
+A public web-based developer studio for the XVM is available at [https://playground.xelis.io](https://playground.xelis.io).  
+
+It provides a lightweight environment where developers can write, compile, and run Xelis smart contracts directly in their browser, no local setup required.  
+
+The developer studio supports interactive debugging, live examples, project management, & quick testing for new ideas, making it a practical starting point for learning or prototyping.
+
+### Silex Programming Language
+Smart contracts on Xelis are written in **Silex**, a lightweight, compiled language created specifically for the XVM. Silex is inspired by Rust in syntax and structure but is designed for simplicity and predictability within a virtual machine context.
+
+**Key design points:**
+- Source code gets compiled into bytecode  
+- Support types in memory directly (various integers size, arrays, maps and opaque types)  
+- Fully modular environment: allows anyone to add/remove/change features easily  
+- Sandboxed and deterministic  
+- Purpose-built for smart contracts and beyond  
+- Events system included in the VM  
+- Rich standard library included by default  
+
+This approach keeps contracts straightforward and secure while remaining expressive enough for building real applications such as DeFi systems, DAOs, and other dApps.
+
+Many functions are already included by default in the Smart Contracts to have faster execution times as they rely on the Rust backend which can run as fast as in a regular application.
+
+Developers can also bypass Silex entirely and write directly in low-level XVM assembly or opcodes, offering fine-grained control for those who want to work closer to the metal.
+
+Documentation for both Silex and the opcode layer is available in the documentation page [https://docs.xelis.io/features/smart-contracts/silex](https://docs.xelis.io/features/smart-contracts/silex)
+
+### Faster Block Times
+The network block interval will be reduced to **5 seconds** (a 3x speed improvement from current 15s), resulting in faster transactions and improved responsiveness across applications and wallets.
+
+Faster block times means rewards being spread to more miners per day increasing the chances for solo miners to get a block which encourages the decentralization itself.
+
+### Dynamic Transaction Fees & Burns
+Transaction fees will become **dynamic**, automatically adjusting based on network activity. Additionally, a portion of every transaction fee will be **burned**, introducing a gradual deflationary effect into the supply model, as well as rendering network spamming financially unfeasible.
+
+This is a required feature to prevent abuses from potential dishonest miners including spam transactions in their own blocks only, meaning they pay no fees at all and that may artificially inflate the real TX fees for other users.
+
+### XelisHashV3
+**XelisHashV3** introduces improvements to the mining algorithm aimed at making mining more egalitarian and accessible. The update reduces performance differences between CPUs and GPUs, as well as between consumer and commercial-grade GPUs. These changes support broader participation in mining and contribute to greater decentralization across the Xelis network. With continued low power consumption, we believe this is one of the, if not the best mining algo ever created!
+
+## Notes for Node Operators and Users
+
+**Node Operators:** Please update your nodes to the latest release before December 13th, 17:00 UTC to remain compatible after upgrade. Updated binaries and release notes will be published on the official Xelis GitHub. More communication to come on the release date of the binaries.  
+
+**Users:** Wallet users and holders don’t need to take any action. Balances and past transactions will remain unchanged.  
+
+**Developers:** Documentation for the XVM and Silex, along with the live Playground, can be used to start preparing and testing smart contracts ahead of the upgrade.
+
+## Summary
+
+**Activation Date**  
+December 13th, 2025 – 17:00 UTC  
+
+**Block Time**  
+Reduced to 5 seconds  
+
+**Major Features**  
+Smart Contracts, XVM, Silex, Dynamic Fees & Burns & XelisHashV3  
+
+**Playground**  
+[https://playground.xelis.io](https://playground.xelis.io)
+
+---
+
+Thank you for reading this article on **XELIS**! If you enjoyed the content and found it useful, please consider supporting my work with a tip in **Xelis ($XEL)**. Your contribution helps us keep producing quality content like this, and we genuinely appreciate your support!
+
+— **Cyber** (Telegram: \`cybernated_coinage\` | Discord: \`cybernatedcoinage\`)
+
+### Tipping Address (XELIS ONLY):
+
+\`xel:82zfcy3aa2pk2rzx6jpfnv7u3vkjcxhqs3hyghj45u9g2ccrrslsqk3vm3x\`
+
+---
+
+### 📌 Important Links:
+
+- **Xelis VM Playground:** [https://playground.xelis.io](https://playground.xelis.io)
+- **Xelis LinkTree:** [https://linktr.ee/xelis](https://linktr.ee/xelis)
+- **Website:** [https://xelis.org](https://xelis.org) (Legacy: [https://xelis.io](https://xelis.io))
+- **Documentation:** [https://docs.xelis.io](https://docs.xelis.io)
+- **Whitepaper:** [https://whitepaper.xelis.io/](https://whitepaper.xelis.io/)
+- **Github:** [https://github.com/xelis-project/](https://github.com/xelis-project/)
+- **Fiat Onramp:** [https://onramp.xelis.io](https://onramp.xelis.io)
+- **Xelis Merchandise Store (PPN):** [https://xelis.io/merch](https://xelis.io/merch) or [https://poolpartynodes.com/product-category/xelis-clothing-store/](https://poolpartynodes.com/product-category/xelis-clothing-store/)
+
+### 📢 Social Links:
+- **Telegram:** [https://t.me/xelis_io](https://t.me/xelis_io)
+- **Discord:** [https://discord.gg/xelis](https://discord.gg/xelis)
+- **Twitter/X:** [https://twitter.com/xeliscurrency](https://twitter.com/xeliscurrency)
+- **Facebook:** [https://www.facebook.com/xeliscommunity](https://www.facebook.com/xeliscommunity)
+- **TikTok:** [https://www.tiktok.com/@xeliscommunity](https://www.tiktok.com/@xeliscommunity)
+- **Instagram:** [https://www.instagram.com/xeliscommunity/](https://www.instagram.com/xeliscommunity/)
+- **LinkedIn:** [https://www.linkedin.com/company/xelis](https://www.linkedin.com/company/xelis)
+- **Reddit:** [https://www.reddit.com/r/xelis/](https://www.reddit.com/r/xelis/)
+- **YouTube:** [https://www.youtube.com/@xelis_project](https://www.youtube.com/@xelis_project)
+- **Official Medium:** [https://xeliscommunity.org](https://xeliscommunity.org)
+
+### 🔎 Explorer & Stats:
+- **Explorer:** [https://explorer.xelis.io](https://explorer.xelis.io)
+- **Stats Page:** [https://stats.xelis.io](https://stats.xelis.io)
+
+### 💰 Listings:
+- **CoinGecko:** [https://www.xelis.org/exchanges/](https://www.xelis.org/exchanges/)
+- **CoinGecko:** [https://www.coingecko.com/en/coins/xelis](https://www.coingecko.com/en/coins/xelis)
+- **LiveCoinWatch:** [https://www.livecoinwatch.com/price/XELIS-__XEL](https://www.livecoinwatch.com/price/XELIS-__XEL)
+- **CoinPaprika:** [https://coinpaprika.com/coin/xel-xelis/](https://coinpaprika.com/coin/xel-xelis/)
+
+### 🌐 Community & Tools:
+- **Community Medium:** [https://xeliscommunity.org](https://xeliscommunity.org)
+- **Wallets:** [https://www.xelis.org/resources/](https://www.xelis.org/resources/)
+- **Faucet:** [https://faucet.xelis.io](https://faucet.xelis.io)
+  `,
+  publishedDate: '2025-10-30T09:00:00Z',
+  slug: 'Mainnet-SmartContracts-Launch',
+  thumbnailUrl: '/uploads/blog/hardfork3.png',
+  categories: ['Smart Contracts', 'Hardfork', 'Update'],
+  author: {
+    name: 'Cyber Henry',
+    avatar: '/uploads/cyber.jpg'
+  },
+  readingTime: '4 min read',
+  likes: 947
+},
+ 
+  {
     id: '61',
     title: '🛠️ XELITE PULSE: Xelis September 2025 Development Update',
     description: 'Dive into our progress in the Month of September 2025 as we inch closer to Smart Contracts, faster block-times, dynamic fees and burns, and XelisHashV3',
