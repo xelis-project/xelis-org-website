@@ -1,8 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import AnimatedButton from './AnimatedButton';
 import { ArrowRight } from 'lucide-react';
 
 const Hero = () => {
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  // Target date: Dec 13th 2025, 17:00 UTC
+  const targetDate = new Date('2025-12-13T17:00:00Z').getTime();
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance <= 0) {
+        clearInterval(timer);
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        return;
+      }
+
+      setTimeLeft({
+        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((distance / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((distance / (1000 * 60)) % 60),
+        seconds: Math.floor((distance / 1000) % 60),
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [targetDate]);
+
   // Scroll handler for in-page navigation
   const handleScrollTo = (id: string) => {
     const section = document.getElementById(id);
@@ -40,8 +72,34 @@ const Hero = () => {
             <br /><br />Built for the people, by the people.
           </p>
 
+          {/* Countdown Section */}
+          <div className="animate-fade-in animate-delay-300 mb-12">
+            <div className="inline-block px-8 py-6 rounded-2xl border border-xelis-blue/40 dark:border-xelis-blue/60 bg-white/70 dark:bg-black/40 backdrop-blur-md shadow-[0_0_25px_rgba(2,255,207,0.2)] hover:shadow-[0_0_35px_rgba(2,255,207,0.35)] transition-shadow duration-500">
+              <h2 className="text-2xl md:text-3xl font-bold text-xelis-blue mb-4">
+                Smart Contracts on Mainnet
+              </h2>
+              <div className="flex justify-center items-center gap-6">
+                {[
+                  { label: 'Days', value: timeLeft.days },
+                  { label: 'Hours', value: timeLeft.hours },
+                  { label: 'Minutes', value: timeLeft.minutes },
+                  { label: 'Seconds', value: timeLeft.seconds },
+                ].map((item, idx) => (
+                  <div key={idx} className="text-center">
+                    <div className="text-4xl md:text-5xl font-extrabold text-xelis-blue animate-pulse">
+                      {String(item.value).padStart(2, '0')}
+                    </div>
+                    <div className="text-sm uppercase tracking-widest text-gray-600 dark:text-gray-300">
+                      {item.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
           {/* Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in animate-delay-300 w-full">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in animate-delay-400 w-full">
             {/* Start Building */}
             <a
               href="https://playground.xelis.io"
@@ -67,7 +125,7 @@ const Hero = () => {
               </AnimatedButton>
             </a>
 
-            {/* Buy Xelis (now uses AnimatedButton for consistency) */}
+            {/* Buy Xelis */}
             <div className="w-full sm:w-auto">
               <AnimatedButton
                 size="lg"
@@ -85,4 +143,6 @@ const Hero = () => {
 };
 
 export default Hero;
+
+
 
