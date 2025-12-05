@@ -2,7 +2,151 @@
 import { BlogArticle } from '@/types';
 
 const SAMPLE_ARTICLES1: BlogArticle[] = [
- {
+{
+  id: '63',
+  title: 'XELIS Development Funding Fee Reduction is Here: From 10% to 5% at Block 3,250,000',
+  description: 'When XELIS reaches block height 3,250,000, the protocol-defined development funding fee will automatically decrease from 10% to 5% of each block reward. This marks the increasing of mining rewards by 5%',
+  content: `
+# Xelis Development Fee Reduction: Code Is Law
+
+Xelis is approaching an important, and fully immutable, milestone in its monetary and governance design. Around Sunday/Monday, when the blockchain reaches block height **3,250,000**, the protocol-defined development funding fee will automatically decrease from **10% to 5%** of each block reward. This marks the **increasing of mining rewards by 5%**.
+
+This is not a promise.  **This is code, and code is law.**
+
+---
+
+## Why the Fee Exists
+
+From day one, Xelis set out to solve one of the most difficult challenges in decentralized project sustainability: **how to fund ongoing development without compromising decentralization or relying on wealthy individuals.**
+
+Instead of:
+
+- Having a premine
+- Running a fundraising round
+- Taking VC money
+- Relying on large holders to “donate”
+- Placing governance power in the hands of a few richest wallets
+
+Xelis uses a **protocol-level, hard-coded development fee**. This ensures the project can remain independent and self-sufficient.
+
+### The dev fund supports:
+
+- Ongoing core development  
+- Bounties  
+- Developer grants  
+- Infrastructure & servers  
+- Marketing  
+- Exchange listings  
+- Liquidity & market making  
+
+All without begging the community for money or creating conflicts of interest from wealthy donors influencing the project’s direction.
+
+This keeps Xelis aligned with its founding principles: **privacy, neutrality, immutability, and decentralization**.
+
+---
+
+## A Reduction That Was Coded From the Beginning
+
+The reduction from 10% to 5% was planned, written into the protocol, and committed into the codebase from the start. After approximately **1.5 years of chain time** (calculated from block intervals), the fee automatically steps down.
+
+### Here is the exact code governing the transition: [Github Link](https://github.com/xelis-project/xelis-blockchain/blob/8ba0cb7a5f9fa15900d2025b1efb36f90805bffa/xelis_daemon/src/config.rs#L83)
+
+This code is embedded directly into the **consensus rules**. When the blockchain reaches block height **3,250,000**, the fee changes automatically.
+
+---
+
+## A Funding Model That Protects Decentralization
+
+Protocol-based funding is one of the most reliable and decentralized models for blockchain sustainability. It prevents:
+
+- The risk of projects dying due to lack of funds  
+- Developers being pressured by wealthy backers  
+- Conflicts of interest in governance  
+- Reliance on hype cycles or speculation to remain solvent  
+
+Instead, Xelis secures its future by tying development resources to the protocol itself.
+
+By reducing the dev fee from 10% to 5%, Xelis demonstrates:
+
+- Long-term confidence  
+- Commitment to growth and efficiency  
+- Respect for the community & miners  
+- Adherence to immutable code  
+
+This strengthens both the economics and the credibility of the network.
+
+---
+
+## Conclusion: Code Is Law
+
+The upcoming fee reduction isn’t a marketing stunt.  
+It’s not a governance drama.  
+It’s not a discretionary decision.
+
+It’s Xelis doing exactly what the code has always guaranteed it would do. At block **3,250,000**, the dev fund share decreases to **5%**, improving miner rewards by 5%, marking the next chapter in Xelis’ evolution.
+
+---
+
+Thank you for reading this article on **XELIS**! If you enjoyed the content and found it useful, please consider supporting my work with a tip in **Xelis ($XEL)**. Your contribution helps me keep producing quality content like this, and I genuinely appreciate your support!
+
+— **Cyber** (Telegram: \`cybernated_coinage\` | Discord: \`cybernatedcoinage\`)
+
+### Tipping Address (XELIS ONLY):
+
+\`xel:82zfcy3aa2pk2rzx6jpfnv7u3vkjcxhqs3hyghj45u9g2ccrrslsqk3vm3x\`
+
+---
+
+### 📌 Important Links:
+
+- **Xelis VM Playground:** [https://playground.xelis.io](https://playground.xelis.io)
+- **Xelis LinkTree:** [https://linktr.ee/xelis](https://linktr.ee/xelis)
+- **Website:** [https://xelis.org](https://xelis.org) (Legacy: [https://xelis.io](https://xelis.io))
+- **Documentation:** [https://docs.xelis.io](https://docs.xelis.io)
+- **Whitepaper:** [https://whitepaper.xelis.io/](https://whitepaper.xelis.io/)
+- **Github:** [https://github.com/xelis-project/](https://github.com/xelis-project/)
+- **Fiat Onramp:** [https://onramp.xelis.io](https://onramp.xelis.io)
+- **Xelis Merchandise Store (PPN):** [https://xelis.io/merch](https://xelis.io/merch) or [https://poolpartynodes.com/product-category/xelis-clothing-store/](https://poolpartynodes.com/product-category/xelis-clothing-store/)
+
+### 📢 Social Links:
+- **Telegram:** [https://t.me/xelis_io](https://t.me/xelis_io)
+- **Discord:** [https://discord.gg/xelis](https://discord.gg/xelis)
+- **Twitter/X:** [https://twitter.com/xeliscurrency](https://twitter.com/xeliscurrency)
+- **Facebook:** [https://www.facebook.com/xeliscommunity](https://www.facebook.com/xeliscommunity)
+- **TikTok:** [https://www.tiktok.com/@xeliscommunity](https://www.tiktok.com/@xeliscommunity)
+- **Instagram:** [https://www.instagram.com/xeliscommunity/](https://www.instagram.com/xeliscommunity/)
+- **LinkedIn:** [https://www.linkedin.com/company/xelis](https://www.linkedin.com/company/xelis)
+- **Reddit:** [https://www.reddit.com/r/xelis/](https://www.reddit.com/r/xelis/)
+- **YouTube:** [https://www.youtube.com/@xelis_project](https://www.youtube.com/@xelis_project)
+- **Official Medium:** [https://xeliscommunity.org](https://xeliscommunity.org)
+
+### 🔎 Explorer & Stats:
+- **Explorer:** [https://explorer.xelis.io](https://explorer.xelis.io)
+- **Stats Page:** [https://stats.xelis.io](https://stats.xelis.io)
+
+### 💰 Listings:
+- **CoinGecko:** [https://www.xelis.org/exchanges/](https://www.xelis.org/exchanges/)
+- **CoinGecko:** [https://www.coingecko.com/en/coins/xelis](https://www.coingecko.com/en/coins/xelis)
+- **LiveCoinWatch:** [https://www.livecoinwatch.com/price/XELIS-__XEL](https://www.livecoinwatch.com/price/XELIS-__XEL)
+- **CoinPaprika:** [https://coinpaprika.com/coin/xel-xelis/](https://coinpaprika.com/coin/xel-xelis/)
+
+### 🌐 Community & Tools:
+- **Community Medium:** [https://xeliscommunity.org](https://xeliscommunity.org)
+- **Wallets:** [https://www.xelis.org/resources/](https://www.xelis.org/resources/)
+- **Faucet:** [https://faucet.xelis.io](https://faucet.xelis.io)
+  `,
+  publishedDate: '2025-12-05T09:00:00Z',
+  slug: 'Dev-Fee-Reduction',
+  thumbnailUrl: '/uploads/blog/devfee.png',
+  categories: ['Mining', 'Tokenomics', 'Update'],
+  author: {
+    name: 'Cyber Henry',
+    avatar: '/uploads/cyber.jpg'
+  },
+  readingTime: '3 min read',
+  likes: 156
+},
+  {
   id: '62',
   title: 'SMART CONTRACTS ON XELIS MAINNET (Dec. 13th, 2025): XVM, Silex, Faster Blocks, Dynamic Fees & Burns, XelisHashV3 🚀',
   description: 'The long awaited Xelis Smart Contracts and XVM are launching on mainnet on December 13th, 2025! This major upgrade also includes faster block times, dynamic fees & burns, and XelisHashV3. Read on for all the details!',
