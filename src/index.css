@@ -46,6 +46,47 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+  @layer base {
+  /* Dark mode: turn all dark text → white */
+  .dark .text-black,
+  .dark .text-gray-900,
+  .dark .text-gray-800,
+  .dark .text-gray-700,
+  .dark .text-gray-600,
+  .dark .text-gray-500 {
+    @apply text-white;
+  }
+
+  /* EXCEPTIONS — keep text black on the Xelis brand colors in dark mode */
+
+  /* Xelis blue backgrounds */
+  .dark .bg-xelis-blue,
+  .dark .bg-xelis-blue *,
+  .dark .bg-xelis-dark-blue,
+  .dark .bg-xelis-dark-blue * {
+    color: #000 !important;
+  }
+
+  /* Xelis green: bg-[#02FFCF] */
+  .dark [class*="bg-[#02FFCF]"],
+  .dark [class*="bg-[#02FFCF]"] * {
+    color: #000 !important;
+  }
+  @layer base {
+  /* Make all heading text white in dark mode */
+  .dark h1,
+  .dark h2,
+  .dark h3,
+  .dark h4,
+  .dark h5,
+  .dark h6 {
+    color: white !important;
+  }
+}
+
+}
+
+
 }
 
 @layer base {
@@ -73,8 +114,10 @@
   }
 
   .glass-card {
-    @apply bg-white/80 backdrop-blur-sm border border-gray-100 shadow-soft rounded-xl;
-  }
+  @apply bg-white/80 dark:bg-black/40 backdrop-blur-sm border border-gray-100 dark:border-white/20 shadow-soft rounded-xl;
+}
+
+
 
   .section-container {
     @apply container mx-auto px-4 py-16 md:py-24;
