@@ -242,20 +242,20 @@ const Resources = () => {
               </div>
               
               <div className="md:w-1/3">
-  {/* Light mode image */}
-  <img 
-    src="/uploads/Pickaxe.png" 
-    alt="XELIS Pickaxe" 
-    className="w-full max-w-[180px] mx-auto block dark:hidden" 
-  />
-  
-  {/* Dark mode image */}
-  <img 
-    src="/uploads/Pickaxe2.png" 
-    alt="XELIS Pickaxe Dark" 
-    className="w-full max-w-[180px] mx-auto hidden dark:block" 
-  />
-</div>
+                {/* Light mode image */}
+                <img 
+                  src="/uploads/Pickaxe.png" 
+                  alt="XELIS Pickaxe" 
+                  className="w-full max-w-[180px] mx-auto block dark:hidden" 
+                />
+                
+                {/* Dark mode image */}
+                <img 
+                  src="/uploads/Pickaxe2.png" 
+                  alt="XELIS Pickaxe Dark" 
+                  className="w-full max-w-[180px] mx-auto hidden dark:block" 
+                />
+              </div>
 
             </div>
           </div>
