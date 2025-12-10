@@ -822,8 +822,8 @@ const XelisEmissionSchedule = () => {
   };
 
   return (
-    <div className="w-full h-full bg-white p-6 rounded-lg shadow">
-      <h2 className="text-2xl font-bold mb-6 text-center"></h2>
+    <div className="w-full h-full bg-white dark:bg-black p-6 rounded-lg shadow">
+      <h2 className="text-2xl font-bold mb-6 text-center dark:text-white"></h2>
       <div className="h-96 w-full">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart
@@ -997,7 +997,7 @@ const Tokenomics = () => {
         </section>
 
         {/* Coin Overview */}
-        <section className="container mx-auto px-4 py-12 bg-gray-50 dark:bg-black rounded-3xl">
+        <section className="container mx-auto px-4 py-12 bg-white dark:bg-black dark:bg-black rounded-3xl">
           <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-center dark:text-white">Coin Overview</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
@@ -1024,7 +1024,7 @@ const Tokenomics = () => {
               
               <div className="grid grid-cols-2 gap-4">
                 {tokenDetails.map((detail, index) => (
-                  <div key={index} className="bg-gray-50 p-4 rounded-lg">
+                  <div key={index} className="bg-white dark:bg-black p-4 rounded-lg">
                     <div className="flex items-center mb-2">
                       <div className="text-xelis-blue mr-2">{detail.icon}</div>
                       <h4 className="font-medium">{detail.title}</h4>
@@ -1049,7 +1049,7 @@ const Tokenomics = () => {
               
               <div className="flex-grow grid grid-cols-1 md:grid-cols-3 gap-6">
                 {phaseAllocations.map((phase, phaseIndex) => (
-                  <div key={phaseIndex} className="bg-gray-50 p-4 rounded-lg">
+                  <div key={phaseIndex} className="bg-white dark:bg-black p-4 rounded-lg">
                     <h4 className="font-medium text-center mb-2">{phase.phase}</h4>
                     <p className="text-sm text-center text-gray-500 mb-4">{phase.description}</p>
                     
@@ -1061,11 +1061,12 @@ const Tokenomics = () => {
                     
                     <div className="space-y-2">
                       {phase.allocation.map((segment, index) => (
-                        <div key={index} className="flex items-center space-x-2">
-                          <div className="w-3 h-3 rounded-full" style={{ backgroundColor: segment.color }}></div>
-                          <span className="text-xs">{segment.category}: {segment.percentage}%</span>
-                        </div>
-                      ))}
+  <div key={index} className="flex items-center space-x-2">
+    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: segment.color }}></div>
+    <span className="text-xs dark:text-white">{segment.category}: {segment.percentage}%</span>
+  </div>
+))}
+
                     </div>
                   </div>
                 ))}
@@ -1086,7 +1087,7 @@ const Tokenomics = () => {
         </section>
 
         {/* Token Utility */}
-        <section className="container mx-auto px-4 py-12 bg-gray-50 dark:bg-black rounded-3xl mb-12">
+        <section className="container mx-auto px-4 py-12 bg-white dark:bg-black dark:bg-black rounded-3xl mb-12">
           <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-center dark:text-white">Coin Utility</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
