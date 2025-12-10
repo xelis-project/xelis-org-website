@@ -4,7 +4,7 @@ import { Globe, Mail } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer id="contact" className="bg-white dark:bg-black border-t border-gray-100 dark:border-gray-900 mt-0.5">
+    <footer id="contact" className="bg-white dark:bg-black border-t border-gray-100 dark:border-white/10 mt-0.5">
       <div className="container mx-auto px-4 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
           {/* Logo & Description */}
@@ -58,7 +58,7 @@ const Footer = () => {
           {/* Two-Column Resources Section */}
           <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 className="text-sm font-semibold text-gray-900 dark:text-xelis-blue uppercase tracking-wider mb-4">
+              <h3 className="text-sm font-semibold text-gray-900 dark:!text-xelis-blue uppercase tracking-wider mb-4">
                 Resources
               </h3>
               <ul className="space-y-3">
