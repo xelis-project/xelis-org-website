@@ -140,13 +140,23 @@ const Resources = () => {
                   New to XELIS? Get free tokens to explore and test our ecosystem. 
                   The XELIS faucet provides a small amount of XELIS for testing wallets and applications.
                 </p>
-                <AnimatedButton 
-                  onClick={() => window.open("https://faucet.xelis.io", "_blank")}
-                  className="flex items-center"
-                >
-                  Get Free XELIS
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </AnimatedButton>
+                <div className="flex flex-wrap gap-4">
+                  <AnimatedButton 
+                    onClick={() => window.open("https://faucet.xelis.io", "_blank")}
+                    className="flex items-center"
+                  >
+                    Get Free XELIS
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </AnimatedButton>
+                  <AnimatedButton 
+                    variant="secondary"
+                    onClick={() => window.open("https://www.xelisfaucet.site", "_blank")}
+                    className="flex items-center"
+                  >
+                    Testnet Faucet
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </AnimatedButton>
+                </div>
               </div>
               
               <div className="md:w-1/2">
