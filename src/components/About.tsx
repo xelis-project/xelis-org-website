@@ -46,7 +46,7 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="bg-gray-50 dark:bg-[#1F1F1F] py-16 md:py-24">
+    <section id="about" className="bg-gray-50 dark:bg-black py-16 md:py-24">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column - Text */}
@@ -86,28 +86,28 @@ With a high-performance Virtual Machine, programmable smart contracts, and innov
               <h3 className="text-xl font-semibold mb-6 text-center">Key Metrics</h3>
               
               <div className="grid grid-cols-2 gap-6">
-                <div className="text-center p-4 bg-white dark:bg-black rounded-lg shadow-sm">
+                <div className="text-center p-4 bg-white dark:bg-[#0a0a0a] rounded-lg shadow-sm">
                   <div className="text-3xl font-bold text-xelis-blue mb-1">7,500+</div>
                   <div className="text-sm text-gray-500 dark:text-white">Max Transactions Per Second</div>
                 </div>
                 
-                <div className="text-center p-4 bg-white dark:bg-black rounded-lg shadow-sm">
+                <div className="text-center p-4 bg-white dark:bg-[#0a0a0a] rounded-lg shadow-sm">
                   <div className="text-3xl font-bold text-xelis-blue mb-1">150+</div>
                   <div className="text-sm text-gray-500 dark:text-white">Network Nodes</div>
                 </div>
                 
-                <div className="text-center p-4 bg-white dark:bg-black rounded-lg shadow-sm">
+                <div className="text-center p-4 bg-white dark:bg-[#0a0a0a] rounded-lg shadow-sm">
                   <div className="text-3xl font-bold text-xelis-blue mb-1">15s</div>
                   <div className="text-sm text-gray-500 dark:text-white" >Block Speed</div>
                 </div>
                 
-                <div className="text-center p-4 bg-white dark:bg-black rounded-lg shadow-sm">
+                <div className="text-center p-4 bg-white dark:bg-[#0a0a0a] rounded-lg shadow-sm">
                   <div className="text-3xl font-bold text-xelis-blue mb-1">100%</div>
                   <div className="text-sm text-gray-500 dark:text-white">Network Uptime</div>
                 </div>
                 
                 {/* Circulating Supply - Dynamically updated */}
-                <div className="text-center p-4 bg-white dark:bg-black rounded-lg shadow-sm">
+                <div className="text-center p-4 bg-white dark:bg-[#0a0a0a] rounded-lg shadow-sm">
                   <div className="text-3xl font-bold text-xelis-blue mb-1">
                     {/* Display formatted circulating supply */}
                     {formatCirculatingSupply(circulatingSupply)}
@@ -115,32 +115,32 @@ With a high-performance Virtual Machine, programmable smart contracts, and innov
                   <div className="text-sm text-gray-500 dark:text-white">Circulating Supply</div>
                 </div>
                 
-                <div className="text-center p-4 bg-white dark:bg-black rounded-lg shadow-sm">
+                <div className="text-center p-4 bg-white dark:bg-[#0a0a0a] rounded-lg shadow-sm">
                   <div className="text-3xl font-bold text-xelis-blue mb-1">18.4m</div>
                   <div className="text-sm text-gray-500 dark:text-white">Max Supply</div>
                 </div>
               </div>
               
-              <div className="mt-8 pt-6 border-t border-gray-100">
+              <div className="mt-8 pt-6 border-t border-gray-100 dark:border-white/10">
                 <h4 className="text-lg font-medium mb-4 text-center">Ongoing Development</h4>
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600 dark:text-black">Smart Contracts</span>
-                    <div className="w-2/3 bg-gray-200 rounded-full h-2.5">
+                    <span className="text-sm text-gray-600 dark:text-white">Smart Contracts</span>
+                    <div className="w-2/3 bg-gray-200 dark:bg-[#2a2a2a] rounded-full h-2.5">
                       <div className="bg-xelis-blue h-2.5 rounded-full" style={{ width: '85%' }}></div>
                     </div>
                   </div>
                   
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600 dark:text-black">BPS Increase</span>
-                    <div className="w-2/3 bg-gray-200 rounded-full h-2.5">
+                    <span className="text-sm text-gray-600 dark:text-white">BPS Increase</span>
+                    <div className="w-2/3 bg-gray-200 dark:bg-[#2a2a2a] rounded-full h-2.5">
                       <div className="bg-xelis-blue h-2.5 rounded-full" style={{ width: '90%' }}></div>
                     </div>
                   </div>
                   
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600 dark:text-black">Multiasset Wallet</span>
-                    <div className="w-2/3 bg-gray-200 rounded-full h-2.5">
+                    <span className="text-sm text-gray-600 dark:text-white">Multiasset Wallet</span>
+                    <div className="w-2/3 bg-gray-200 dark:bg-[#2a2a2a] rounded-full h-2.5">
                       <div className="bg-xelis-blue h-2.5 rounded-full" style={{ width: '100%' }}></div>
                     </div>
                   </div>

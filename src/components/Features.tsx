@@ -74,18 +74,18 @@ const FeatureCard = ({ feature, index }: { feature: typeof features[0], index: n
       className="glass-card p-6 transition-all duration-300 hover:translate-y-[-5px] hover:shadow-md"
       style={{ animationDelay: `${index * 100}ms` }}
     >
-      <div className={cn("mb-4 p-3 rounded-lg inline-block", feature.bgColor, "dark:bg-gray-800")}>
+      <div className={cn("mb-4 p-3 rounded-lg inline-block", feature.bgColor, "dark:bg-[#1a1a1a]")}>
         <div className={feature.color}>{feature.icon}</div>
       </div>
       <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-      <p className="text-gray-600 dark:text-black">{feature.description}</p>
+      <p className="text-gray-600 dark:text-white">{feature.description}</p>
     </div>
   );
 };
 
 const Features = () => {
   return (
-    <section id="features" className="py-4 md:py-8 bg-white dark:bg-gray-900">
+    <section id="features" className="py-4 md:py-8 bg-white dark:bg-black">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
           <span className="inline-block px-4 py-1.5 mb-4 rounded-full bg-[#02FFCF] border border-white dark:border-[#02FFCF] text-sm font-medium text-black">

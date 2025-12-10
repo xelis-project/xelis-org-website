@@ -178,7 +178,7 @@ const Roadmap = () => {
                       <ul className="space-y-2">
                         {milestone.items.map((item, i) => (
                           <li key={i} className="flex items-start">
-                            <div className="flex-shrink-0 w-5 h-5 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center mt-0.5 mr-3">
+                            <div className="flex-shrink-0 w-5 h-5 rounded-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-200 dark:border-white/10 flex items-center justify-center mt-0.5 mr-3">
                               <span className="text-xs font-bold text-gray-500">{i + 1}</span>
                             </div>
                             <span className="text-gray-700">{item}</span>

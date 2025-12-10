@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -44,7 +43,6 @@ const Resources = () => {
       icon: <Wallet className="h-6 w-6" />,
       primary: true,
     },
-    // Paper Wallet - now primary
     {
       name: "Paper Wallet",
       description: "Generate offline XELIS paper wallets for cold storage and maximum security.",
@@ -54,7 +52,6 @@ const Resources = () => {
       icon: <FileText className="h-6 w-6" />,
       primary: true,
     },
-    // Third Party MultiAsset Wallet - now primary
     {       
       name: "MultiAsset Wallet (iOS, Android & Desktop)",       
       description: "Store XELIS alongside other cryptocurrencies in popular third-party wallets.",       
@@ -77,7 +74,8 @@ const Resources = () => {
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-3xl md:text-5xl font-bold dark:text-white mb-6">XELIS Wallets & Resources</h1>
             <p className="text-lg text-gray-600 dark:text-white mb-8">
-            Explore the essential resources to get started with Xelis. Securely access and manage your XELIS through a variety of wallet options, claim free XELIS from our faucet, run a node, or mine XELIS using CPU/GPU to help strengthen the network's security.</p>
+              Explore the essential resources to get started with Xelis. Securely access and manage your XELIS through a variety of wallet options, claim free XELIS from our faucet, run a node, or mine XELIS using CPU/GPU to help strengthen the network's security.
+            </p>
           </div>
         </section>
 
@@ -97,17 +95,17 @@ const Resources = () => {
                   <div className="p-3 rounded-lg bg-xelis-blue text-white">
                     {wallet.icon}
                   </div>
-                  <h3 className="text-xl font-semibold ml-4">{wallet.name}</h3>
+                  <h3 className="text-xl font-semibold ml-4 dark:text-white">{wallet.name}</h3>
                 </div>
                 
-                <p className="text-gray-600 mb-4">{wallet.description}</p>
+                <p className="text-gray-600 dark:text-white mb-4">{wallet.description}</p>
                 
                 <div className="mb-6 flex-grow">
                   <ul className="space-y-2">
                     {wallet.features.map((feature, i) => (
                       <li key={i} className="flex items-center">
                         <Shield className="h-4 w-4 text-xelis-blue mr-2" />
-                        <span className="text-sm">{feature}</span>
+                        <span className="text-sm dark:text-white">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -134,11 +132,11 @@ const Resources = () => {
           <div className="max-w-4xl mx-auto glass-card p-8 md:p-12">
             <div className="flex flex-col md:flex-row items-center">
               <div className="md:w-1/2 mb-6 md:mb-0 md:pr-8">
-                <div className="bg-blue-50 p-4 rounded-full inline-block mb-4">
-                  <Droplet className="h-8 w-8 text-xelis-blue" />
+                <div className="bg-xelis-blue p-4 rounded-full inline-block mb-4">
+                  <Droplet className="h-8 w-8 text-white" />
                 </div>
-                <h2 className="text-2xl md:text-3xl font-semibold mb-4">XELIS Faucet</h2>
-                <p className="text-gray-600 mb-6">
+                <h2 className="text-2xl md:text-3xl font-semibold mb-4 dark:text-white">XELIS Faucet</h2>
+                <p className="text-gray-600 dark:text-white mb-6">
                   New to XELIS? Get free tokens to explore and test our ecosystem. 
                   The XELIS faucet provides a small amount of XELIS for testing wallets and applications.
                 </p>
@@ -152,24 +150,24 @@ const Resources = () => {
               </div>
               
               <div className="md:w-1/2">
-                <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
-                  <h3 className="font-medium text-lg mb-4">How It Works</h3>
+                <div className="p-6">
+                  <h3 className="font-medium text-lg mb-4 dark:text-white">How It Works</h3>
                   <ol className="space-y-3">
                     <li className="flex">
                       <span className="bg-xelis-blue text-white w-6 h-6 rounded-full flex items-center justify-center mr-3 flex-shrink-0">1</span>
-                      <span>Visit the <a href="https://faucet.xelis.io" target="_blank" rel="noopener noreferrer" className="text-xelis-blue hover:underline">XELIS Faucet</a></span>
+                      <span className="dark:text-white">Visit the <a href="https://faucet.xelis.io" target="_blank" rel="noopener noreferrer" className="text-xelis-blue hover:underline">XELIS Faucet</a></span>
                     </li>
                     <li className="flex">
                       <span className="bg-xelis-blue text-white w-6 h-6 rounded-full flex items-center justify-center mr-3 flex-shrink-0">2</span>
-                      <span>Enter your XELIS wallet address</span>
+                      <span className="dark:text-white">Enter your XELIS wallet address</span>
                     </li>
                     <li className="flex">
                       <span className="bg-xelis-blue text-white w-6 h-6 rounded-full flex items-center justify-center mr-3 flex-shrink-0">3</span>
-                      <span>Complete the verification</span>
+                      <span className="dark:text-white">Complete the verification</span>
                     </li>
                     <li className="flex">
                       <span className="bg-xelis-blue text-white w-6 h-6 rounded-full flex items-center justify-center mr-3 flex-shrink-0">4</span>
-                      <span>Receive free XELIS tokens</span>
+                      <span className="dark:text-white">Receive free XELIS tokens</span>
                     </li>
                   </ol>
                 </div>
@@ -185,9 +183,9 @@ const Resources = () => {
           <div className="max-w-4xl mx-auto glass-card p-8">
             <div className="flex flex-col md:flex-row items-center">
               <div className="md:w-2/3 mb-6 md:mb-0 md:pr-8">
-                <h3 className="text-xl font-semibold mb-4">Contribute to Decentralization by Running a node</h3>
-                <p className="text-gray-600 mb-6">
-                Run a XELIS node to support network decentralization, validate transactions, and enhance security. Access setup guides, documentation, and tools to deploy and manage your own node. Contribute to the ecosystem by strengthening the blockchain's resilience and performance.
+                <h3 className="text-xl font-semibold mb-4 dark:text-white">Contribute to Decentralization by Running a node</h3>
+                <p className="text-gray-600 dark:text-white mb-6">
+                  Run a XELIS node to support network decentralization, validate transactions, and enhance security. Access setup guides, documentation, and tools to deploy and manage your own node. Contribute to the ecosystem by strengthening the blockchain's resilience and performance.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <AnimatedButton 
@@ -219,16 +217,17 @@ const Resources = () => {
             </div>
           </div>
         </section>
-                {/* How to Mine Xelis */}
-                <section className="container mx-auto px-4 py-12 bg-gray-50 dark:bg-black rounded-3xl mb-12">
+
+        {/* How to Mine Xelis Section */}
+        <section className="container mx-auto px-4 py-12 bg-gray-50 dark:bg-black rounded-3xl mb-12">
           <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-center dark:text-white">Mining Xelis</h2>
           
           <div className="max-w-4xl mx-auto glass-card p-8">
             <div className="flex flex-col md:flex-row items-center">
               <div className="md:w-2/3 mb-6 md:mb-0 md:pr-8">
-                <h3 className="text-xl font-semibold mb-4">How to Mine Xelis</h3>
-                <p className="text-gray-600 mb-6">
-                Xelis is a Proof of Work (PoW) blockchain, where mining plays a crucial role in ensuring its security. At the heart of Xelis lies decentralization, which is why we've developed a unique mining algorithm that is resistant to ASIC and FPGA mining, making it efficiently mineable only with GPUs and CPUs. Our proprietary XelisHashV2 algorithm is highly memory-intensive, yet it operates with exceptionally low energy consumption, making it one of the most energy-efficient mining algorithms ever created.
+                <h3 className="text-xl font-semibold mb-4 dark:text-white">How to Mine Xelis</h3>
+                <p className="text-gray-600 dark:text-white mb-6">
+                  Xelis is a Proof of Work (PoW) blockchain, where mining plays a crucial role in ensuring its security. At the heart of Xelis lies decentralization, which is why we've developed a unique mining algorithm that is resistant to ASIC and FPGA mining, making it efficiently mineable only with GPUs and CPUs. Our proprietary XelisHashV2 algorithm is highly memory-intensive, yet it operates with exceptionally low energy consumption, making it one of the most energy-efficient mining algorithms ever created.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <AnimatedButton 
@@ -243,24 +242,34 @@ const Resources = () => {
               </div>
               
               <div className="md:w-1/3">
-                <img 
-                  src="/uploads/Pickaxe.png" 
-                  alt="XELIS Logo" 
-                  className="w-full max-w-[180px] mx-auto"
-                />
-              </div>
+  {/* Light mode image */}
+  <img 
+    src="/uploads/Pickaxe.png" 
+    alt="XELIS Pickaxe" 
+    className="w-full max-w-[180px] mx-auto block dark:hidden" 
+  />
+  
+  {/* Dark mode image */}
+  <img 
+    src="/uploads/Pickaxe2.png" 
+    alt="XELIS Pickaxe Dark" 
+    className="w-full max-w-[180px] mx-auto hidden dark:block" 
+  />
+</div>
+
             </div>
           </div>
         </section>
-         {/* Developer Resources */}
-         <section className="container mx-auto px-4 py-12 bg-gray-50 dark:bg-black rounded-3xl mb-12">
+
+        {/* Developer Resources Section */}
+        <section className="container mx-auto px-4 py-12 bg-gray-50 dark:bg-black rounded-3xl mb-12">
           <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-center dark:text-white">Developer Resources</h2>
           
           <div className="max-w-4xl mx-auto glass-card p-8">
             <div className="flex flex-col md:flex-row items-center">
               <div className="md:w-2/3 mb-6 md:mb-0 md:pr-8">
-                <h3 className="text-xl font-semibold mb-4">Build on XELIS</h3>
-                <p className="text-gray-600 mb-6">
+                <h3 className="text-xl font-semibold mb-4 dark:text-white">Build on XELIS</h3>
+                <p className="text-gray-600 dark:text-white mb-6">
                   Access developer tools, documentation, and resources to build applications on the XELIS blockchain.
                   Explore our GitHub repositories for code examples and contribute to the ecosystem.
                 </p>
@@ -294,7 +303,7 @@ const Resources = () => {
               
               <div className="md:w-1/3">
                 <img 
-                  src="/uploads/transparent_backgroud_black_logo.png" 
+                  src="/uploads/transparent_background_green_logo.png" 
                   alt="XELIS Logo" 
                   className="w-full max-w-[180px] mx-auto"
                 />

@@ -76,7 +76,7 @@ const ArticleDetailPage: React.FC<ArticleDetailPageProps> = () => {
                 <Link 
                   key={i} 
                   to={`/blog?category=${category}`}
-                  className="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full hover:bg-gray-200"
+                  className="bg-gray-100 dark:bg-[#1a1a1a] dark:text-white text-gray-700 text-xs px-3 py-1 rounded-full hover:bg-gray-200 dark:hover:bg-[#2a2a2a]"
                 >
                   {category}
                 </Link>
@@ -142,7 +142,7 @@ const ArticleDetailPage: React.FC<ArticleDetailPageProps> = () => {
             <div className="border-t border-gray-200 pt-8 mt-12">
               <div className="flex justify-between items-center">
                 <div className="flex items-center">
-                  <button className="bg-gray-100 hover:bg-gray-200 p-2 rounded-full mr-2">
+                  <button className="bg-gray-100 dark:bg-[#1a1a1a] hover:bg-gray-200 dark:hover:bg-[#2a2a2a] p-2 rounded-full mr-2">
                     <ThumbsUp className="h-5 w-5 text-gray-600" />
                   </button>
                   <span className="text-gray-600">{article.likes} likes</span>
@@ -151,7 +151,7 @@ const ArticleDetailPage: React.FC<ArticleDetailPageProps> = () => {
                 <div className="flex items-center">
                   <span className="mr-4 text-gray-600">Share this article:</span>
                   <div className="flex space-x-3">
-                    <button className="bg-gray-100 hover:bg-gray-200 p-2 rounded-full">
+                    <button className="bg-gray-100 dark:bg-[#1a1a1a] hover:bg-gray-200 dark:hover:bg-[#2a2a2a] p-2 rounded-full">
                       <Share2 className="h-5 w-5 text-gray-600" />
                     </button>
                     {/* Add more social share buttons as needed */}

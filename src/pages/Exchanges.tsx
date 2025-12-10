@@ -30,7 +30,7 @@ const BuyWidget: React.FC = () => {
             {/* Text Column */}
             <div className="md:w-1/2 text-center md:text-left">
               <div className="inline-block mb-4">
-                <span className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-[#02FFCF] border border-white dark:border-[#02FFCF] text-sm font-bold text-black">
+                <span className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-[#02FFCF] border border-white dark:border-[#02FFCF] text-sm font-bold text-black dark:text-black">
                   Buy Xelis
                 </span>
               </div>
@@ -97,7 +97,7 @@ const Exchanges = () => {
       type: "Centralized",
       features: ["Low Fees", "Wide Asset Pairs", "Spot Trading"]
     },
- {
+    {
       name: "LetsExchange",
       logo: "/uploads/letsexchange.png",
       url: "https://letsexchange.io/coin/xel",
@@ -161,7 +161,7 @@ const Exchanges = () => {
       type: "Swap",
       features: ["Many Pairs", "Simple interface", "Aggregator"]
     },
-     {
+    {
       name: "CoinoSwap",
       logo: "/uploads/coino.png",
       url: "https://www.coinoswap.com/?to=xelis&toNetwork=XEL&from=usdc&fromNetwork=sol&sellAmount=500&direction=direct",
@@ -169,8 +169,6 @@ const Exchanges = () => {
       type: "Swap",
       features: ["Many Pairs", "Simple interface", "Aggregator"]
     }
-
-   
   ];
 
   return (
@@ -196,7 +194,7 @@ const Exchanges = () => {
               <div key={exchange.name} className="glass-card overflow-hidden transition-all duration-300 hover:shadow-lg group">
                 <div className="p-6">
                   <div className="flex items-center mb-4">
-                    <div className="h-12 w-12 bg-gray-100 rounded-md flex items-center justify-center mr-4">
+                    <div className="h-12 w-12 bg-gray-100 dark:bg-[#1a1a1a] rounded-md flex items-center justify-center mr-4">
                       <img 
                         src={exchange.logo} 
                         alt={`${exchange.name} logo`}
@@ -205,23 +203,25 @@ const Exchanges = () => {
                       />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold">{exchange.name}</h3>
-                      <span className="text-sm text-gray-500">{exchange.type} Exchange</span>
+                      <h3 className="text-xl font-bold dark:text-white">{exchange.name}</h3>
+                      <span className="text-sm text-gray-500 dark:text-gray-300">{exchange.type} Exchange</span>
                     </div>
                   </div>
                   <div className="mb-4">
-                    <h4 className="text-sm font-semibold uppercase text-gray-500 mb-2">Trading Pairs</h4>
+                    <h4 className="text-sm font-semibold uppercase text-gray-500 dark:text-gray-300 mb-2">Trading Pairs</h4>
                     <div className="flex flex-wrap gap-2">
                       {exchange.pairs.map(pair => (
-                        <span key={pair} className="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-700">{pair}</span>
+                        <span key={pair} className="px-3 py-1 rounded-full bg-xelis-blue text-black dark:text-white text-sm">
+                          {pair}
+                        </span>
                       ))}
                     </div>
                   </div>
                   <div className="mb-6">
-                    <h4 className="text-sm font-semibold uppercase text-gray-500 mb-2">Features</h4>
+                    <h4 className="text-sm font-semibold uppercase text-gray-500 dark:text-gray-300 mb-2">Features</h4>
                     <ul className="space-y-1">
                       {exchange.features.map((feature, i) => (
-                        <li key={i} className="text-gray-700 text-sm flex items-start">
+                        <li key={i} className="text-gray-700 dark:text-white text-sm flex items-start">
                           <span className="inline-block w-1.5 h-1.5 rounded-full bg-xelis-blue mr-2 mt-1.5"></span>
                           {feature}
                         </li>
@@ -269,8 +269,8 @@ const Exchanges = () => {
               <div className="w-12 h-12 bg-xelis-blue/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-xl font-bold text-xelis-blue">1</span>
               </div>
-              <h3 className="text-xl font-semibold mb-3">Create an Account</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold mb-3 dark:text-white">Create an Account</h3>
+              <p className="text-gray-600 dark:text-white">
                 Sign up for an account on your preferred exchange that lists XELIS. Complete any required verification steps.
               </p>
             </div>
@@ -279,8 +279,8 @@ const Exchanges = () => {
               <div className="w-12 h-12 bg-xelis-blue/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-xl font-bold text-xelis-blue">2</span>
               </div>
-              <h3 className="text-xl font-semibold mb-3">Deposit Funds</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold mb-3 dark:text-white">Deposit Funds</h3>
+              <p className="text-gray-600 dark:text-white">
                 Deposit BTC, USDT, or other supported currencies to your exchange account to use for trading.
               </p>
             </div>
@@ -289,8 +289,8 @@ const Exchanges = () => {
               <div className="w-12 h-12 bg-xelis-blue/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-xl font-bold text-xelis-blue">3</span>
               </div>
-              <h3 className="text-xl font-semibold mb-3">Trade XELIS</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold mb-3 dark:text-white">Trade XELIS</h3>
+              <p className="text-gray-600 dark:text-white">
                 Navigate to the XELIS trading pair, enter your desired amount, and complete your purchase or sale.
               </p>
             </div>
@@ -319,3 +319,4 @@ const Exchanges = () => {
 };
 
 export default Exchanges;
+
