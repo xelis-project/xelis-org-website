@@ -18,7 +18,7 @@ const ThemeToggle: React.FC = () => {
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="p-2 rounded-lg bg-gray-200 dark:bg-gray-800 transition"
+      className="p-2 rounded-lg bg-gray-200 dark:bg-[#1a1a1a] transition"
     >
       {theme === "dark" ? (
         <Sun className="w-6 h-6 text-yellow-400" />

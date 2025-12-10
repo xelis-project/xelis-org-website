@@ -20,8 +20,8 @@ const AnimatedButton = ({
   
   const variantStyles = {
     primary: "bg-xelis-blue text-black hover:bg-xelis-dark-blue shadow-button",
-    secondary: "bg-white text-xelis-black border border-gray-200 hover:bg-gray-50 shadow-button",
-    ghost: "bg-transparent hover:bg-gray-100 text-xelis-blue"
+    secondary: "bg-white dark:bg-[#1a1a1a] text-xelis-black dark:text-white border border-gray-200 dark:border-white/10 hover:bg-gray-50 dark:hover:bg-[#2a2a2a] shadow-button",
+    ghost: "bg-transparent hover:bg-gray-100 dark:hover:bg-[#1a1a1a] text-xelis-blue"
   };
   
   const sizeStyles = {
