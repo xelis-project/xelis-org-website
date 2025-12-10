@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
@@ -10,22 +9,65 @@ import Footer from '@/components/Footer';
 import { ArrowUp } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
+const GA_MEASUREMENT_ID = "G-8FC9METHBL"; // Replace with your GA ID
+
+// Function to initialize Google Analytics
+const initGA = () => {
+  if (!window.gtag) {
+    // Load the gtag script
+    const script1 = document.createElement('script');
+    script1.async = true;
+    script1.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+    document.head.appendChild(script1);
+
+    const script2 = document.createElement('script');
+    script2.innerHTML = `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '${GA_MEASUREMENT_ID}');
+    `;
+    document.head.appendChild(script2);
+  }
+};
+
+// Function to track page views
+const trackPage = (url: string) => {
+  if (window.gtag) {
+    window.gtag('config', GA_MEASUREMENT_ID, {
+      page_path: url,
+    });
+  }
+};
+
 const Index = () => {
   const [showScrollTop, setShowScrollTop] = React.useState(false);
 
   useEffect(() => {
+    // Initialize GA on first load
+    initGA();
+    trackPage(window.location.pathname);
+
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 500);
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    // Track page views on route changes (if using React Router)
+    const handleRouteChange = () => trackPage(window.location.pathname);
+    window.addEventListener('popstate', handleRouteChange);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('popstate', handleRouteChange);
+    };
   }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
   };
 
@@ -58,3 +100,4 @@ const Index = () => {
 };
 
 export default Index;
+
