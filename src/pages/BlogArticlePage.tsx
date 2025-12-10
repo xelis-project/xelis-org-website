@@ -164,7 +164,7 @@ const BlogArticlePage = () => {
 
             <div className="flex flex-wrap gap-2 mb-4">
               {article.categories.map((category, i) => (
-                <span key={i} className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">
+                <span key={i} className="bg-gray-100 dark:bg-[#1a1a1a] dark:text-white text-gray-700 text-xs px-2 py-1 rounded-full">
                   {category}
                 </span>
               ))}
@@ -213,7 +213,7 @@ const BlogArticlePage = () => {
                   <button
                     onClick={handleLike}
                     className={`flex items-center gap-2 py-2 px-4 rounded-lg transition-colors ${
-                      liked ? 'bg-blue-50 text-xelis-blue' : 'hover:bg-gray-100'
+                      liked ? 'bg-blue-50 dark:bg-[#1a1a1a] text-xelis-blue' : 'hover:bg-gray-100 dark:hover:bg-[#2a2a2a]'
                     }`}
                   >
                     <ThumbsUp className="h-5 w-5" />
@@ -229,7 +229,7 @@ const BlogArticlePage = () => {
                     )}&text=${encodeURIComponent(article.title)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+                    className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 dark:bg-[#1a1a1a] hover:bg-gray-200 dark:hover:bg-[#2a2a2a] transition-colors"
                   >
                     <Twitter className="h-4 w-4" />
                   </a>
@@ -239,7 +239,7 @@ const BlogArticlePage = () => {
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+                    className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 dark:bg-[#1a1a1a] hover:bg-gray-200 dark:hover:bg-[#2a2a2a] transition-colors"
                   >
                     <Facebook className="h-4 w-4" />
                   </a>
@@ -249,7 +249,7 @@ const BlogArticlePage = () => {
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+                    className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 dark:bg-[#1a1a1a] hover:bg-gray-200 dark:hover:bg-[#2a2a2a] transition-colors"
                   >
                     <Linkedin className="h-4 w-4" />
                   </a>
