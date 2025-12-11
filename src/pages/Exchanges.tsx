@@ -194,7 +194,7 @@ const Exchanges = () => {
               <div key={exchange.name} className="glass-card overflow-hidden transition-all duration-300 hover:shadow-lg group">
                 <div className="p-6">
                   <div className="flex items-center mb-4">
-                    <div className="h-12 w-12 bg-gray-100 dark:bg-gray-800 rounded-md flex items-center justify-center mr-4">
+                    <div className="h-12 w-12 bg-gray-100 dark:bg-[#1a1a1a] rounded-md flex items-center justify-center mr-4">
                       <img 
                         src={exchange.logo} 
                         alt={`${exchange.name} logo`}

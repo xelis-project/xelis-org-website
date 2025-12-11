@@ -46,20 +46,47 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
-  @layer base {
-  /* Dark mode: turn all dark text → white */
-  .dark .text-black,
-  .dark .text-gray-900,
-  .dark .text-gray-800,
-  .dark .text-gray-700,
-  .dark .text-gray-600,
-  .dark .text-gray-500 {
-    @apply text-white;
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 165 100% 47%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 0% 12.5%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 12.5%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 0 0% 12.5%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 165 100% 47%;
+
+    --sidebar-background: 0 0% 0%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 165 100% 47%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 0 0% 12.5%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 165 100% 47%;
   }
 
   /* EXCEPTIONS — keep text black on the Xelis brand colors in dark mode */
-
-  /* Xelis blue backgrounds */
   .dark .bg-xelis-blue,
   .dark .bg-xelis-blue *,
   .dark .bg-xelis-dark-blue,
@@ -72,21 +99,6 @@
   .dark [class*="bg-[#02FFCF]"] * {
     color: #000 !important;
   }
-  @layer base {
-  /* Make all heading text white in dark mode */
-  .dark h1,
-  .dark h2,
-  .dark h3,
-  .dark h4,
-  .dark h5,
-  .dark h6 {
-    color: white !important;
-  }
-}
-
-}
-
-
 }
 
 @layer base {
@@ -103,6 +115,39 @@
     font-family: 'Inter', sans-serif;
   }
 
+  /* Global dark mode text color - all text defaults to white in dark mode */
+  .dark {
+    color: rgb(255, 255, 255);
+  }
+
+  /* Global text color for paragraphs and general text in dark mode */
+  .dark p,
+  .dark span:not([class*="text-"]),
+  .dark div:not([class*="text-"]),
+  .dark li:not([class*="text-"]) {
+    color: rgb(255, 255, 255);
+  }
+
+  /* Gray text colors in dark mode - make them lighter */
+  .dark .text-gray-900,
+  .dark .text-gray-800,
+  .dark .text-gray-700,
+  .dark .text-gray-600,
+  .dark .text-gray-500,
+  .dark .text-gray-400 {
+    color: rgb(229, 231, 235) !important;
+  }
+
+  /* Headings in dark mode */
+  .dark h1,
+  .dark h2,
+  .dark h3,
+  .dark h4,
+  .dark h5,
+  .dark h6 {
+    color: rgb(255, 255, 255) !important;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     @apply font-medium tracking-tight;
   }
@@ -110,14 +155,12 @@
 
 @layer components {
   .glass {
-    @apply bg-white/50 backdrop-blur-md border border-white/20 shadow-soft;
+    @apply bg-white/50 dark:bg-black/40 backdrop-blur-md border border-white/20 dark:border-white/10 shadow-soft;
   }
 
   .glass-card {
-  @apply bg-white/80 dark:bg-black/40 backdrop-blur-sm border border-gray-100 dark:border-white/20 shadow-soft rounded-xl;
-}
-
-
+    @apply bg-white/80 dark:bg-[#0a0a0a] backdrop-blur-sm border border-gray-100 dark:border-white/10 shadow-soft rounded-xl;
+  }
 
   .section-container {
     @apply container mx-auto px-4 py-16 md:py-24;
@@ -141,8 +184,8 @@
   }
   
   .button-secondary {
-    @apply bg-white text-xelis-black px-6 py-3 rounded-lg font-medium shadow-button border border-gray-200
-           hover:bg-gray-50 transition-all duration-300 ease-in-out;
+    @apply bg-white dark:bg-[#1a1a1a] text-xelis-black dark:text-white px-6 py-3 rounded-lg font-medium shadow-button border border-gray-200 dark:border-white/10
+           hover:bg-gray-50 dark:hover:bg-[#2a2a2a] transition-all duration-300 ease-in-out;
   }
 }
 

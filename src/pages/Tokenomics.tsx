@@ -811,7 +811,7 @@ const XelisEmissionSchedule = () => {
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-white p-4 border rounded shadow">
+        <div className="bg-white dark:bg-[#1a1a1a] dark:text-white p-4 border dark:border-white/10 rounded shadow">
           <p className="font-bold">{payload[0].payload.quarterLabel}</p>
           <p>Circulating Supply: {Number(payload[0].value).toFixed(2)}M</p>
           <p>Total Tokens: {payload[0].payload.originalSupply.toLocaleString()}</p>
@@ -822,7 +822,7 @@ const XelisEmissionSchedule = () => {
   };
 
   return (
-    <div className="w-full h-full bg-white dark:bg-black p-6 rounded-lg shadow">
+    <div className="w-full h-full bg-white dark:bg-[#0a0a0a] p-6 rounded-lg shadow">
       <h2 className="text-2xl font-bold mb-6 text-center dark:text-white"></h2>
       <div className="h-96 w-full">
         <ResponsiveContainer width="100%" height="100%">
@@ -997,7 +997,7 @@ const Tokenomics = () => {
         </section>
 
         {/* Coin Overview */}
-        <section className="container mx-auto px-4 py-12 bg-white dark:bg-black dark:bg-black rounded-3xl">
+        <section className="container mx-auto px-4 py-12 bg-white dark:bg-black rounded-3xl">
           <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-center dark:text-white">Coin Overview</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
@@ -1010,26 +1010,26 @@ const Tokenomics = () => {
               </div>
               
               <div className="space-y-4 mb-6 flex-grow">
-                <p className="text-gray-600">
+                <p className="text-gray-600 dark:text-white">
                   XELIS is the native utility coin of the XELIS blockchain, designed to 
                   facilitate transactions, secure the network through mining, and as a gas token for smart contracts and tokens.
                 </p>
-                <p className="text-gray-600">
+                <p className="text-gray-600 dark:text-white">
                   With a fixed maximum supply and burning within our smart contract system, Xelis will be a deflationary emission model, engineered for long-term value preservation.
                 </p>
-                <p className="text-gray-600">
+                <p className="text-gray-600 dark:text-white">
                 This approach ensures scarcity over time, providing incentives for holders and creating a sustainable ecosystem where the coin's value is strengthened as usage grows.
                 </p>
               </div>
               
               <div className="grid grid-cols-2 gap-4">
                 {tokenDetails.map((detail, index) => (
-                  <div key={index} className="bg-white dark:bg-black p-4 rounded-lg">
+                  <div key={index} className="bg-white dark:bg-[#0a0a0a] p-4 rounded-lg">
                     <div className="flex items-center mb-2">
                       <div className="text-xelis-blue mr-2">{detail.icon}</div>
                       <h4 className="font-medium">{detail.title}</h4>
                     </div>
-                    <p className="text-gray-700">{detail.value}</p>
+                    <p className="text-gray-700 dark:text-white">{detail.value}</p>
                   </div>
                 ))}
               </div>
@@ -1043,15 +1043,15 @@ const Tokenomics = () => {
                 <h3 className="text-xl font-semibold ml-4">Coin Allocation Evolution</h3>
               </div>
               
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-600 dark:text-white mb-6">
               The XELIS funding strategy relies on a temporary mining block fee, which will decrease over time. Eventually, this fee will be fully eliminated, ensuring that 100% of mining rewards are allocated to miners.
               </p>
               
               <div className="flex-grow grid grid-cols-1 md:grid-cols-3 gap-6">
                 {phaseAllocations.map((phase, phaseIndex) => (
-                  <div key={phaseIndex} className="bg-white dark:bg-black p-4 rounded-lg">
+                  <div key={phaseIndex} className="bg-white dark:bg-[#0a0a0a] p-4 rounded-lg">
                     <h4 className="font-medium text-center mb-2">{phase.phase}</h4>
-                    <p className="text-sm text-center text-gray-500 mb-4">{phase.description}</p>
+                    <p className="text-sm text-center text-gray-500 dark:text-gray-300 mb-4">{phase.description}</p>
                     
                     <div className="relative w-full h-40 mx-auto mb-4">
                       <div className="absolute inset-0 flex items-center justify-center">

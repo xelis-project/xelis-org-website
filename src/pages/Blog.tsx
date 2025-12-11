@@ -114,7 +114,7 @@ const BlogPage = () => {
           </div>
         </section>
 
-        <section className="container mx-auto px-4 py-2 bg-gray-50 dark:bg-black rounded-3xl mb-8">
+        <section className="container mx-auto px-4 py-2 bg-gray-50 dark:bg-[#000] rounded-3xl mb-8">
           <div className="max-w-4xl mx-auto">
             <div className="flex flex-col sm:flex-row gap-4">
               <div className="relative flex-grow">
@@ -122,7 +122,7 @@ const BlogPage = () => {
                 <input
                   type="text"
                   placeholder="Search articles..."
-                  className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-xelis-blue"
+                  className="w-full pl-10 pr-4 py-2 border border-gray-200 dark:border-white/10 dark:bg-[#1a1a1a] dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-xelis-blue"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
@@ -132,7 +132,7 @@ const BlogPage = () => {
                 <div className="relative">
                   <Filter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
                   <select
-                    className="pl-10 pr-8 py-2 border border-gray-200 rounded-lg appearance-none bg-white focus:outline-none focus:ring-2 focus:ring-xelis-blue"
+                    className="pl-10 pr-8 py-2 border border-gray-200 dark:border-white/10 dark:bg-[#1a1a1a] dark:text-white rounded-lg appearance-none focus:outline-none focus:ring-2 focus:ring-xelis-blue"
                     value={selectedCategory}
                     onChange={handleCategoryChange}
                   >
@@ -156,12 +156,12 @@ const BlogPage = () => {
           {isLoading ? (
             <div className="text-center py-12">
               <div className="inline-block w-8 h-8 border-4 border-gray-200 border-t-xelis-blue rounded-full animate-spin"></div>
-              <p className="mt-4 text-gray-600">Loading articles...</p>
+              <p className="mt-4 text-gray-600 dark:text-white">Loading articles...</p>
             </div>
           ) : filteredArticles.length === 0 ? (
             <div className="text-center py-12">
               <BookOpen className="mx-auto h-12 w-12 text-gray-400" />
-              <p className="mt-4 text-gray-600">No articles found. Try adjusting your search or filter.</p>
+              <p className="mt-4 text-gray-600 dark:text-white">No articles found. Try adjusting your search or filter.</p>
               <AnimatedButton
                 variant="secondary"
                 className="mt-4"
@@ -198,7 +198,7 @@ const BlogPage = () => {
                     {article.categories.slice(0, 3).map((category, i) => (
                       <span 
                         key={i} 
-                        className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full cursor-pointer hover:bg-gray-200"
+                        className="bg-gray-100 dark:bg-[#1a1a1a] dark:text-white text-gray-700 dark:text-white text-xs px-2 py-1 rounded-full cursor-pointer hover:bg-gray-200 dark:hover:bg-[#2a2a2a]"
                         onClick={() => setSelectedCategory(category)}
                       >
                         {category}
@@ -213,9 +213,9 @@ const BlogPage = () => {
                   >
                     {article.title}
                   </h3>
-                  <p className="text-gray-600 mb-4 flex-grow">{article.description}</p>
+                  <p className="text-gray-600 dark:text-white mb-4 flex-grow">{article.description}</p>
 
-                  <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
+                  <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-300 mb-4">
                     <div className="flex items-center">
                       <User className="h-4 w-4 mr-1" />
                       <span>{article.author.name}</span>
@@ -226,7 +226,7 @@ const BlogPage = () => {
                     </div>
                   </div>
 
-                  <div className="text-sm text-gray-500 mb-4">
+                  <div className="text-sm text-gray-500 dark:text-gray-300 mb-4">
                     {formatDate(article.publishedDate)}
                   </div>
 

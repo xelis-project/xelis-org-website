@@ -72,7 +72,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-black">
       <Navbar />
       <Hero />
       <About /> {/* Moved above Features */}
