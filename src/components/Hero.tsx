@@ -11,7 +11,7 @@ const Hero = () => {
   });
 
   // Target date: Dec 13th 2025, 17:00 UTC
-  const targetDate = new Date('2025-12-13T17:00:00Z').getTime();
+  const targetDate = new Date('2025-12-14T07:20:00Z').getTime();
 
   useEffect(() => {
     const timer = setInterval(() => {
